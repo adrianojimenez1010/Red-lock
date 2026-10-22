@@ -1,4 +1,5 @@
-RED LOCK ULTIMATE V4
-Nueva sala principal interactiva + botones JUGAR + personajes originales dibujados y peinados visuales en PERSONALIZAR.
-Descomprimir y subir los archivos del ZIP a GitHub Red-lock, main, reemplazar index.html y confirmar Commit Changes. Render debe publicar la ultima confirmacion.
-Aviso: sala online solo prototipo sin servidor publico; no hay partidas multijugador completas. Pantalla completa y giro dependen de Safari.
+RED LOCK ULTIMATE V5 — ACTUALIZACIÓN
+
+Cambios: fondo del menú anterior restaurado, barra de monedas/nivel/rango interactiva, 16 futbolistas originales en SVG de cuerpo completo, elección de personaje y su figura grande en la sala.
+Subir todos los archivos DESCOMPRIMIDOS a GitHub: adrianojimenez1010/Red-lock (rama main). Después comprobar despliegue en Render.
+Esta versión web NO está publicada en App Store. Consultar APP_STORE_PREPARACION.txt.

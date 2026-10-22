@@ -1,0 +1,13 @@
+RED LOCK ULTIMATE V5 — PREPARACIÓN PARA APP STORE
+
+Esta es la versión web jugable. NO es una app iOS nativa ni un archivo .ipa, y NO se ha enviado a Apple.
+
+Para enviarla a la App Store:
+1. Un adulto de 18+ debe inscribirse al Apple Developer Program (99 USD/año normalmente).
+2. Convertir el juego en app iOS con Xcode o un motor adecuado, integrar funciones nativas y probar a fondo en iPhone/iPad.
+3. Preparar iconos, capturas, política de privacidad, ficha y clasificación por edades en App Store Connect.
+4. Corregir problemas de juego, rendimiento, accesibilidad, enlaces y contenido. Implementar multijugador real si se promete.
+5. Enviar build firmado desde Xcode a App Store Connect y esperar aprobación de Apple.
+
+App Store Review 4.2: una app debe ser más que una web envuelta. No se garantiza aceptación.
+En iPhone podés agregar la web a la pantalla de inicio mientras tanto.

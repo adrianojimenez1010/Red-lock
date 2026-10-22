@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 530" role="img" aria-label="Nico Vortex futbolista de cuerpo completo">
+ <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1225"/><stop offset="1" stop-color="#102e50"/></linearGradient><linearGradient id="s" x2="0" y2="1"><stop stop-color="#263958"/><stop offset="1" stop-color="#070f20"/></linearGradient><radialGradient id="glow"><stop stop-color="#58e6ca" stop-opacity=".5"/><stop offset="1" stop-color="#58e6ca" stop-opacity="0"/></radialGradient></defs>
+ <rect width="240" height="530" rx="12" fill="url(#bg)"/><circle cx="125" cy="250" r="145" fill="url(#glow)"/>
+ <path d="M12 470 L229 285 M10 240 L239 90" stroke="#58e6ca" opacity=".22" stroke-width="5"/>
+ <ellipse cx="120" cy="504" rx="88" ry="11" fill="#000" opacity=".4"/>
+ <!-- legs -->
+ <path d="M91 325 L114 325 L110 429 L103 473 L77 474 L83 418 Z" fill="#152039" stroke="#273b59" stroke-width="3"/>
+ <path d="M122 324 L148 320 L161 421 L165 470 L135 471 L135 424 Z" fill="#192840" stroke="#354f71" stroke-width="3"/>
+ <path d="M80 413 L107 413 M136 413 L158 410" stroke="#58e6ca" stroke-width="7"/>
+ <path d="M78 461 L108 462 L111 490 Q 80 500 60 489 L63 475 Z" fill="#e9edf5" stroke="#58e6ca" stroke-width="4"/>
+ <path d="M135 462 L166 461 L181 489 Q 156 501 125 490 Z" fill="#e9edf5" stroke="#58e6ca" stroke-width="4"/>
+ <!-- shorts -->
+ <path d="M80 291 L153 291 L161 345 L120 351 L114 334 L107 350 L73 345 Z" fill="#080f25" stroke="#58e6ca" stroke-width="3"/>
+ <!-- arms -->
+ <path d="M77 181 Q56 188 47 225 L31 283 L50 291 L82 234 L93 205 Z" fill="#9d6c55" stroke="#2b2832" stroke-width="3"/>
+ <path d="M157 185 Q174 191 185 221 L211 279 L192 287 L157 233 L148 207 Z" fill="#9d6c55" stroke="#2b2832" stroke-width="3"/>
+ <path d="M63 205 L84 185 L96 217 L77 233 Z M152 186 L172 205 L156 234 L144 214 Z" fill="#111b31" stroke="#58e6ca" stroke-width="3"/>
+ <!-- torso kit -->
+ <path d="M89 171 Q115 165 147 171 L170 210 L152 303 L80 302 L66 207 Z" fill="url(#s)" stroke="#58e6ca" stroke-width="4"/>
+ <path d="M84 188 L151 290 M160 188 L83 283" stroke="#58e6ca" opacity=".5" stroke-width="7"/>
+ <path d="M108 171 L118 191 L128 171" fill="none" stroke="#edf8ff" stroke-width="4"/>
+ <text x="119" y="247" text-anchor="middle" font-size="47" font-weight="1000" fill="#fff" font-family="Arial">22</text>
+ <text x="118" y="203" text-anchor="middle" font-size="10" fill="#d0ebff" font-weight="bold" font-family="Arial">RED LOCK</text>
+ <!-- neck/head -->
+ <rect x="109" y="144" width="20" height="38" rx="8" fill="#9d6c55"/>
+ <ellipse cx="119" cy="110" rx="41" ry="58" fill="#9d6c55" stroke="#423139" stroke-width="2"/>
+ <path d="M80 106 Q94 95 107 106 L107 110 Q96 112 82 110 M130 108 Q140 96 158 101" fill="none" stroke="#263045" stroke-width="5"/>
+ <path d="M86 115 Q96 123 106 115 M132 116 Q141 123 153 115" stroke="#161d33" stroke-width="4" fill="none"/>
+ <circle cx="98" cy="116" r="3" fill="#58e6ca"/><circle cx="143" cy="116" r="3" fill="#58e6ca"/>
+ <path d="M119 118 L116 137 L124 138 M109 148 Q119 155 128 148" stroke="#8a5e5b" stroke-width="2" fill="none"/>
+ <path d="M 85 85 L 73 67 L 83 58 L 110 55 L 119 42 L 141 56 L 164 68 L 156 94 L 134 81 L 119 96 L 104 80 Z" fill="#36a08d" stroke="#1a1d2b" stroke-width="4"/>
+ <path d="M86 82 Q110 57 138 77" fill="none" stroke="#fff" stroke-opacity=".23" stroke-width="5"/>
+ <rect x="10" y="504" width="220" height="18" rx="6" fill="#040a19c9"/>
+ <text x="120" y="516" text-anchor="middle" font-size="12" font-family="Arial" font-weight="bold" fill="#fff">NICO VORTEX</text>
+ </svg>
