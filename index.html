@@ -1,9 +1,27 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#03091b"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>RED LOCK ULTIMATE V24 V22 — Menú reconstruido</title>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#03091b"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>RED LOCK ULTIMATE V36 V28 — Fondo sin negro</title>
 <style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#030611;color:#fff;font-family:system-ui,Arial,sans-serif;overflow:hidden;touch-action:none}button,input,select{font:inherit}button{cursor:pointer;color:white}.hidden{display:none!important}
 #app{position:fixed;inset:0;display:flex;flex-direction:column;background:radial-gradient(ellipse at 25% 50%,#370d29 0,transparent 48%),radial-gradient(ellipse at 70% 45%,#072e79 0,transparent 48%),#040917}.bar{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:7px 14px;border-bottom:1px solid #309cf5;background:#040b1be9;flex-shrink:0}.bar h1{font-size:clamp(14px,2vw,22px);margin:0;font-weight:1000}.bar small{color:#a5c3e9}.bar button,.pill{border:1px solid #427dca;background:#0b2249;border-radius:7px;padding:8px 12px}.bar button:focus-visible,.tile:focus-visible,.option:focus-visible{outline:3px solid #ffcf54}
 #home{position:relative;flex:1;overflow:hidden;min-height:0;display:grid;place-items:center}#dashboard{position:relative;width:min(100vw,177.586vh);height:min(100vh,56.31vw);aspect-ratio:1648/928}#dashboard>img{height:100%;width:100%;object-fit:fill;display:block}#dashboard button{position:absolute;border:2px solid transparent;border-radius:5px;background:transparent;font-size:0;padding:0}#dashboard button:focus-visible,#dashboard button.picked{outline:none;border:2px solid #fff;box-shadow:0 0 17px 5px #00aaff,inset 0 0 15px #00aaff44}#dashboard button:active{background:#ffffff44}
 #page{flex:1;display:none;min-height:0;flex-direction:column}#page.active{display:flex}.pageBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;padding:18px;display:flex;flex-direction:column;align-items:center;gap:14px}.pageBody h2{margin:8px 0;font-size:clamp(21px,3.3vw,35px);text-align:center}.pageBody p{color:#c8d8f0;max-width:850px}.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(160px,40vw),1fr));gap:12px;width:min(100%,1000px)}.tile,.option{background:linear-gradient(135deg,#09265d,#101527);border:1px solid #408de1;border-radius:9px;padding:16px;font-weight:850;min-height:70px}.tile:hover,.option:hover{background:linear-gradient(135deg,#17479b,#49143d)}.panel{width:min(950px,100%);padding:16px;background:#09172fe9;border:1px solid #2a80d9;border-radius:12px}.panel h3{margin:0 0 12px;color:#8fd3ff}.row{display:flex;gap:11px;align-items:center;flex-wrap:wrap}.row label{display:flex;align-items:center;gap:8px}.panel input,.panel select{background:#061024;color:white;border:1px solid #59abed;padding:10px;border-radius:6px;max-width:100%}input[type=range]{accent-color:#18a8ff}.news{border-left:3px solid #ff4267;padding:12px;background:#081f47;margin:8px 0}#match{position:relative;display:none;flex:1;min-height:0;background:#03121b;overflow:hidden}#match.active{display:block}#pitch{width:100%;height:100%;display:block;touch-action:none}#scoreHud{position:absolute;top:6px;left:50%;transform:translateX(-50%);z-index:4;font-weight:950;font-size:clamp(13px,2.2vw,22px);padding:8px 18px;border:1px solid #70dcff;border-radius:8px;background:#020b16e9;white-space:nowrap;pointer-events:none}#matchButtons{position:absolute;top:7px;left:8px;z-index:5;display:flex;gap:6px}#matchButtons button,#joyEdit{background:#061932e9;border:1px solid #54c8fa;border-radius:7px;padding:8px}#joyBase{position:absolute;width:125px;height:125px;left:4%;bottom:7%;border:3px solid #ffffff77;border-radius:50%;background:#00193577;z-index:8;touch-action:none}#joyKnob{position:absolute;width:55px;height:55px;left:calc(50% - 27.5px);top:calc(50% - 27.5px);border-radius:50%;background:#69cbffb9;border:2px solid white;pointer-events:none}.action{position:absolute;z-index:8;width:78px;height:78px;border:2px solid #8ce1ff;background:#073b8bc9;border-radius:50%;font-size:13px;font-weight:1000;touch-action:none;user-select:none}.action[data-action=shoot]{right:5%;bottom:11%;background:#ce194bbf}.action[data-action=pass]{right:17%;bottom:5%}.action[data-action=switch]{right:21%;bottom:24%}.action[data-action=sprint]{right:7%;bottom:34%}.action[data-action=ego]{right:35%;bottom:4%;background:#672caaac}.edit-controls #joyBase,.edit-controls .action{outline:3px dashed #ffd65e;filter:brightness(1.15)}#tip{position:absolute;left:50%;top:19%;transform:translateX(-50%);padding:7px 14px;border-radius:9px;background:#030e21d9;color:#e4f5ff;font-size:14px;z-index:7;pointer-events:none;max-width:60vw;text-align:center}#turn{position:fixed;inset:0;z-index:100;background:#020611f7;display:none;place-items:center;text-align:center;padding:15px}#turn>div{border:1px solid #43a9f5;padding:25px;border-radius:14px;max-width:470px}#turn button{background:#145bb2;border:1px solid #70deff;padding:10px 20px;border-radius:7px}@media (orientation:portrait) and (max-width:840px){#turn:not(.dismissed){display:grid}}@media(max-height:470px){.bar{padding:3px 9px}.bar h1{font-size:15px}.pageBody{padding:7px}.tile{min-height:48px;padding:8px}#joyBase{width:105px;height:105px}.action{width:60px;height:60px;font-size:11px}#scoreHud{padding:4px 9px}}
+
+/* V29: clear duplicated lower shortcut row; preserve five playable mode buttons. */
+#dashboard .v16-actions{display:none!important}
+#dashboard .v11-center{min-height:0!important}
+#dashboard .v16-hero{flex:1 1 auto!important;min-height:0!important}
+#dashboard .v16-play{flex:0 0 19%!important;min-height:0!important}
+/* News items are grouped so opening/closing never breaks their internal grid. */
+#dashboard .v11-news{display:flex!important;flex-direction:column!important;overflow:hidden!important}
+#dashboard .v11-news h3{flex:0 0 auto!important;min-height:2.2em!important;display:flex!important;align-items:center!important;justify-content:space-between!important;white-space:nowrap!important}
+#dashboard #newsToggle{background:rgba(1,6,19,.91)!important;border:1px solid #3e9bff!important;padding:.25em .5em!important;border-radius:5px!important;color:white!important;cursor:pointer!important;font-size:1.05cqw!important}
+#dashboard #newsItems{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:.5cqh;overflow:auto}
+#dashboard #newsItems>button{display:block!important;flex:1 1 auto;min-height:0!important;overflow:hidden!important;text-align:left!important;font-size:clamp(10px,1cqw,16px)!important}
+#dashboard #newsItems>.v11-newsbig{flex:2.5 1 40%!important;background:linear-gradient(0deg,#020719d9,transparent 70%),url('avatar-2.jpg') center/cover!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important}
+#dashboard.news-collapsed .v11-core{grid-template-columns:15% minmax(80px,7%) minmax(0,1fr) 23%!important}
+#dashboard.news-collapsed .v11-news{background:transparent!important;border:0!important}
+#dashboard.news-collapsed .v11-news h3{flex-direction:column!important;justify-content:center!important;gap:10px!important;white-space:normal!important;text-align:center!important;font-size:clamp(9px,.9cqw,14px)!important}
+#dashboard.news-collapsed #newsItems{display:none!important}
+#dashboard.news-collapsed #newsToggle{font-size:clamp(9px,.9cqw,14px)!important}
 </style><style id="ultimateStyle">
 #dashboard.ultimate-lobby{position:relative;background:#02091d url('lobby-background.jpg') center/cover no-repeat;border:1px solid #246fc2;overflow:hidden;isolation:isolate;color:white;text-shadow:0 2px 5px #000;font-weight:700}
 #dashboard.ultimate-lobby::after{position:absolute;inset:0;content:"";background:linear-gradient(90deg,#05102bef 0%,transparent 35%,transparent 62%,#050f27e7 80%);z-index:-1}
@@ -518,7 +536,177 @@ body.v18-creator #page .create-grid{background:#060b20!important}
 body.v18-creator #page{background:radial-gradient(ellipse at 35% 80%,#172957,#01030e 66%)!important}
 body.v18-creator #page .creator-character{background:linear-gradient(0deg,#0b1537,#01030e 65%)!important;border:1px solid #3572b9!important}
 body.v18-creator #page .create-grid{background:#050b20e8!important;border:1px solid #3572b9!important;border-radius:10px!important}
-</style></head><body>
+</style><style id="v26-menu-futbol">
+/* V26 — Main menu inspired by the requested reference. Every tile stays clickable. */
+#dashboard.v11-lobby{background:linear-gradient(90deg,#06030ed9,#04071833 43%,#0410228c),url('ultimate-fondo.jpg') center/cover no-repeat!important}
+#dashboard .v11-core{grid-template-columns:14% 21% 40% 22%!important;gap:.65cqw!important}
+#dashboard .v11-news{background:#030917bd!important;border:1px solid #126ac5!important;border-radius:.55cqw!important}
+#dashboard .v11-newsbig{background:linear-gradient(0deg,#030719dc,transparent 75%),url('avatar-2.jpg') center/cover!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important}
+#dashboard .v11-newsbig img{display:none!important}
+#dashboard .v11-newsbig b{font-size:1.35cqw!important;text-shadow:0 2px 5px #000!important}
+#dashboard .v11-center{background:transparent!important}
+#dashboard .v16-hero{isolation:isolate!important}
+#dashboard .v16-star{object-fit:contain!important;object-position:center!important;opacity:1!important;filter:drop-shadow(0 0 8px #124fda)!important;mask-image:linear-gradient(90deg,transparent 0%,black 7%,black 94%,transparent 100%)!important}
+#dashboard .v16-logo{z-index:2!important;height:35%!important;bottom:0!important;top:auto!important;background:linear-gradient(0deg,#020515d8,transparent)!important}
+#dashboard .v16-logo img{max-height:90%!important;filter:drop-shadow(0 2px 10px #07000c)!important}
+#dashboard .v11-navbtn:first-child{border:1px solid #ff4268!important;background:linear-gradient(90deg,#9d072d,#1c0614)!important;box-shadow:0 0 9px #ff305999!important}
+#dashboard .v16-play button:nth-child(1){background:linear-gradient(0deg,#023d9b,#07132ef2)!important;border:1px solid #2baaff!important;box-shadow:inset 0 -3px 12px #087fff77!important}
+#dashboard .v16-play button:nth-child(2){background:linear-gradient(0deg,#820a48,#16091ff2)!important;border:1px solid #fd277d!important}
+#dashboard .v16-play button:nth-child(3){background:linear-gradient(0deg,#520aab,#130a2bf2)!important;border:1px solid #af52ff!important}
+#dashboard .v16-play button:nth-child(4){background:linear-gradient(0deg,#03643e,#072720f2)!important;border:1px solid #11ed99!important}
+#dashboard .v16-play button:nth-child(5){background:linear-gradient(0deg,#8b3500,#321a0ff2)!important;border:1px solid #ffa74d!important}
+#dashboard .v16-actions button{background:#04091fdd!important;border:1px solid #328cfe!important}
+#dashboard .v16-event{background:linear-gradient(0deg,#03071afa,transparent 72%),url('avatar-1.jpg') center/cover!important;border:1px solid #408dff!important}
+#dashboard .v11-pass{background:linear-gradient(90deg,#150a35,#034b9d)!important;border:1px solid #408dff!important}
+</style>
+<style id="v27-full-artwork-fix">
+/* Restore FULL photographic artwork across the green-marked game lobby. */
+#dashboard.v11-lobby {
+ background-image:linear-gradient(90deg,rgba(4,7,21,.45),rgba(5,5,18,.08) 38%,rgba(5,6,20,.08) 68%,rgba(4,7,21,.36)),url('inicio-fondo-completo.jpg')!important;
+ background-position:center center!important;background-size:cover!important;background-repeat:no-repeat!important;
+}
+#dashboard .v11-core,#dashboard .v11-center{background:transparent!important}
+#dashboard .v16-hero{
+ background-image:url('inicio-personaje.jpg')!important;
+ background-size:100% 100%!important;background-repeat:no-repeat!important;
+ background-position:center!important; border:0!important;overflow:hidden!important;
+ box-shadow:0 0 28px #03133044!important;
+}
+/* Avoid double-rendering another character and duplicated logo over the artwork. */
+#dashboard .v16-star,#dashboard .v16-logo{display:none!important}
+#dashboard .v16-hero:after{display:none!important}
+/* Keep every menu tile functional, legible and on top of the artwork. */
+#dashboard .v11-news,#dashboard .v11-aside,#dashboard .v11-nav{position:relative;z-index:2}
+#dashboard .v11-news{background:#03091683!important}
+#dashboard .v11-navbtn{background:#020a1cc9!important}
+</style>
+<style id="v28-background-full-screen">
+/* V28: Fill landscape screen instead of displaying black side letterboxing. */
+html,body,#app,#home{background:#06102c!important}
+#home{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;display:block!important;overflow:hidden!important}
+#dashboard.v11-lobby{
+ width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;
+ aspect-ratio:auto!important;position:absolute!important;inset:0!important;
+ grid-template-rows:8.5% minmax(0,1fr) 0%!important;
+ background:#051128 url('inicio-fondo-completo.jpg') center center/100% 100% no-repeat!important;
+ box-shadow:none!important;border:0!important;
+}
+/* Only controls remain dark; all containers let the red-blue photograph show through. */
+#dashboard .v11-top,#dashboard .v11-core,#dashboard .v11-bottom,
+#dashboard .v11-nav,#dashboard .v11-news,#dashboard .v11-center,
+#dashboard .v11-aside,#dashboard .v11-chests,#dashboard .v16-play,
+#dashboard .v16-actions,#dashboard .v11-roster,
+#dashboard .v11-bottom-head,#dashboard .v11-news h3,
+#dashboard .v11-aside h3{background:transparent!important;background-image:none!important;box-shadow:none!important}
+#dashboard .v11-top,#dashboard .v11-news,#dashboard .v11-aside,#dashboard .v11-bottom{border:0!important}
+#dashboard .v11-core{padding:.6cqw!important;gap:.5cqw!important;grid-template-columns:15% 20% minmax(0,1fr) 23%!important}
+#dashboard .v11-top{padding:.4cqw .65cqw!important;border-bottom:0!important}
+#dashboard .v11-newsbig{background:linear-gradient(0deg,#04102caa,transparent 85%),url('avatar-2.jpg') center/cover!important}
+#dashboard .v16-event{background:linear-gradient(0deg,#04102ca3,transparent 80%),url('avatar-1.jpg') center/cover!important}
+#dashboard .v16-hero{background:url('inicio-personaje.jpg') center/100% 100% no-repeat!important;border:0!important;box-shadow:none!important}
+#dashboard .v16-hero::before,#dashboard .v16-hero::after{display:none!important}
+#dashboard .v16-star,#dashboard .v16-logo{display:none!important}
+/* Dark and readable buttons, including modes, profile and chests. */
+#dashboard button,#dashboard .v11-stat,#dashboard .v11-navbtn,
+#dashboard .v16-play button,#dashboard .v16-actions button,
+#dashboard .v11-chests button,#dashboard .v11-pass,#dashboard .v11-open{
+ background-color:rgba(1,6,19,.83)!important;
+ border:1px solid #4599ef!important;
+ box-shadow:inset 0 0 5px #15396388!important;
+ color:white!important;
+}
+#dashboard .v11-navbtn:first-child{background:rgba(82,4,23,.91)!important;border-color:#f64d7a!important}
+#dashboard .v16-play button:nth-child(1){background:rgba(2,13,33,.89)!important;border-color:#1989fb!important}
+#dashboard .v16-play button:nth-child(2){background:rgba(23,4,23,.88)!important;border-color:#ee2e83!important}
+#dashboard .v16-play button:nth-child(3){background:rgba(17,5,32,.88)!important;border-color:#a54cfc!important}
+#dashboard .v16-play button:nth-child(4){background:rgba(2,24,19,.88)!important;border-color:#28de9c!important}
+#dashboard .v16-play button:nth-child(5){background:rgba(29,14,3,.88)!important;border-color:#ffa54c!important}
+#dashboard .v11-pass{background:rgba(1,7,23,.85)!important}
+/* Hide empty transparent roster that needlessly compresses main menu; accessible via PERSONAJES. */
+#dashboard .v11-bottom{display:none!important}
+@media(max-aspect-ratio:1/1){#dashboard.v11-lobby{grid-template-rows:8% minmax(0,1fr) 0%!important}}
+</style>
+
+<style id="v30-event-pass-repair">
+/* Event and pass each occupy a definite visible row; no dead blurred area. */
+#dashboard .v11-aside {
+ display:grid!important;grid-template-rows:minmax(0, 58fr) minmax(0, 42fr)!important;
+ gap:1.1cqh!important;align-content:stretch!important;padding:.5cqw!important;
+ overflow:hidden!important;min-height:0!important;background:transparent!important;
+}
+#dashboard .v11-aside>h3,#dashboard .v11-chests,#dashboard .v11-aside>.v11-open{display:none!important}
+#dashboard .v11-aside>.v16-event {
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-end!important;
+ min-width:0!important;min-height:0!important;height:100%!important;width:100%!important;
+ background:linear-gradient(0deg,rgba(0,7,25,.97) 0%,rgba(0,8,23,.32) 46%,transparent 80%),url('avatar-1.jpg') center 28%/cover no-repeat!important;
+ border:2px solid #4e9cff!important;border-radius:9px!important;padding:.9cqw!important;
+ overflow:hidden!important;box-sizing:border-box!important;text-shadow:0 2px 5px black!important;
+}
+#dashboard .v11-aside>.v16-event b{font-size:clamp(11px,1.25cqw,22px)!important}
+#dashboard .v11-aside>.v16-event small{font-size:clamp(9px,.87cqw,15px)!important;color:#e2f1ff!important}
+#dashboard .v11-aside>.v11-pass {
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:space-between!important;
+ min-width:0!important;min-height:0!important;height:100%!important;width:100%!important;flex:initial!important;
+ background:linear-gradient(100deg,rgba(4,12,41,.95),rgba(8,18,54,.79) 65%,rgba(0,30,70,.44)),url('hero-elegido.jpg') right center/auto 100% no-repeat!important;
+ border:2px solid #5696ff!important;border-radius:9px!important;padding:.75cqw!important;gap:.2cqh!important;
+ overflow:hidden!important;box-sizing:border-box!important;text-shadow:0 2px 4px black!important;
+}
+#dashboard .v11-aside>.v11-pass strong{font-size:clamp(11px,1.15cqw,19px)!important;color:#ffe49b!important}
+#dashboard .v11-aside>.v11-pass small{font-size:clamp(9px,.9cqw,15px)!important;color:#f5f1ff!important;line-height:1.22!important;max-width:94%}
+#dashboard .v11-aside>.v11-pass span{font-size:clamp(9px,.95cqw,16px)!important;color:#ffde79!important}
+</style>
+
+<style id="v32-clean-main-art">
+/* V32: remove duplicated option rows, including baked-in rows in the image. */
+#dashboard .v11-center{display:flex!important;flex-direction:column!important;gap:0!important;overflow:hidden!important}
+#dashboard .v16-play,#dashboard .v16-actions{display:none!important}
+#dashboard .v16-hero{display:block!important;flex:1 1 100%!important;width:100%!important;height:100%!important;min-height:0!important;background-image:url('inicio-personaje-limpio.jpg')!important;background-position:center center!important;background-size:100% 100%!important;background-repeat:no-repeat!important;border:0!important;box-shadow:none!important}
+#dashboard .v16-hero:before,#dashboard .v16-hero:after,#dashboard .v16-star,#dashboard .v16-logo{display:none!important}
+</style>
+
+<style id="v33-user-background">
+/* The user's actual team artwork, used throughout the live home UI. */
+#dashboard.v11-lobby, #dashboard.ultimate-lobby {
+ background:linear-gradient(90deg,rgba(0,2,12,.40) 0%,rgba(0,2,12,.10) 32%,rgba(0,2,12,.04) 65%,rgba(0,2,12,.35) 100%),url('fondo-equipo-anime.jpg') center center/cover no-repeat!important;
+}
+#dashboard .v11-center,#dashboard .v16-hero {
+ background:transparent!important;background-image:none!important;
+}
+#dashboard .v16-hero {position:relative!important;display:flex!important;justify-content:center!important;align-items:flex-end!important;padding:0 0 3%!important;box-sizing:border-box!important;}
+#dashboard .v16-logo {display:flex!important;position:relative!important;z-index:4!important;width:min(95%,440px)!important;align-items:center!important;justify-content:flex-end!important;filter:drop-shadow(0 4px 7px #000)!important;pointer-events:none!important;}
+#dashboard .v16-logo img {display:block!important;width:100%!important;max-height:clamp(64px,23vh,190px)!important;object-fit:contain!important;}
+#dashboard .v16-logo span {display:none!important;}
+#dashboard .v16-star {display:none!important;}
+#dashboard .v11-news,#dashboard .v11-aside,#dashboard .v11-nav {background:transparent!important;}
+</style>
+<style id="v34-bottom-shortcuts">
+/* V34: genuine clickable shortcuts below the artwork, not baked into its image. */
+#dashboard .v11-center{position:relative!important;isolation:isolate!important;overflow:hidden!important;}
+#dashboard .v16-hero{height:100%!important;flex:1 1 100%!important;padding-bottom:11%!important;}
+#dashboard .v16-logo{bottom:14%!important;top:auto!important;left:0!important;right:0!important;height:38%!important;position:absolute!important;display:flex!important;align-items:flex-end!important;justify-content:center!important;}
+#dashboard .v16-logo img{max-height:100%!important;max-width:80%!important;object-fit:contain!important;}
+#dashboard .v34-shortcuts{position:absolute!important;bottom:1.5%!important;left:1%!important;right:1%!important;height:15%!important;z-index:30!important;display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:.48cqw!important;padding:.25cqh!important;box-sizing:border-box!important;background:linear-gradient(0deg,rgba(0,2,12,.6),rgba(0,2,12,0))!important;}
+#dashboard .v34-shortcuts button{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;min-width:0!important;min-height:0!important;padding:.3cqw!important;border-radius:.5cqw!important;background:rgba(0,4,19,.86)!important;color:#fff!important;border:1px solid #5aa3ff!important;font-size:clamp(9px,1.5cqw,25px)!important;line-height:1.1!important;text-shadow:0 1px 4px #000!important;cursor:pointer!important;}
+#dashboard .v34-shortcuts button:nth-child(2){border-color:#fb5586!important;}
+#dashboard .v34-shortcuts button:nth-child(3){border-color:#ac60ff!important;}
+#dashboard .v34-shortcuts button:nth-child(4){border-color:#2de8ac!important;}
+#dashboard .v34-shortcuts button:nth-child(5){border-color:#fead42!important;}
+#dashboard .v34-shortcuts button:nth-child(6){border-color:#ffe16b!important;}
+#dashboard .v34-shortcuts button b{font-size:clamp(6px,.78cqw,14px)!important;white-space:nowrap!important;line-height:1.15!important;}
+#dashboard .v34-shortcuts button:active,#dashboard .v34-shortcuts button:focus-visible{background:#1b3f78!important;transform:translateY(-1px)!important;}
+</style>
+
+<style id="v35-all-options">
+/* Todas las funciones del menú lateral disponibles también desde abajo. */
+#dashboard .v34-shortcuts{grid-template-columns:repeat(8,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr))!important;height:23%!important;bottom:.7%!important;gap:clamp(2px,.35cqw,7px)!important;padding:clamp(2px,.3cqw,6px)!important;background:linear-gradient(0deg,rgba(0,3,16,.72),rgba(0,3,16,.26))!important;}
+#dashboard .v34-shortcuts button{font-size:clamp(12px,1.6cqw,23px)!important;border-radius:6px!important;gap:1px!important;padding:2px!important;transition:background .12s,transform .12s!important;}
+#dashboard .v34-shortcuts button b{font-size:clamp(7px,.78cqw,14px)!important;overflow:hidden!important;max-width:100%!important;text-overflow:ellipsis!important;white-space:nowrap!important;}
+#dashboard .v16-logo{bottom:26%!important;height:30%!important;}
+#dashboard .v16-hero{padding-bottom:24%!important;}
+#dashboard .v34-shortcuts button:hover{background:#153569!important;}
+@media(max-width:800px){#dashboard .v34-shortcuts button b{font-size:7px!important;}#dashboard .v34-shortcuts button{font-size:12px!important;}}
+</style>
+</head><body>
 <div id="turn"><div><div style="font-size:42px">📱 ↻ 🎮</div><h2>¡Giralo en horizontal!</h2><p>Desactivá el bloqueo de rotación de tu iPhone para disfrutar todo el juego.</p><button id="turnContinue">Continuar de todas formas</button></div></div>
 <button id="v17Back" type="button">← MENÚ PRINCIPAL</button><div id="app"><header class="bar"><button id="back">☰ MENÚ</button><div><h1>🔴 RED LOCK <span style="color:#4db9ff">ULTIMATE</span></h1><small id="where">FÚTBOL LIBRE • TEMPORADA EGO</small></div><button type="button" class="pill" id="coinOpen">🪙 <span id="money">1250</span> ▸</button><button id="full">⛶ Pantalla</button></header>
 <div id="home"><div id="dashboard" class="v11-lobby">
@@ -533,16 +721,35 @@ body.v18-creator #page .create-grid{background:#050b20e8!important;border:1px so
  <div class="v11-core">
   <nav class="v11-nav"><button type="button" data-ult="inicio" class="v11-navbtn"><span>🏠</span>INICIO</button><button type="button" data-ult="jugar" class="v11-navbtn"><span>⚽</span>JUGAR</button><button type="button" data-ult="historia" class="v11-navbtn"><span>📖</span>HISTORIA</button><button type="button" data-ult="personajes" class="v11-navbtn"><span>👥</span>PERSONAJES</button><button type="button" data-ult="crear" class="v11-navbtn"><span>👕</span>PERSONALIZACIÓN</button><button type="button" data-ult="habilidades" class="v11-navbtn"><span>⚡</span>HABILIDADES</button><button type="button" data-ult="inventario" class="v11-navbtn"><span>🎒</span>INVENTARIO</button><button type="button" data-ult="tienda" class="v11-navbtn"><span>🛒</span>TIENDA</button><button type="button" data-ult="pase" class="v11-navbtn"><span>👑</span>PASE ULTIMATE</button><button type="button" data-ult="misiones" class="v11-navbtn"><span>🎯</span>MISIONES</button><button type="button" data-ult="clasificaciones" class="v11-navbtn"><span>🏆</span>CLASIFICATORIA</button><button type="button" data-ult="noticias" class="v11-navbtn"><span>📢</span>NOTICIAS</button></nav>
   <div class="v11-news">
-    <h3>📢 NOTICIAS <button data-ult="noticias">VER TODAS ›</button></h3>
+    <h3>📢 NOTICIAS <button type="button" id="newsToggle" aria-expanded="true" aria-controls="newsItems">CERRAR ✕</button></h3><div id="newsItems">
     <button data-ult="noticias" class="v11-newsbig"><img src="avatar-1.jpg" alt="Evento de temporada"><b>NUEVA TEMPORADA: RIVALES DEL MUNDO</b><small>Personajes, partidos y desafíos</small></button>
     <button data-ult="evento">🏆 Torneo Global <small>Desafío disponible</small></button>
     <button data-ult="noticias">✨ Nuevos 16 futbolistas <small>Retratos únicos</small></button>
     <button data-ult="cofres">🎁 Cofres por rareza <small>Recompensas cosméticas</small></button>
+    </div>
   </div>
   <main class="v11-center">
-   <div class="v16-hero"><div class="v16-logo"><img src="ultimate-logo.png" alt="RED LOCK ULTIMATE"><span>DESPERTÁ TU EGO · DOMINÁ EL CAMPO</span></div><img class="v16-star" src="hero-elegido.jpg" alt="Delantero anime elegido"></div>
+   <div class="v16-hero"><div class="v16-logo"><img src="ultimate-logo.png" alt="RED LOCK ULTIMATE"><span>DESPERTÁ TU EGO · DOMINÁ EL CAMPO</span></div><img class="v16-star" src="hero-reference.jpg" alt="Delantero anime elegido"></div>
+   <div class="v34-shortcuts" aria-label="Todas las opciones del juego">
+     <button type="button" data-ult="inicio" aria-label="INICIO"><span>🏠</span><b>INICIO</b></button>
+     <button type="button" data-ult="jugar" aria-label="JUGAR"><span>⚽</span><b>JUGAR</b></button>
+     <button type="button" data-ult="historia" aria-label="HISTORIA"><span>📖</span><b>HISTORIA</b></button>
+     <button type="button" data-ult="personajes" aria-label="PERSONAJES"><span>👥</span><b>PERSONAJES</b></button>
+     <button type="button" data-ult="crear" aria-label="PERSONALIZAR"><span>👕</span><b>PERSONALIZAR</b></button>
+     <button type="button" data-ult="habilidades" aria-label="HABILIDADES"><span>⚡</span><b>HABILIDADES</b></button>
+     <button type="button" data-ult="inventario" aria-label="INVENTARIO"><span>🎒</span><b>INVENTARIO</b></button>
+     <button type="button" data-ult="tienda" aria-label="TIENDA"><span>🛒</span><b>TIENDA</b></button>
+     <button type="button" data-ult="pase" aria-label="PASE ULTIMATE"><span>👑</span><b>PASE ULTIMATE</b></button>
+     <button type="button" data-ult="misiones" aria-label="MISIONES"><span>🎯</span><b>MISIONES</b></button>
+     <button type="button" data-ult="clasificaciones" aria-label="CLASIFICACIÓN"><span>🏆</span><b>CLASIFICACIÓN</b></button>
+     <button type="button" data-ult="noticias" aria-label="NOTICIAS"><span>📢</span><b>NOTICIAS</b></button>
+     <button type="button" data-ult="rapido" aria-label="PARTIDO RÁPIDO"><span>🥅</span><b>PARTIDO RÁPIDO</b></button>
+     <button type="button" data-ult="torneos" aria-label="TORNEOS"><span>🏆</span><b>TORNEOS</b></button>
+     <button type="button" data-ult="minijuegos" aria-label="MINIJUEGOS"><span>🎮</span><b>MINIJUEGOS</b></button>
+     <button type="button" data-ult="entrenar" aria-label="ENTRENAR"><span>💪</span><b>ENTRENAR</b></button>
+   </div>
    <div class="v16-play"><button data-ult="rapido">⚽ <b>PARTIDO RÁPIDO</b></button><button data-ult="historia">📖 <b>MODO HISTORIA</b></button><button data-ult="torneos">🏆 <b>TORNEOS</b></button><button data-ult="minijuegos">🎮 <b>MINIJUEGOS</b></button><button data-ult="entrenar">💪 <b>ENTRENAMIENTO</b></button></div>
-   <div class="v16-actions"><button data-ult="personajes">👥 PERSONAJES</button><button data-ult="crear">🎨 PERSONALIZACIÓN</button><button data-ult="habilidades">⚡ HABILIDADES</button><button data-ult="inventario">🎒 INVENTARIO</button><button data-ult="tienda">🛒 TIENDA</button><button data-ult="misiones">🎯 MISIONES</button><button data-ult="clasificaciones">👑 CLASIFICACIÓN</button><button data-ult="config">⚙️ AJUSTES</button></div>
+   
   </main>
   <aside class="v11-aside"><button class="v16-event" data-ult="evento"><b>🔥 EVENTO ACTUAL</b><small>DESAFÍO EGO · VER EVENTO ›</small></button><h3>🎁 COFRES</h3><div class="v11-chests"><button data-ult="cofres">📦<small>COMÚN<br>🪙500</small></button><button data-ult="cofres">🥈<small>PLATA<br>🪙1.500</small></button><button data-ult="cofres">🥇<small>ORO<br>🪙3.000</small></button><button data-ult="cofres">👑<small>REY<br>🪙6.000</small></button><button data-ult="cofres">💜<small>EGO<br>🪙10.000</small></button></div><button class="v11-pass" data-ult="pase"><strong>👑 PASE ULTIMATE</strong><small>10.000 monedas • cofres, auras y efectos de gol</small><span>VER RECOMPENSAS ›</span></button><button class="v11-open" data-ult="crear">🎨 PERSONALIZAR JUGADOR ›</button></aside>
  </div>
@@ -577,16 +784,30 @@ document.addEventListener('click',function(e){
  if(b.id==='v13Foto')tab(false);
  if(b.id==='v13Juego')tab(true);
  if(b.id==='v13Walk'){tab(true);frame.classList.toggle('v13-walking');frame.classList.remove('v13-kicking')}
- if(b.id==='v13Kick'){tab(true);frame.classList.remove('v13-walking');frame.classList.remove('v13-kicking');void frame.offsetWidth;frame.classList.add('v13-kicking')}
+ if(b.id==='v13Kick'){tab(true);frame.classList.remove('v13-walking');frame.classList.remove('v13-kicking');void frame.offsetWidth;frame.classList.add('v13-kicking');const preview=document.getElementById('createPreview');if(preview)preview.src=characterSvg(customPreview(),true)}
  if(b.id==='v13SaveLook'){tab(true);document.getElementById('createPreview').scrollIntoView({block:'nearest',behavior:'smooth'})}
 });
 
+// Noticias: el panel se abre y se cierra sin salir de la pantalla de inicio.
+const newsPanel=document.querySelector('#dashboard .v11-news');
+const newsToggle=document.getElementById('newsToggle');
+function setNewsOpen(open){
+ document.getElementById('dashboard').classList.toggle('news-collapsed',!open);
+ newsToggle.setAttribute('aria-expanded',String(open));
+ newsToggle.textContent=open?'CERRAR ✕':'ABRIR ＋';
+}
+newsToggle.addEventListener('click',()=>setNewsOpen(document.getElementById('dashboard').classList.contains('news-collapsed')));
+// Tanto el botón de arriba como el del menú lateral alternan noticias.
+document.querySelectorAll('#dashboard .v11-top [data-ult="noticias"],#dashboard .v11-nav [data-ult="noticias"]').forEach(b=>{
+ b.addEventListener('click',event=>{event.preventDefault();event.stopImmediatePropagation();setNewsOpen(document.getElementById('dashboard').classList.contains('news-collapsed'));});
+});
 const hotspots=[...document.querySelectorAll('[data-ult]')];
 hotspots.forEach(b=>{b.addEventListener('click',()=>navigate(b.dataset.ult));if(b.getAttribute('role')==='button')b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();navigate(b.dataset.ult)}})});
 let selected=0;function choose(i){selected=(i+hotspots.length)%hotspots.length;hotspots.forEach((h,j)=>h.classList.toggle('picked',selected===j));hotspots[selected].focus({preventScroll:true})}
 const lineupNames=['Hikaru Shirogane','Kuroda Raion','Minase Toki','Kaino Rei','Zen Khafi','Asahi Kuon'];
 
-function characterSvg(c){
+function characterSvg(c,doingKick=false){
+ const muscleScale=0.78+(Math.max(0,Math.min(100,Number(c.musculature??50)))/100)*0.50;
  const skin=c.skin||'#d8a276',uniform=c.uniform||'#e63050',hair=c.hairColor||'#f2f6ff',eyes=c.eyes||'#278cff',number=Number(c.number)||10,shape=c.hair||'Nube plateada';
  const locks=shape.includes('Trenzas')?'<path d="M83 62l-13 29m70-29l13 29" stroke="'+hair+'" stroke-width="9" stroke-linecap="round"/>':shape.includes('Puntas')||shape.includes('Corona')?'<path d="M73 67l-8-32 23 14 9-26 12 26 22-20 2 34" fill="'+hair+'"/>':'<path d="M75 65q-14-22 8-31 14-15 28-5 26-7 31 17l-14 11-7-9-10 13-13-8-17 13Z" fill="'+hair+'"/>';
  
@@ -606,10 +827,44 @@ function characterSvg(c){
  const mouths={sonrisa:'M96 100 Q105 108 115 99',seria:'M97 101 H114',abierta:'M98 99 Q105 114 113 99 Z',enojada:'M97 103 Q105 98 114 103',feliz:'M94 99 Q105 114 117 99',timida:'M101 102 Q106 105 110 102',dientes:'M96 99 H116 V105 H96 Z',pico:'M99 99 L106 104 L113 99',oval:'M101 99 Q106 94 111 99 Q112 109 106 110 Q100 108 101 99',fina:'M99 101 L112 100',lado:'M98 104 Q105 99 114 102',grito:'M98 96 Q106 94 114 96 L111 111 L101 111 Z',neutral:'M99 102 H112',sorpresa:'M102 99 Q106 95 110 99 Q113 109 106 110 Q100 108 102 99',orgullo:'M97 101 Q106 107 116 98',reto:'M97 102 L106 99 L115 102'};
  const mouthPath=mouths[mouth]||mouths.sonrisa;
  const aura=c.aura&&c.aura!=='Ninguna'?'<ellipse cx="106" cy="157" rx="76" ry="141" fill="none" stroke="'+(c.auraColor||({Fuego:'#ff5b26',Rayo:'#4bcaff',Sombra:'#ac74ff',Oro:'#ffdb51'}[c.aura]||'#4bcaff'))+'" stroke-width="8" opacity=".65"/>':'';
- const raw=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 340">${aura}<ellipse cx="106" cy="321" rx="61" ry="11" fill="#0007"/><path d="M78 222l-10 81m52-81 19 81" stroke="#162238" stroke-width="22" stroke-linecap="round"/><path d="M67 306h-27m91 0h28" stroke="#f1f5fb" stroke-width="13" stroke-linecap="round"/><path d="M74 111l-25 88m87-88 27 88" stroke="${skin}" stroke-width="17" stroke-linecap="round"/><path d="M77 114Q107 95 135 114l9 99H68Z" fill="${uniform}" stroke="#fff7" stroke-width="3"/><text x="105" y="174" fill="white" text-anchor="middle" font-size="43" font-weight="900">${number}</text><path d="M75 213h67v20H75z" fill="#19273b"/>${faceOutline}${eyesSvg}<path d="${mouthPath}" stroke="#613c33" stroke-width="2" fill="none"/>${locks}${proceduralLocks}</svg>`;
+ const kickFrames=doingKick?'<animateTransform attributeName="transform" type="rotate" values="0 114 231;-16 114 231;42 114 231;0 114 231" keyTimes="0;.22;.58;1" dur=".65s" repeatCount="1"/>':'';
+ const raw=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 340">
+<defs><linearGradient id="kit" x2="1" y2="1"><stop stop-color="${uniform}"/><stop offset="1" stop-color="#10162b"/></linearGradient><linearGradient id="pants" x2="1" y2="1"><stop stop-color="#23324b"/><stop offset="1" stop-color="#060b17"/></linearGradient></defs>
+${aura}<ellipse cx="105" cy="329" rx="53" ry="6" fill="#0008"/>
+<g transform="translate(106 0) scale(${muscleScale.toFixed(3)} 1) translate(-106 0)">
+<!-- Anime athletic silhouette: long legs, fitted shorts, cleats -->
+<path d="M83 237L76 264 66 310 86 312 96 260 102 239Z" fill="${skin}" stroke="#392b2c" stroke-width="2"/>
+<g>${kickFrames}<path d="M115 238L122 263 135 310 154 308 142 260 137 239Z" fill="${skin}" stroke="#392b2c" stroke-width="2"/>
+<path d="M66 282L90 282 86 315 64 315Z M130 282L148 282 155 314 134 316Z" fill="#e7ecf5"/>
+<path d="M66 311L85 310 92 324Q89 330 54 327L52 320Z" fill="#eaf1fb" stroke="#0c1322" stroke-width="2"/>
+<path d="M134 312L154 310 171 323Q169 330 131 327Z" fill="#eaf1fb" stroke="#0c1322" stroke-width="2"/></g>
+<path d="M80 185 L140 185 L149 235 L115 239 L109 211 L103 238 L69 233 Z" fill="url(#pants)" stroke="#344967" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M70 227 Q86 234 102 230 M117 230 Q132 233 147 227" fill="none" stroke="#e9f2ff" stroke-width="3" opacity=".8"/>
+<path d="M106 192 L106 213" stroke="#6f85a6" stroke-width="2" opacity=".8"/>
+<!-- jersey with real short sleeves and moving-ready arms -->
+<path d="M78 108Q68 110 56 124L46 148 67 157 79 140 76 199Q104 213 141 198L137 139 150 157 169 147 155 119 135 109 117 103 96 103Z" fill="url(#kit)" stroke="#080f1c" stroke-width="3" stroke-linejoin="round"/>
+<path d="M51 145L67 151 62 159 47 154Z M149 152L166 145 171 154 155 160Z" fill="#eef5ff" opacity=".85"/>
+<path d="M51 156L43 188 36 217Q37 226 44 225L55 194 64 160Z" fill="${skin}" stroke="#302027" stroke-width="2"/>
+<path d="M157 158L168 188 176 217Q175 226 168 225L155 193 149 160Z" fill="${skin}" stroke="#302027" stroke-width="2"/>
+<path d="M94 105L106 119 120 105" fill="none" stroke="#f0f5ff" stroke-width="4"/>
+<path d="M79 155L137 164 M80 180L138 186" stroke="#ffffff" opacity=".16" stroke-width="3"/>
+<text x="108" y="178" fill="#fff" text-anchor="middle" font-size="30" font-family="Arial,sans-serif" font-style="italic" font-weight="900" stroke="#0d1424" stroke-width=".7">${number}</text>
+</g>
+<path d="M95 97L96 112Q106 120 117 112L116 95" fill="${skin}"/>
+<!-- Angular manga face and narrow eyes -->
+<path d="M67 48Q69 21 106 20Q144 20 146 52L139 85Q127 105 106 111Q84 105 73 87Z" fill="${skin}" stroke="#39272b" stroke-width="2"/>
+<path d="M72 72L94 70 100 75 87 79 74 77Z M113 75L119 70 140 72 138 77 125 79Z" fill="#f5f9ff" stroke="#1b243a" stroke-width="2"/>
+<path d="M89 71L94 72 94 78 88 78Z M123 72L129 71 130 78 124 78Z" fill="${eyes}"/>
+<path d="M74 67L98 69 M115 69L139 67" stroke="#201b27" stroke-width="3" stroke-linecap="round"/>
+<path d="M105 80L103 91 109 92" stroke="#9c6455" stroke-width="1.6" fill="none"/>
+<path d="${mouthPath}" stroke="#653d3c" stroke-width="2" fill="none"/>
+<!-- Layered sharp anime haircut -->
+<path d="M68 70Q55 41 72 24L67 12 88 20Q107 2 128 16L151 10 143 29Q158 43 144 72L135 55 124 61 117 48 104 63 95 50 80 67Z" fill="${hair}" stroke="#1c253a" stroke-width="2"/>
+<path d="M78 32L64 51 85 45 77 61 105 42 113 55 137 34" fill="none" stroke="#fff" stroke-width="3" opacity=".3"/>
+${proceduralLocks}</svg>`;
  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(raw);
 }
-function customPreview(){const c={name:document.getElementById('createName')?.value||'Nuevo jugador',hair:document.getElementById('createHair')?.value,face:document.getElementById('createFace')?.value||'oval',eyeShape:document.getElementById('createEyeShape')?.value||'anime',skin:document.getElementById('createSkin')?.value,uniform:document.getElementById('createUniform')?.value,hairColor:document.getElementById('createHairColor')?.value,eyes:document.getElementById('createEyes')?.value,number:document.getElementById('createNumber')?.value,mouth:document.getElementById('createMouth')?.value,aura:document.getElementById('createAura')?.value,auraColor:document.getElementById('createAuraColor')?.value};const im=document.getElementById('createPreview');if(im)im.src=characterSvg(c);return c}
+function customPreview(){const c={name:document.getElementById('createName')?.value||'Nuevo jugador',hair:document.getElementById('createHair')?.value,face:document.getElementById('createFace')?.value||'oval',eyeShape:document.getElementById('createEyeShape')?.value||'anime',skin:document.getElementById('createSkin')?.value,uniform:document.getElementById('createUniform')?.value,hairColor:document.getElementById('createHairColor')?.value,eyes:document.getElementById('createEyes')?.value,number:document.getElementById('createNumber')?.value,mouth:document.getElementById('createMouth')?.value,aura:document.getElementById('createAura')?.value,auraColor:document.getElementById('createAuraColor')?.value,musculature:Number(document.getElementById('createMusculature')?.value??50)};const label=document.getElementById('musculatureLabel');if(label)label.textContent=c.musculature<34?'Delgado':c.musculature>66?'Ancho / musculoso':'Normal';const im=document.getElementById('createPreview');if(im)im.src=characterSvg(c);return c}
 
 function refreshLobby(){
  const roster=document.getElementById('v19Roster');
@@ -643,11 +898,11 @@ case 'jugar':out=`<div class="tiles">${btn('Partido rápido','rapido')}${btn('Pa
 case 'historia':out=`<div class="panel"><h3>CAPÍTULO 1 · DESPERTAR EGO</h3><p>Tu equipo se enfrenta a los Rivales Eternos. El objetivo es marcar dos goles ante un portero mejorado.</p>${action('story','▶️ EMPEZAR CAPÍTULO')}</div>`;break;
 case 'personajes':out=`<div class="panel"><h3>⚡ 16 FUTBOLISTAS DE CUERPO COMPLETO</h3><p>Elegí cualquiera para jugar. Los diseños son originales y están dibujados de pies a cabeza.</p><div class="roster-grid">${lineupNames.map((n,i)=>`<button class="roster-card ${playerIndex===i?'active':''}" data-personpage="${i}"><img src="jugador-${i+1}.svg" alt="${n} cuerpo completo"><strong>${n}</strong><small>⚡ ${66+(i*7)%29} · 🎯 ${69+(i*9)%29}</small></button>`).join('')}</div><div class="roster-grid">${customPlayers.map((c,i)=>`<button class="roster-card" data-personpage="${i+6}"><img src="${characterSvg(c)}" alt="${safeHtml(c.name)} cuerpo completo"><strong>${safeHtml(c.name)}</strong><small>🪙 Personaje creado</small></button>`).join('')}</div><button class="option" data-goto="crear">✨ CREAR PERSONAJE · 🪙100</button><button class="option" data-goto="estilo">✂️ PERSONALIZAR MI JUGADOR</button></div>`;break;
 case 'estilo':out=`<div class="panel"><h3>PERSONALIZA TU PERSONAJE</h3><div class="row"><label>Nombre <input id="nick" maxlength="18" value="${nick.replace(/"/g,'&quot;')}"></label><label>Peinado <select id="hair">${['Nube plateada','Corona salvaje','Puntas de delantero','Negro azul desordenado','Trenzas del rey','Violeta rebelde','Azul oscuro','Fuego rojo','Negro corto','Verde EGO','Rubio salvaje','Blanco de hielo'].map(s=>`<option ${s===teamStyle?'selected':''}>${s}</option>`).join('')}</select></label></div><div class="hair-grid">${['Nube plateada','Corona salvaje','Puntas de delantero','Negro azul desordenado','Trenzas del rey','Violeta rebelde'].map((n,i)=>`<button class="hair-choice" type="button" data-hair="${n}"><img src="pelo-${i+1}.jpg" alt="Peinado ${n}"><span>${n}</span></button>`).join('')}</div><p>Elegí un peinado original inspirado en estilos de anime. Se guarda con tu personaje.</p><button class="option" data-goto="crear">✨ CREAR UN NUEVO PERSONAJE · 🪙100</button>${action('savestyle' ,'💾 GUARDAR ESTILO')}</div>`;break;
-case 'crear':out=`<div class="panel creator-panel"><h3>✨ CREAR FUTBOLISTA · 🪙 100 MONEDAS (AURAS PREMIUM +200)</h3><p>Elegí la ropa, el pelo, la piel, la forma de cara, la forma de los ojos, el número y el aura. Tu diseño se verá también en el partido. El aura se enciende solo con EGO.</p><div class="creator-wrap"><div class="create-grid"><label>Nombre <input id="createName" maxlength="18" value="Mi delantero"></label><label>Peinado <select id="createHair">${[...hairOptions,...Array.from({length:40},(_,i)=>`Estilo ${i+1}`)].map(n=>`<option>${safeHtml(n)}</option>`).join('')}</select></label><label>Forma de cara <select id="createFace"><option value="oval">Ovalada</option><option value="redonda">Redonda</option><option value="cuadrada">Cuadrada</option><option value="afilada">Afilada</option><option value="alargada">Alargada</option></select></label><label>Forma de ojos <select id="createEyeShape"><option value="anime">Anime clásicos</option><option value="redondos">Redondos</option><option value="finos">Finos</option><option value="rasgados">Rasgados</option><option value="caidos">Caídos</option><option value="grandes">Grandes</option><option value="estilo1">Ojos estilo 1</option><option value="estilo2">Ojos estilo 2</option><option value="estilo3">Ojos estilo 3</option><option value="estilo4">Ojos estilo 4</option><option value="estilo5">Ojos estilo 5</option><option value="estilo6">Ojos estilo 6</option><option value="estilo7">Ojos estilo 7</option><option value="estilo8">Ojos estilo 8</option><option value="estilo9">Ojos estilo 9</option><option value="estilo10">Ojos estilo 10</option></select></label><label>Boca <select id="createMouth"><option value="sonrisa">Sonrisa</option><option value="seria">Seria</option><option value="abierta">Abierta</option><option value="enojada">Enojada</option><option value="feliz">Feliz</option><option value="timida">Timida</option><option value="dientes">Dientes</option><option value="pico">Pico</option><option value="oval">Oval</option><option value="fina">Fina</option><option value="lado">Lado</option><option value="grito">Grito</option><option value="neutral">Neutral</option><option value="sorpresa">Sorpresa</option><option value="orgullo">Orgullo</option><option value="reto">Reto</option></select></label><label>Color de pelo <input type="color" id="createHairColor" value="#e6efff"></label><label>Color de piel <input type="color" id="createSkin" value="#d8a276"></label><label>Color de uniforme <input type="color" id="createUniform" value="#e63050"></label><label>Color de ojos <input type="color" id="createEyes" value="#278cff"></label><label>Número (1-99) <input type="number" id="createNumber" min="1" max="99" value="10"></label><label>Aura EGO <select id="createAura"><option>Ninguna</option><option>Fuego</option><option>Rayo</option><option>Sombra</option><option>Oro</option><option value="Aura 2">Aura 2 · GRATIS</option><option value="Aura 3">Aura 3 · GRATIS</option><option value="Aura 4">Aura 4 · GRATIS</option><option value="Aura 5">Aura 5 · GRATIS</option><option value="Aura 6">Aura 6 · GRATIS</option><option value="Aura 7">Aura 7 · GRATIS</option><option value="Aura 8">Aura 8 · GRATIS</option><option value="Aura 9">Aura 9 · GRATIS</option><option value="Aura 10">Aura 10 · PREMIUM</option><option value="Aura 11">Aura 11 · PREMIUM</option><option value="Aura 12">Aura 12 · PREMIUM</option><option value="Aura 13">Aura 13 · PREMIUM</option><option value="Aura 14">Aura 14 · PREMIUM</option><option value="Aura 15">Aura 15 · PREMIUM</option><option value="Aura 16">Aura 16 · PREMIUM</option><option value="Aura 17">Aura 17 · PREMIUM</option><option value="Aura 18">Aura 18 · PREMIUM</option><option value="Aura 19">Aura 19 · PREMIUM</option><option value="Aura 20">Aura 20 · PREMIUM</option><option value="Aura 21">Aura 21 · PREMIUM</option><option value="Aura 22">Aura 22 · PREMIUM</option><option value="Aura 23">Aura 23 · PREMIUM</option><option value="Aura 24">Aura 24 · PREMIUM</option><option value="Aura 25">Aura 25 · PREMIUM</option><option value="Aura 26">Aura 26 · PREMIUM</option><option value="Aura 27">Aura 27 · PREMIUM</option><option value="Aura 28">Aura 28 · PREMIUM</option><option value="Aura 29">Aura 29 · PREMIUM</option><option value="Aura 30">Aura 30 · PREMIUM</option><option value="Aura 31">Aura 31 · PREMIUM</option><option value="Aura 32">Aura 32 · PREMIUM</option><option value="Aura 33">Aura 33 · PREMIUM</option><option value="Aura 34">Aura 34 · PREMIUM</option><option value="Aura 35">Aura 35 · PREMIUM</option><option value="Aura 36">Aura 36 · PREMIUM</option><option value="Aura 37">Aura 37 · PREMIUM</option><option value="Aura 38">Aura 38 · PREMIUM</option><option value="Aura 39">Aura 39 · PREMIUM</option><option value="Aura 40">Aura 40 · PREMIUM</option></select></label><label>Color del aura <input type="color" id="createAuraColor" value="#40bfff"></label></div><div class="creator-character v13-preview-box">
-<div class="v13-tabs"><button type="button" id="v13Foto" class="v13-on">🎴 FOTO</button><button type="button" id="v13Juego">⚽ JUEGO</button></div>
-<img id="v13AnimePortrait" src="personaje-1.jpg" alt="Retrato anime del futbolista">
-<img id="createPreview" alt="Jugador de cuerpo completo para el partido" style="display:none">
-<p id="v13PreviewLabel">RETRATO ANIME</p>
+case 'crear':out=`<div class="panel creator-panel"><h3>✨ CREAR FUTBOLISTA · 🪙 100 MONEDAS (AURAS PREMIUM +200)</h3><p>Elegí la ropa, el pelo, la piel, la forma de cara, la forma de los ojos, el número y el aura. Tu diseño se verá también en el partido. El aura se enciende solo con EGO.</p><div class="creator-wrap"><div class="create-grid"><label>Nombre <input id="createName" maxlength="18" value="Mi delantero"></label><label>Peinado <select id="createHair">${[...hairOptions,...Array.from({length:40},(_,i)=>`Estilo ${i+1}`)].map(n=>`<option>${safeHtml(n)}</option>`).join('')}</select></label><label>Forma de cara <select id="createFace"><option value="oval">Ovalada</option><option value="redonda">Redonda</option><option value="cuadrada">Cuadrada</option><option value="afilada">Afilada</option><option value="alargada">Alargada</option></select></label><label>Forma de ojos <select id="createEyeShape"><option value="anime">Anime clásicos</option><option value="redondos">Redondos</option><option value="finos">Finos</option><option value="rasgados">Rasgados</option><option value="caidos">Caídos</option><option value="grandes">Grandes</option><option value="estilo1">Ojos estilo 1</option><option value="estilo2">Ojos estilo 2</option><option value="estilo3">Ojos estilo 3</option><option value="estilo4">Ojos estilo 4</option><option value="estilo5">Ojos estilo 5</option><option value="estilo6">Ojos estilo 6</option><option value="estilo7">Ojos estilo 7</option><option value="estilo8">Ojos estilo 8</option><option value="estilo9">Ojos estilo 9</option><option value="estilo10">Ojos estilo 10</option></select></label><label>Boca <select id="createMouth"><option value="sonrisa">Sonrisa</option><option value="seria">Seria</option><option value="abierta">Abierta</option><option value="enojada">Enojada</option><option value="feliz">Feliz</option><option value="timida">Timida</option><option value="dientes">Dientes</option><option value="pico">Pico</option><option value="oval">Oval</option><option value="fina">Fina</option><option value="lado">Lado</option><option value="grito">Grito</option><option value="neutral">Neutral</option><option value="sorpresa">Sorpresa</option><option value="orgullo">Orgullo</option><option value="reto">Reto</option></select></label><label>Color de pelo <input type="color" id="createHairColor" value="#e6efff"></label><label>Color de piel <input type="color" id="createSkin" value="#d8a276"></label><label>Color de uniforme <input type="color" id="createUniform" value="#e63050"></label><label>Color de ojos <input type="color" id="createEyes" value="#278cff"></label><label>💪 Musculatura · <strong id="musculatureLabel">Normal</strong><input type="range" id="createMusculature" min="0" max="100" step="1" value="50" aria-label="Musculatura del futbolista"><small>Delgado ◀ ━━━━━ ▶ Musculoso</small></label><label>Número (1-99) <input type="number" id="createNumber" min="1" max="99" value="10"></label><label>Aura EGO <select id="createAura"><option>Ninguna</option><option>Fuego</option><option>Rayo</option><option>Sombra</option><option>Oro</option><option value="Aura 2">Aura 2 · GRATIS</option><option value="Aura 3">Aura 3 · GRATIS</option><option value="Aura 4">Aura 4 · GRATIS</option><option value="Aura 5">Aura 5 · GRATIS</option><option value="Aura 6">Aura 6 · GRATIS</option><option value="Aura 7">Aura 7 · GRATIS</option><option value="Aura 8">Aura 8 · GRATIS</option><option value="Aura 9">Aura 9 · GRATIS</option><option value="Aura 10">Aura 10 · PREMIUM</option><option value="Aura 11">Aura 11 · PREMIUM</option><option value="Aura 12">Aura 12 · PREMIUM</option><option value="Aura 13">Aura 13 · PREMIUM</option><option value="Aura 14">Aura 14 · PREMIUM</option><option value="Aura 15">Aura 15 · PREMIUM</option><option value="Aura 16">Aura 16 · PREMIUM</option><option value="Aura 17">Aura 17 · PREMIUM</option><option value="Aura 18">Aura 18 · PREMIUM</option><option value="Aura 19">Aura 19 · PREMIUM</option><option value="Aura 20">Aura 20 · PREMIUM</option><option value="Aura 21">Aura 21 · PREMIUM</option><option value="Aura 22">Aura 22 · PREMIUM</option><option value="Aura 23">Aura 23 · PREMIUM</option><option value="Aura 24">Aura 24 · PREMIUM</option><option value="Aura 25">Aura 25 · PREMIUM</option><option value="Aura 26">Aura 26 · PREMIUM</option><option value="Aura 27">Aura 27 · PREMIUM</option><option value="Aura 28">Aura 28 · PREMIUM</option><option value="Aura 29">Aura 29 · PREMIUM</option><option value="Aura 30">Aura 30 · PREMIUM</option><option value="Aura 31">Aura 31 · PREMIUM</option><option value="Aura 32">Aura 32 · PREMIUM</option><option value="Aura 33">Aura 33 · PREMIUM</option><option value="Aura 34">Aura 34 · PREMIUM</option><option value="Aura 35">Aura 35 · PREMIUM</option><option value="Aura 36">Aura 36 · PREMIUM</option><option value="Aura 37">Aura 37 · PREMIUM</option><option value="Aura 38">Aura 38 · PREMIUM</option><option value="Aura 39">Aura 39 · PREMIUM</option><option value="Aura 40">Aura 40 · PREMIUM</option></select></label><label>Color del aura <input type="color" id="createAuraColor" value="#40bfff"></label></div><div class="creator-character v13-preview-box">
+<div class="v13-tabs"><button type="button" id="v13Foto">🎴 FOTO</button><button type="button" id="v13Juego" class="v13-on">⚽ JUEGO</button></div>
+<img id="v13AnimePortrait" src="personaje-1.jpg" alt="Retrato anime del futbolista" style="display:none">
+<img id="createPreview" alt="Jugador de cuerpo completo para el partido">
+<p id="v13PreviewLabel">PERSONAJE ANIME PERSONALIZABLE</p>
 <div class="v13-foot"><button type="button" id="v13Walk">▶ CAMINAR</button><button type="button" id="v13Kick">⚽ PATEAR</button><button type="button" id="v13SaveLook">VER EN PARTIDO ›</button></div>
 </div></div><p>Saldo actual: 🪙 ${currency} · No se utiliza dinero real.</p><button class="option" data-click="createplayer">💾 CREAR (100 O 300 MONEDAS)</button></div>`;break;
 case 'habilidades':out=`<div class="panel"><h3>ESTADÍSTICAS</h3><p>Velocidad: ${70+training*2} · Pase: ${75+training*2} · Tiro: ${76+training*2} · Regate: ${80+training*2}</p><p>Sesiones completadas: ${training}</p>${action('training','💪 ENTRENAR EN EL CAMPO')}</div>`;break;
@@ -666,7 +921,7 @@ case 'dificil':startMatch('rapido','hard');return;case 'clasificado':startMatch(
 case 'penales':case 'regates':case 'tiros':case 'dominadas':case 'portero':startMatch(name);return;
 default:out=`<div class="panel"><p>Este modo todavía está en desarrollo.</p></div>`;
 }
-if(name==='estilo'){out=v10PreviewPanel()+out;}render(name.toUpperCase(),out);v10UpdatePreview();if($('difficulty'))$('difficulty').value=load('rldifficulty3','normal');if(name==='crear'){customPreview();$('pageBody').querySelectorAll('#createName,#createHair,#createFace,#createEyeShape,#createHairColor,#createSkin,#createUniform,#createEyes,#createNumber,#createAura').forEach(el=>el.addEventListener('input',()=>{customPreview();v10UpdatePreview()}));}
+if(name==='estilo'){out=v10PreviewPanel()+out;}render(name.toUpperCase(),out);v10UpdatePreview();if($('difficulty'))$('difficulty').value=load('rldifficulty3','normal');if(name==='crear'){customPreview();$('pageBody').querySelectorAll('#createName,#createHair,#createFace,#createEyeShape,#createHairColor,#createSkin,#createUniform,#createEyes,#createNumber,#createAura,#createMusculature,#createMouth,#createAuraColor').forEach(el=>el.addEventListener('input',()=>{customPreview();v10UpdatePreview()}));}
 }
 $('pageBody').addEventListener('click',e=>{const el=e.target.closest('button');if(!el)return;if(el.dataset.v10View){const img=$('v10Portrait');if(img){img.src=el.dataset.v10View==='foto'?`personaje-${Math.min(6,playerIndex+1)}.jpg`:(selectedCustom()?characterSvg(selectedCustom()):`jugador-${Math.min(6,playerIndex+1)}.svg`)}document.querySelectorAll('[data-v10-view]').forEach(b=>b.setAttribute('aria-pressed',String(b===el)));return}if(el.dataset.article){const titles={v10:'NUEVA TEMPORADA',controls:'CONTROLES PERSONALIZABLES',online:'MULTIJUGADOR EN DESARROLLO'};const texts={v10:'Nuevas caras, ojos, personajes y animaciones de fútbol. Los partidos incluyen pases y pelota suelta.',controls:'Podés mover los controles desde un partido. Al conectar un mando compatible, se ocultan los botones táctiles.',online:'Todavía no hay partidas públicas en línea sincronizadas. Se necesita un servidor real.'};render(titles[el.dataset.article],`<div class="panel"><h3>${titles[el.dataset.article]}</h3><p>${texts[el.dataset.article]}</p><button class="option" data-goto="noticias">← Volver a noticias</button></div>`);return}if(el.dataset.goto){navigate(el.dataset.goto);return}if(el.dataset.hair){$('hair').value=el.dataset.hair;document.querySelectorAll('.hair-choice').forEach(x=>x.classList.toggle('chosen',x.dataset.hair===el.dataset.hair));return}if(el.dataset.personpage!==undefined){selectPlayer(+el.dataset.personpage);document.querySelectorAll('.roster-card').forEach(x=>x.classList.toggle('active',x===el));return}if(el.dataset.character!==undefined){nick=['Haru Kaze','Ren Akuma','Sora Hikari','Kyo Raiden','Yuki Frost','Leo Blaze','Nico Vortex','Dante Shadow','Akira Wild','Ryo Storm','Taro Titan','Eiji Swift','Kai Phantom','Noah Pulse','Rei Nova','Zen Atlas'][+el.dataset.character];save('rednick3',nick);el.textContent='✅ Seleccionado';return}if(el.dataset.buy!==undefined){const i=+el.dataset.buy,n=['Botines eléctricos','Aura EGO roja','Celebración estelar','Uniforme azul','Guantes profesionales','Balón de oro'][i],price=[200,350,450,250,300,500][i];if(owned.includes(n)){alert('Ya tenés este artículo');return}if(currency<price){alert('Te faltan monedas del juego');return}currency-=price;owned.push(n);save('redcoins3',currency);save('redowned3',owned);$('money').textContent=currency;refreshLobby();el.textContent='✅ Comprado';return}if(el.dataset.click){act(el.dataset.click)}});
 $('pageBody').addEventListener('change',e=>{if(e.target.id==='difficulty')save('rldifficulty3',e.target.value)});
@@ -678,12 +933,12 @@ $('turnContinue').onclick=()=>$('turn').classList.add('dismissed');
 const canvas=$('pitch'),ctx=canvas.getContext('2d');let tickPrev=0,lastMessage=0,tipText='';
 function player(x,y,team,num,goalie=false){return{x,y,vx:0,vy:0,team,num,goalie,anim:"",animTime:0,r:goalie?18:17,energy:100,skill:0}}
 function resetBall(s,side=0){s.ball={x:W/2+(side?side*65:0),y:H/2,vx:0,vy:0,r:11,spin:0,z:0,vz:0};s.lastTouch=-1;}
-function setupPlayers(s){s.players=[];s.players.push(player(280,345,0,10));s.players.push(player(210,210,0,7));s.players.push(player(210,480,0,8));s.players.push(player(98,345,0,1,true));s.players.push(player(870,345,1,10));s.players.push(player(975,220,1,7));s.players.push(player(975,470,1,8));s.players.push(player(1100,345,1,1,true));if(s.mode==='uno')s.players=s.players.filter(p=>p.num===10||p.goalie);s.me=s.players.findIndex(p=>p.team===0&&!p.goalie);}
-function startMatch(mode='rapido',difficulty){home();const diff=difficulty||load('rldifficulty3','normal');match={mode,diff,players:[],ball:null,me:0,goals:[0,0],clock:0,end:mode==='entrenar'?9999:mode==='penales'?85:mode==='tiros'?120:mode==='dominadas'?80:mode==='regates'?95:170,score:0,ego:0,goalPause:0,consecutive:0,aiCooldown:0,online:false,saved:false};setupPlayers(match);resetBall(match);if(mode==='penales'){match.end=130;match.ball.x=950;match.ball.y=H/2;const striker=match.players.find(p=>p.team===0&&!p.goalie);striker.x=905;striker.y=H/2;match.me=match.players.indexOf(striker);match.players.filter(p=>!p.goalie&&p!==striker).forEach((p,i)=>{p.x=p.team===1?790:340;p.y=90+i*50});$('tip').textContent='PENALES: apuntá con el stick y tirá. Si fallás, la pelota queda suelta.';} $('home').classList.add('hidden');$('match').classList.add('active');$('where').textContent=mode.toUpperCase();$('tip').textContent=mode==='penales'?'PENALES: apuntá con el stick y tirá. Si fallás, la pelota queda suelta.':'Pelota libre: apuntá con el stick. △ tiro elevado; si fallás, la pelota sigue suelta.';$('scoreHud').textContent='RED 0 : 0 AZUL';$('joyEdit').textContent='✥ Mover controles';ctrlEdit=false;$('match').classList.remove('edit-controls');applyCtrlPositions();tickPrev=performance.now();cancelAnimationFrame(matchAnim);matchAnim=requestAnimationFrame(frame);}
+function setupPlayers(s){s.players=[];s.players.push(player(280,345,0,10));s.players.push(player(210,210,0,7));s.players.push(player(210,480,0,8));s.players.push(player(98,345,0,1,true));s.players.push(player(870,345,1,10));s.players.push(player(975,220,1,7));s.players.push(player(975,470,1,8));s.players.push(player(1100,345,1,1,true));if(s.mode==='uno')s.players=s.players.filter(p=>p.num===10||p.goalie);s.me=s.players.findIndex(p=>p.team===0&&!p.goalie);s.players[s.me].isUserAvatar=true;s.players[s.me].avatarDesign=selectedCustom()?{...selectedCustom()}:null;}
+function startMatch(mode='rapido',difficulty){home();const diff=difficulty||load('rldifficulty3','normal');match={mode,diff,players:[],ball:null,me:0,goals:[0,0],clock:0,end:mode==='entrenar'?9999:mode==='penales'?85:mode==='tiros'?120:mode==='dominadas'?80:mode==='regates'?95:170,score:0,ego:0,goalPause:0,consecutive:0,aiCooldown:0,online:false,saved:false};setupPlayers(match);resetBall(match);if(selectedCustom())showTip('💪 Jugás con '+selectedCustom().name+' · Musculatura '+(selectedCustom().musculature??50)+'%');if(mode==='penales'){match.end=130;match.ball.x=950;match.ball.y=H/2;const striker=match.players.find(p=>p.team===0&&!p.goalie);striker.x=905;striker.y=H/2;match.me=match.players.indexOf(striker);match.players.filter(p=>!p.goalie&&p!==striker).forEach((p,i)=>{p.x=p.team===1?790:340;p.y=90+i*50});$('tip').textContent='PENALES: apuntá con el stick y tirá. Si fallás, la pelota queda suelta.';} $('home').classList.add('hidden');$('match').classList.add('active');$('where').textContent=mode.toUpperCase();$('tip').textContent=mode==='penales'?'PENALES: apuntá con el stick y tirá. Si fallás, la pelota queda suelta.':'Pelota libre: apuntá con el stick. △ tiro elevado; si fallás, la pelota sigue suelta.';$('scoreHud').textContent='RED 0 : 0 AZUL · '+(selectedCustom()?.name||nick);$('joyEdit').textContent='✥ Mover controles';ctrlEdit=false;$('match').classList.remove('edit-controls');applyCtrlPositions();tickPrev=performance.now();cancelAnimationFrame(matchAnim);matchAnim=requestAnimationFrame(frame);}
 function stopMatch(){if(match&&!match.saved&&match.clock>5){award(match)}match=null;cancelAnimationFrame(matchAnim);home()}
 function award(s){s.saved=true;let won=s.goals[0]>s.goals[1]||s.score>=3,coins=won?100:25;currency+=coins;save('redcoins3',currency);$('money').textContent=currency;refreshLobby();if(s.mode==='ranked'){rank+=won?25:-15;rank=Math.max(0,rank);save('redrank3',rank)}if(s.mode==='entrenar'&&s.clock>20){training=Math.min(10,training+1);save('redtraining3',training)} }
 function vecTo(a,b){let dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1;return{dx:dx/d,dy:dy/d,d}}
-function kick(p,power,target=null){const b=match.ball,v=vecTo(p,target||{x:p.team===0?W:0,y:H/2});if(Math.hypot(b.x-p.x,b.y-p.y)>63)return false;b.vx=v.dx*power+p.vx*.3;b.vy=v.dy*power+p.vy*.3;b.spin=(Math.random()-.5)*.12;b.z=Math.max(0,b.z||0);if(!b.vz)b.vz=0;match.lastTouch=p.team;p.anim='kick';p.animTime=.38;return true}
+function kick(p,power,target=null){const b=match.ball,v=vecTo(p,target||{x:p.team===0?W:0,y:H/2});if(Math.hypot(b.x-p.x,b.y-p.y)>63)return false;b.vx=v.dx*power+p.vx*.3;b.vy=v.dy*power+p.vy*.3;b.spin=(Math.random()-.5)*.12;b.z=Math.max(0,b.z||0);if(!b.vz)b.vz=0;match.lastTouch=p.team;p.anim='kick';p.animTime=.62;return true}
 function kickTarget(type){if(!match||ctrlEdit)return;const s=match,p=s.players[s.me],b=s.ball;if(type==='switch'){const candidates=s.players.map((p,i)=>({...p,i})).filter(x=>x.team===0&&!x.goalie);candidates.sort((a,b)=>Math.hypot(a.x-b.x,a.y-b.y)-Math.hypot(b.x-b.x,b.y-b.y));s.me=candidates[(candidates.findIndex(x=>x.i===s.me)+1)%candidates.length].i;return}
 if(type==='steal'){p.anim='steal';p.animTime=.55;const nearest=s.players.filter(q=>q.team!==p.team&&!q.goalie).sort((a,b)=>distance(a,p)-distance(b,p))[0];const d=distance(b,p);if(d<70){const v=vecTo(p,b);b.vx=v.dx*260+p.vx*.35;b.vy=v.dy*260+p.vy*.35;s.lastTouch=p.team;showTip('🛡️ ¡BALÓN ROBADO!')}else showTip('❌ ROBO FALLIDO');return}if(type==='ego'){s.ego=8;showTip('⚡ MODO EGO ACTIVADO');return}
 if(type==='bicycle'){
@@ -772,20 +1027,40 @@ $('scoreHud').textContent=`RED ${s.goals[0]} : ${s.goals[1]} AZUL • ${Math.flo
 }
 
 function drawFootballer(p,me,ego,index){
- const custom=me?selectedCustom():null;
+ const custom=p.isUserAvatar?p.avatarDesign:null;
+ const bodyWidth=custom?(.78+Math.max(0,Math.min(100,Number(custom.musculature??50)))*.005):1;
  const face=custom?.skin||['#e0aa87','#b88568','#f0bd93','#a7654c'][index%4];
  const shirt=custom?.uniform||(p.team===0?['#ef3c59','#e14837','#e33f74'][index%3]:['#2287ef','#1765d0','#4b97fa'][index%3]);
  const hair=custom?.hairColor||['#ebeffc','#141a30','#f2bc52','#522f77','#233e5b','#bf2939'][index%6];
  const eyes=custom?.eyes||'#273143';const num=custom?.number||p.num;
  const moving=Math.min(1,Math.hypot(p.vx,p.vy)/180),stride=Math.sin(performance.now()*.012+index)*4*moving;
  const bicyclePose=p.anim==='bicycle'&&p.animTime>0;const fx=p.facingX||(p.team===0?1:-1),kickPose=p.anim==='kick'&&p.animTime>0,stealPose=p.anim==='steal'&&p.animTime>0,savePose=p.anim==='save'&&p.animTime>0;
- ctx.save();ctx.translate(p.x,p.y);ctx.rotate(bicyclePose?(Math.PI*1.6+(1-p.animTime/.82)*Math.PI*1.4):(Math.atan2(p.vy,p.vx)*.10)+(savePose?.65:stealPose?-.27:0)); // Human figures instead of colored disks
+ ctx.save();ctx.translate(p.x,p.y);ctx.scale(bodyWidth,1);ctx.rotate(bicyclePose?(Math.PI*1.6+(1-p.animTime/.82)*Math.PI*1.4):(Math.atan2(p.vy,p.vx)*.10)+(savePose?.65:stealPose?-.27:0)+(kickPose?Math.sin((1-p.animTime/.62)*Math.PI)*-.13:0)); // Human figures instead of colored disks
  if(me){ctx.strokeStyle='#ffeb6c';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(0,11,21,9,0,0,7);ctx.stroke()}
  if(me&&ego&&custom?.aura&&custom.aura!=='Ninguna'){
  const auraColor=({Fuego:'#ff5c2b',Rayo:'#4cdaff',Sombra:'#b986ff',Oro:'#ffdb47'})[custom.aura]||'#fff';
  ctx.strokeStyle=auraColor;ctx.globalAlpha=.8;ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(0,-7,26+Math.sin(performance.now()*.01)*3,38,0,0,7);ctx.stroke();ctx.globalAlpha=1;
  }else if(me&&ego){ctx.strokeStyle='#ffdc42';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(0,-7,25,36,0,0,7);ctx.stroke()}
- ctx.strokeStyle='#101d36';ctx.lineWidth=7;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(-7,8);ctx.lineTo(-8-stride-(stealPose?7:0),20);ctx.moveTo(7,8);ctx.lineTo(8+stride+(kickPose?27:bicyclePose?28:0),kickPose||bicyclePose?-8:20);ctx.stroke();
+ // Rodillas articuladas y pierna que se recoge, acelera y se extiende al patear.
+ const t=kickPose?Math.max(0,Math.min(1,1-p.animTime/.62)):0;
+ const swing=kickPose?(t<.26?-Math.sin(t/.26*Math.PI/2)*20:t<.64?-20+Math.sin((t-.26)/.38*Math.PI/2)*81:61*Math.pow(Math.max(0,1-(t-.64)/.36),1.4)):0;
+ const hipL={x:-7,y:7},hipR={x:7,y:7};
+ const kneeL={x:-8-stride*.45-(stealPose?7:0),y:16};
+ const kneeR={x:8+stride*.45+swing*.52,y:16-(kickPose?Math.max(0,swing)*.32:0)};
+ const footL={x:-8-stride-(stealPose?12:0),y:28};
+ const footR={x:8+stride+swing,y:kickPose?28-Math.max(0,swing)*.79:bicyclePose?-8:28};
+ // Muslos desnudos que salen por debajo de la pantaloneta.
+ ctx.strokeStyle=face;ctx.lineWidth=9;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(hipL.x,hipL.y);ctx.lineTo(kneeL.x,kneeL.y);ctx.moveTo(hipR.x,hipR.y);ctx.lineTo(kneeR.x,kneeR.y);ctx.stroke();
+ ctx.strokeStyle='#e3eefd';ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(kneeL.x,kneeL.y);ctx.lineTo(footL.x,footL.y);ctx.moveTo(kneeR.x,kneeR.y);ctx.lineTo(footR.x,footR.y);ctx.stroke();
+ ctx.fillStyle='#f6faff';ctx.strokeStyle='#101d36';ctx.lineWidth=1.3;
+ ctx.fillRect(footL.x-6,footL.y-2,13,5);ctx.strokeRect(footL.x-6,footL.y-2,13,5);
+ ctx.fillRect(footR.x-6,footR.y-2,13,5);ctx.strokeRect(footR.x-6,footR.y-2,13,5);
+ // Pantaloneta suelta, con dos perneras y borde del uniforme.
+ ctx.fillStyle='#101a31';ctx.strokeStyle=shirt;ctx.lineWidth=1.6;
+ ctx.beginPath();ctx.moveTo(-13,0);ctx.lineTo(13,0);ctx.lineTo(14,12);ctx.lineTo(2,12);ctx.lineTo(0,7);ctx.lineTo(-2,12);ctx.lineTo(-14,12);ctx.closePath();ctx.fill();ctx.stroke();
+ ctx.strokeStyle='#f2f7ff';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(-13,11);ctx.lineTo(-3,11);ctx.moveTo(3,11);ctx.lineTo(14,11);ctx.stroke();
+ // Estela de movimiento al disparar.
+ if(kickPose&&t>.26&&t<.89){ctx.strokeStyle='#76deff';ctx.globalAlpha=.8;ctx.lineWidth=2.6;ctx.beginPath();ctx.arc(footR.x-6,footR.y-4,12,Math.PI*.65,Math.PI*1.58);ctx.stroke();ctx.beginPath();ctx.moveTo(footR.x-24,footR.y+8);ctx.lineTo(footR.x-7,footR.y+2);ctx.moveTo(footR.x-21,footR.y-2);ctx.lineTo(footR.x-8,footR.y-5);ctx.stroke();ctx.globalAlpha=1;}
  // Brazos con mangas: oscilación más rápida al correr y movimientos de acción.
  const armSwing=Math.sin(performance.now()*.031+index*1.7)*12*moving;
  const leftX=-20-(savePose?22:0)+armSwing;
@@ -817,7 +1092,7 @@ function drawFootballer(p,me,ego,index){
 
 function draw(){const s=match;if(!s)return;let canvasRect=canvas.getBoundingClientRect();let ratio=Math.min(devicePixelRatio||1,2),w=Math.round(canvasRect.width*ratio),h=Math.round(canvasRect.height*ratio);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h}const scale=Math.min(w/W,h/H),offX=(w-W*scale)/2,offY=(h-H*scale)/2;ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,w,h);ctx.fillStyle='#021528';ctx.fillRect(0,0,w,h);ctx.translate(offX,offY);ctx.scale(scale,scale);
 ctx.fillStyle='#18793a';ctx.fillRect(25,25,W-50,H-50);for(let i=0;i<9;i++){ctx.fillStyle=i%2?'#0e622e':'#248544';ctx.fillRect(30+i*(W-60)/9,30,(W-60)/9,H-60)}ctx.strokeStyle='#effff8';ctx.lineWidth=3;ctx.strokeRect(35,25,W-70,H-50);ctx.beginPath();ctx.moveTo(W/2,25);ctx.lineTo(W/2,H-25);ctx.stroke();ctx.beginPath();ctx.arc(W/2,H/2,85,0,Math.PI*2);ctx.stroke();ctx.strokeRect(35,205,180,280);ctx.strokeRect(W-215,205,180,280);ctx.strokeRect(35,264,72,162);ctx.strokeRect(W-107,264,72,162);ctx.strokeStyle='#a8eaff';ctx.lineWidth=7;ctx.strokeRect(20,H/2-86,16,172);ctx.strokeRect(W-36,H/2-86,16,172);
-for(const [i,p] of s.players.entries()){const me=i===s.me;ctx.fillStyle='#0009';ctx.beginPath();ctx.ellipse(p.x,p.y+12,20,9,0,0,Math.PI*2);ctx.fill();drawFootballer(p,me,s.ego>0, i);if(me){ctx.textAlign='center';ctx.font='bold 14px Arial';ctx.fillStyle='#fff9b6';ctx.strokeStyle='#000b';ctx.lineWidth=3;ctx.strokeText(nick,p.x,p.y-36);ctx.fillText(nick,p.x,p.y-36)}}
+for(const [i,p] of s.players.entries()){const me=i===s.me;ctx.fillStyle='#0009';ctx.beginPath();ctx.ellipse(p.x,p.y+12,20,9,0,0,Math.PI*2);ctx.fill();drawFootballer(p,me,s.ego>0, i);if(me){ctx.textAlign='center';ctx.font='bold 14px Arial';ctx.fillStyle='#fff9b6';ctx.strokeStyle='#000b';ctx.lineWidth=3;ctx.strokeText(p.isUserAvatar?(p.avatarDesign?.name||nick):'Jugador '+p.num,p.x,p.y-43);ctx.fillText(p.isUserAvatar?(p.avatarDesign?.name||nick):'Jugador '+p.num,p.x,p.y-43)}}
 const b=s.ball;ctx.fillStyle='#0008';ctx.beginPath();ctx.ellipse(b.x,b.y+9,14,7,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='white';ctx.strokeStyle='#1b2030';ctx.lineWidth=3;ctx.beginPath();ctx.arc(b.x,b.y-b.z*.60,b.r*(1+Math.min(.5,b.z/250)),0,7);ctx.fill();ctx.stroke();ctx.fillStyle='#1f2e50';ctx.beginPath();ctx.arc(b.x,b.y-b.z*.60,4,0,7);ctx.fill();}
 function frame(t){if(!match)return;let delta=clamp((t-tickPrev)/1000,0,.035);tickPrev=t;update(delta);draw();matchAnim=requestAnimationFrame(frame)}
 let sprintTouch=false;const joybase=$('joyBase'),knob=$('joyKnob');
