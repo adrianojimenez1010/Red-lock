@@ -1,0 +1,3 @@
+RED LOCK ULTIMATE V11 — JUEGO, NO FOTO
+Menú nuevo hecho con HTML/CSS y botones reales. 16 tarjetas anime clicables; selección actualiza el personaje jugable. Cofres con precios variables, recompensas que se guardan localmente, Pase Ultimate por 10000 monedas con recompensas reclamables. Noticias, personalización, partido, modos y tienda conectados a la lógica existente. La sala online NO es multijugador sincronizado.
+Descomprimir y subir TODOS los archivos a GitHub (index.html y recursos), reemplazando anteriores. Publicar ultimo commit en Render.

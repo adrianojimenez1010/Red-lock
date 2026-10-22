@@ -70,14 +70,83 @@ body.using-gamepad #joyBase,body.using-gamepad .action,body.using-gamepad #joyEd
 .v10-tabs{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}.v10-tabs button{background:#172e59;color:white;border:1px solid #5aaff5;padding:9px 11px;border-radius:7px;cursor:pointer}.v10-tabs button[aria-pressed=true]{background:#b71b51;border-color:white}
 .v10-animated-portrait{height:225px;width:100%;object-fit:contain}
 @media(max-width:580px){#v10Customizer{grid-template-columns:1fr 1fr}.v10-preview img{height:165px}.v10-preview{min-height:205px}}
+</style><style id="v11CSS">
+#home{overflow:hidden!important;display:block!important;background:#03091a}
+#dashboard.v11-lobby{width:100%!important;height:100%!important;aspect-ratio:auto!important;display:flex;flex-direction:column;min-height:0;overflow:hidden;position:relative;background:linear-gradient(95deg,#020917fa 0%,#060a2abe 45%,#040c28c9 100%),url('ultimate-fondo.jpg') center/cover no-repeat!important}
+#dashboard.v11-lobby:after{display:none!important}
+#dashboard.v11-lobby button{position:relative!important;left:auto!important;top:auto!important;width:auto!important;height:auto!important;min-height:0!important;font-size:inherit!important;padding:0;border:1px solid #3374c2!important;background:#07152bdc;color:#fff;border-radius:6px;text-align:left;transition:background .14s,box-shadow .14s}
+#dashboard.v11-lobby button:hover,#dashboard.v11-lobby button:focus-visible,#dashboard.v11-lobby button.picked{outline:2px solid #a8e5ff;outline-offset:-1px;background:#133a76!important;box-shadow:0 0 13px #159dff}
+.v11-top{flex:0 0 auto;display:flex;align-items:stretch;gap:clamp(3px,.65vw,9px);padding:clamp(3px,.6vh,7px) clamp(5px,.75vw,12px);border-bottom:1px solid #457dcc;background:#020712de;min-height:0}
+#dashboard .v11-stat{display:flex;gap:5px;align-items:center;justify-content:center;font-weight:900;font-size:clamp(9px,1vw,16px)!important;white-space:nowrap;padding:5px 9px!important;flex:1}
+#dashboard .v11-stat:first-child{flex:1.4;flex-direction:column;align-items:flex-start;gap:0}#dashboard .v11-stat small{display:block;font-size:clamp(8px,.76vw,12px);color:#95cfff}
+.v11-core{display:grid;grid-template-columns:minmax(115px,15%) minmax(170px,21%) minmax(300px,1fr) minmax(175px,22%);gap:clamp(5px,.65vw,12px);padding:clamp(5px,.8vw,12px);min-height:0;flex:1}
+.v11-nav{display:grid;grid-template-rows:repeat(12,minmax(0,1fr));gap:3px;min-height:0}
+#dashboard .v11-navbtn{font-size:clamp(8px,.88vw,14px)!important;padding:3px 8px!important;font-weight:900;overflow:hidden;white-space:nowrap}
+.v11-navbtn span{font-size:1.15em;margin-right:5px}
+.v11-news{display:flex;flex-direction:column;gap:5px;min-height:0;overflow:auto;border:1px solid #2667b0;border-radius:7px;padding:7px;background:#04132edb}
+.v11-news h3,.v11-aside h3{font-size:clamp(12px,1.15vw,19px);margin:0 0 2px;color:#eaf7ff}.v11-news h3{display:flex;align-items:center;justify-content:space-between}
+#dashboard .v11-news h3 button{border:0!important;color:#87c8ff;background:transparent!important;font-size:clamp(8px,.7vw,12px)!important;padding:2px!important}
+#dashboard .v11-news>button{padding:7px!important;font-size:clamp(9px,.82vw,13px)!important;line-height:1.2}
+.v11-news>button small{display:block;color:#bad8f0;font-size:.88em}
+#dashboard .v11-newsbig{display:flex;flex-direction:column;gap:4px;min-height:27%!important;background:linear-gradient(120deg,#1d174e99,#3b103bcc)!important}
+.v11-newsbig img{width:100%;height:40%;object-fit:cover;object-position:center 20%;min-height:25px}
+.v11-center{display:flex;flex-direction:column;justify-content:flex-end;gap:8px;min-width:0;min-height:0}
+.v11-hero{flex:1;min-height:0;display:flex;align-items:center;flex-direction:column;justify-content:center;background:radial-gradient(ellipse at 50% 38%,#58103988,transparent 70%)}
+.v11-hero img{width:min(85%,440px);height:min(70%,240px);object-fit:contain;filter:drop-shadow(0 0 15px #1e8cff)}
+.v11-hero p{font-size:clamp(9px,1.1vw,18px);font-weight:1000;letter-spacing:.1em;text-align:center;margin:3px;color:#f4dbf4}
+.v11-feature{display:grid;grid-template-columns:1fr 1fr;gap:6px;min-height:18%}
+#dashboard .v11-feature button{display:flex;flex-direction:column;justify-content:center;gap:3px;padding:10px!important;font-size:clamp(10px,1vw,17px)!important;font-weight:900}
+#dashboard .v11-feature-blue{background:linear-gradient(110deg,#083774e0,#0f111fe0)!important;border:2px solid #469bfc!important}
+#dashboard .v11-feature-red{background:linear-gradient(110deg,#8d143be0,#18081ae0)!important;border:2px solid #f25085!important}
+.v11-feature small{font-size:.8em;font-weight:500}.v11-shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;min-height:13%}
+#dashboard .v11-shortcuts button{font-size:clamp(9px,.85vw,14px)!important;font-weight:900;text-align:center;padding:5px!important;border-color:#4a8fec!important}
+.v11-aside{display:flex;flex-direction:column;gap:7px;padding:8px;min-height:0;border:1px solid #2c79ce;border-radius:8px;background:#05132cd9}
+.v11-chests{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;min-height:22%}
+#dashboard .v11-chests button{display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:clamp(15px,2vw,30px)!important;text-align:center!important}
+.v11-chests small{font-size:clamp(7px,.62vw,10px)}
+#dashboard .v11-pass{display:flex;flex-direction:column;justify-content:center;gap:12px;flex:1;padding:10px!important;background:linear-gradient(135deg,#58102c,#091b4a)!important;min-height:0}
+.v11-pass strong{font-size:clamp(13px,1.3vw,21px)}.v11-pass small{color:#f6d8fb;font-size:clamp(9px,.85vw,14px)}.v11-pass span{color:#ffd66d;font-weight:900;font-size:clamp(10px,1vw,16px)}
+#dashboard .v11-open{padding:9px!important;text-align:center;font-weight:900;font-size:clamp(9px,.9vw,14px)!important}
+.v11-bottom{flex:0 0 clamp(95px,17vh,154px);padding:5px 10px;min-height:0;border-top:1px solid #258ef5;background:#030815df;display:flex;flex-direction:column;gap:4px}
+.v11-bottom-head{display:flex;justify-content:space-between;font-size:clamp(10px,.95vw,15px);align-items:center}
+#dashboard .v11-bottom-head button{background:transparent;border:0!important;color:#86d6ff;font-size:clamp(9px,.8vw,12px)!important}
+.v11-roster{display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:4px;flex:1;min-height:0;overflow-x:auto}
+#dashboard .v11-avatar{position:relative;min-width:0;display:block;overflow:hidden;background:#040d23!important;border:2px solid #3487cf!important}
+.v11-avatar img{width:100%;height:100%;object-fit:cover;object-position:center 27%}.v11-avatar small{position:absolute;bottom:0;left:0;background:#020a1ad8;padding:0 3px;font-weight:900;font-size:clamp(8px,.7vw,12px)}
+#dashboard .v11-avatar.v11-active{border:2px solid #ffd45c!important;box-shadow:0 0 9px #f9d342}
+@media(max-height:500px){.v11-bottom{flex-basis:85px}.v11-core{grid-template-columns:minmax(90px,15%) minmax(160px,21%) minmax(250px,1fr) minmax(155px,22%)}.v11-news>button:nth-last-child(1){display:none}.v11-aside{gap:4px}.v11-hero img{height:60%}}
+@media(max-width:900px){.v11-core{grid-template-columns:minmax(88px,17%) minmax(135px,24%) minmax(200px,1fr)}.v11-aside{display:none}.v11-bottom{flex-basis:92px}.v11-navbtn span{display:none}}
+@media(max-width:500px) and (orientation:portrait){.v11-news{display:none}.v11-core{grid-template-columns:95px 1fr}.v11-bottom{flex-basis:85px}.v11-roster{grid-auto-flow:column;grid-auto-columns:55px;grid-template-columns:none}}
 </style></head><body>
 <div id="turn"><div><div style="font-size:42px">📱 ↻ 🎮</div><h2>¡Giralo en horizontal!</h2><p>Desactivá el bloqueo de rotación de tu iPhone para disfrutar todo el juego.</p><button id="turnContinue">Continuar de todas formas</button></div></div>
 <div id="app"><header class="bar"><button id="back">☰ MENÚ</button><div><h1>🔴 RED LOCK <span style="color:#4db9ff">ULTIMATE</span></h1><small id="where">FÚTBOL LIBRE • TEMPORADA EGO</small></div><button type="button" class="pill" id="coinOpen">🪙 <span id="money">1250</span> ▸</button><button id="full">⛶ Pantalla</button></header>
-<div id="home"><div id="dashboard" class="ultimate-lobby">
- <div class="ult-masthead"><span class="ult-game"><img src="ultimate-logo.png" alt="RED LOCK ULTIMATE, nuevo logo" class="ultimate-logo-img"></span><span class="ult-status">👑 TEMPORADA EGO • SALA PRINCIPAL</span></div>
- <div class="ult-resources"><button type="button" id="ultProfile" data-ult="habilidades">⭐ NIVEL <span id="ultLevel">1</span> · 👑 <span id="ultRank">BRONCE</span></button><button type="button" id="ultCoins" data-ult="tienda">🪙 <span id="ultMoney">1250</span> +</button><button type="button" data-ult="pase">🎟️ PASE ULTIMATE</button></div><div class="ult-hero"><img id="ultHeroImg" src="jugador-1.svg" alt="Personaje de cuerpo completo seleccionado"><strong id="ultHeroName">HIKARU</strong><button type="button" data-ult="personajes">CAMBIAR PERSONAJE →</button></div><div class="ult-left"><h2>🔥 TU EQUIPO</h2><div class="ult-playerstrip" id="ultPlayerstrip"></div><div class="ult-label">PERSONAJE ACTUAL: <b id="ultNick">Adriano</b></div><button class="ult-primary" type="button" data-ult="jugar">▶ JUGAR</button><button type="button" data-ult="personajes">👥 PERSONAJES</button><button type="button" data-ult="estilo">✂️ PERSONALIZAR PELO</button><button type="button" data-ult="online">🌐 SALAS ONLINE (EN DESARROLLO)</button></div>
- <div class="ult-right"><div class="ult-card" role="button" tabindex="0" data-ult="noticias" aria-label="Abrir noticias"><h3>📢 NOTICIAS</h3><p>Personajes originales y seis peinados nuevos</p><button data-ult="noticias">ABRIR NOTICIAS ›</button></div><div class="ult-card" role="button" tabindex="0" data-ult="evento" aria-label="Abrir evento"><h3>🏆 RIVALES ETERNOS</h3><p>Entrená y competí contra la computadora</p><button data-ult="evento">VER EVENTO ›</button></div><div class="ult-card" role="button" tabindex="0" data-ult="pase" aria-label="Abrir pase"><h3>👑 PASE ULTIMATE</h3><p>10.000 monedas virtuales • 50 niveles</p><button data-ult="pase">VER PASE ›</button></div></div>
- <div class="ult-footer"><button data-ult="rapido">⚽ PARTIDO RÁPIDO</button><button data-ult="historia">📖 HISTORIA</button><button data-ult="minijuegos">🎮 MINIJUEGOS</button><button data-ult="torneos">🏆 TORNEOS</button><button data-ult="tienda">🛒 TIENDA</button><button data-ult="config">⚙️ AJUSTES</button></div>
+<div id="home"><div id="dashboard" class="v11-lobby">
+ <div class="v11-top">
+  <button data-ult="habilidades" class="v11-stat">👤 <strong id="v11PlayerNick">Adriano</strong><small>⭐ NIVEL <span id="ultLevel">1</span> • <span id="ultRank">BRONCE</span></small></button>
+  <button data-ult="tienda" class="v11-stat">🪙 <strong id="ultMoney">1250</strong> <span>＋</span></button>
+  <button data-ult="cofres" class="v11-stat">🎁 COFRES</button>
+  <button data-ult="pase" class="v11-stat">👑 PASE ULTIMATE</button>
+  <button data-ult="noticias" class="v11-stat">📢 NOTICIAS</button>
+  <button data-ult="config" class="v11-stat">⚙️</button>
+ </div>
+ <div class="v11-core">
+  <nav class="v11-nav"><button type="button" data-ult="inicio" class="v11-navbtn"><span>🏠</span>INICIO</button><button type="button" data-ult="jugar" class="v11-navbtn"><span>⚽</span>JUGAR</button><button type="button" data-ult="historia" class="v11-navbtn"><span>📖</span>HISTORIA</button><button type="button" data-ult="personajes" class="v11-navbtn"><span>👥</span>PERSONAJES</button><button type="button" data-ult="crear" class="v11-navbtn"><span>👕</span>PERSONALIZACIÓN</button><button type="button" data-ult="habilidades" class="v11-navbtn"><span>⚡</span>HABILIDADES</button><button type="button" data-ult="inventario" class="v11-navbtn"><span>🎒</span>INVENTARIO</button><button type="button" data-ult="tienda" class="v11-navbtn"><span>🛒</span>TIENDA</button><button type="button" data-ult="pase" class="v11-navbtn"><span>👑</span>PASE ULTIMATE</button><button type="button" data-ult="misiones" class="v11-navbtn"><span>🎯</span>MISIONES</button><button type="button" data-ult="clasificaciones" class="v11-navbtn"><span>🏆</span>CLASIFICATORIA</button><button type="button" data-ult="noticias" class="v11-navbtn"><span>📢</span>NOTICIAS</button></nav>
+  <div class="v11-news">
+    <h3>📢 NOTICIAS <button data-ult="noticias">VER TODAS ›</button></h3>
+    <button data-ult="noticias" class="v11-newsbig"><img src="avatar-1.jpg" alt="Evento de temporada"><b>NUEVA TEMPORADA: RIVALES DEL MUNDO</b><small>Personajes, partidos y desafíos</small></button>
+    <button data-ult="evento">🏆 Torneo Global <small>Desafío disponible</small></button>
+    <button data-ult="noticias">✨ Nuevos 16 futbolistas <small>Retratos únicos</small></button>
+    <button data-ult="cofres">🎁 Cofres por rareza <small>Recompensas cosméticas</small></button>
+  </div>
+  <main class="v11-center">
+   <div class="v11-hero"><img src="ultimate-logo.png" alt="RED LOCK ULTIMATE"><p>EL FÚTBOL DESPIERTA TU EGO</p></div>
+   <div class="v11-feature"><button data-ult="rapido" class="v11-feature-blue">⚽ <strong>PARTIDO NORMAL</strong><small>Jugá contra la computadora</small></button><button data-ult="historia" class="v11-feature-red">📖 <strong>MODO HISTORIA</strong><small>Desafíos del equipo</small></button></div>
+   <div class="v11-shortcuts"><button data-ult="torneos">🏆 TORNEOS</button><button data-ult="minijuegos">🎮 MINIJUEGOS</button><button data-ult="clasificaciones">👑 RANGO</button><button data-ult="crear">✂️ CREAR</button></div>
+  </main>
+  <aside class="v11-aside"><h3>🎁 COFRES</h3><div class="v11-chests"><button data-ult="cofres">📦<small>COMÚN</small></button><button data-ult="cofres">🥈<small>PLATA</small></button><button data-ult="cofres">🥇<small>ORO</small></button><button data-ult="cofres">👑<small>REY</small></button><button data-ult="cofres">💜<small>EGO</small></button></div><button class="v11-pass" data-ult="pase"><strong>👑 PASE ULTIMATE</strong><small>10.000 monedas • cofres, auras y efectos de gol</small><span>VER RECOMPENSAS ›</span></button><button class="v11-open" data-ult="crear">🎨 PERSONALIZAR JUGADOR ›</button></aside>
+ </div>
+ <div class="v11-bottom"><div class="v11-bottom-head"><b>PLANTILLA ANIME · 16 PERSONAJES</b><button data-ult="personajes">VER TODOS ›</button></div><div class="v11-roster"><button type="button" class="v11-avatar" data-v11player="0" aria-label="Seleccionar futbolista 1"><img src="avatar-1.jpg" alt="Retrato anime del futbolista 1"><small>#1</small></button><button type="button" class="v11-avatar" data-v11player="1" aria-label="Seleccionar futbolista 2"><img src="avatar-2.jpg" alt="Retrato anime del futbolista 2"><small>#2</small></button><button type="button" class="v11-avatar" data-v11player="2" aria-label="Seleccionar futbolista 3"><img src="avatar-3.jpg" alt="Retrato anime del futbolista 3"><small>#3</small></button><button type="button" class="v11-avatar" data-v11player="3" aria-label="Seleccionar futbolista 4"><img src="avatar-4.jpg" alt="Retrato anime del futbolista 4"><small>#4</small></button><button type="button" class="v11-avatar" data-v11player="4" aria-label="Seleccionar futbolista 5"><img src="avatar-5.jpg" alt="Retrato anime del futbolista 5"><small>#5</small></button><button type="button" class="v11-avatar" data-v11player="5" aria-label="Seleccionar futbolista 6"><img src="avatar-6.jpg" alt="Retrato anime del futbolista 6"><small>#6</small></button><button type="button" class="v11-avatar" data-v11player="6" aria-label="Seleccionar futbolista 7"><img src="avatar-7.jpg" alt="Retrato anime del futbolista 7"><small>#7</small></button><button type="button" class="v11-avatar" data-v11player="7" aria-label="Seleccionar futbolista 8"><img src="avatar-8.jpg" alt="Retrato anime del futbolista 8"><small>#8</small></button><button type="button" class="v11-avatar" data-v11player="8" aria-label="Seleccionar futbolista 9"><img src="avatar-9.jpg" alt="Retrato anime del futbolista 9"><small>#9</small></button><button type="button" class="v11-avatar" data-v11player="9" aria-label="Seleccionar futbolista 10"><img src="avatar-10.jpg" alt="Retrato anime del futbolista 10"><small>#10</small></button><button type="button" class="v11-avatar" data-v11player="10" aria-label="Seleccionar futbolista 11"><img src="avatar-11.jpg" alt="Retrato anime del futbolista 11"><small>#11</small></button><button type="button" class="v11-avatar" data-v11player="11" aria-label="Seleccionar futbolista 12"><img src="avatar-12.jpg" alt="Retrato anime del futbolista 12"><small>#12</small></button><button type="button" class="v11-avatar" data-v11player="12" aria-label="Seleccionar futbolista 13"><img src="avatar-13.jpg" alt="Retrato anime del futbolista 13"><small>#13</small></button><button type="button" class="v11-avatar" data-v11player="13" aria-label="Seleccionar futbolista 14"><img src="avatar-14.jpg" alt="Retrato anime del futbolista 14"><small>#14</small></button><button type="button" class="v11-avatar" data-v11player="14" aria-label="Seleccionar futbolista 15"><img src="avatar-15.jpg" alt="Retrato anime del futbolista 15"><small>#15</small></button><button type="button" class="v11-avatar" data-v11player="15" aria-label="Seleccionar futbolista 16"><img src="avatar-16.jpg" alt="Retrato anime del futbolista 16"><small>#16</small></button></div></div>
+ <div hidden><div id="ultPlayerstrip"></div><span id="ultNick"></span><img id="ultHeroImg" alt=""><span id="ultHeroName"></span></div>
  </div></div>
 <section id="page"><div class="pageBody" id="pageBody"></div></section>
 <section id="match"><canvas id="pitch" aria-label="Campo de fútbol con pelota física y jugadores"></canvas><div id="scoreHud">RED 0 : 0 AZUL • 00:00</div><div id="matchButtons"><button id="exitMatch">← Salir</button><button id="joyEdit">✥ Mover controles</button></div><div id="tip">Movete con el joystick • PASAR • TIRAR • EGO</div><div id="joyBase"><div id="joyKnob"></div></div><button class="action" data-action="shoot" id="shoot">TIRAR</button><button class="action" data-action="pass" id="pass">PASAR</button><button class="action" data-action="lob" id="lob">ALTO △</button><button class="action" data-action="steal" id="steal">ROBAR □</button><button class="action" data-action="switch" id="switch">CAMBIAR</button><button class="action" data-action="sprint" id="sprint">CORRER</button><button class="action" data-action="ego" id="ego">EGO</button></section>
@@ -325,4 +394,50 @@ requestAnimationFrame(pollGamepad);
 // Multiplayer status: URL is configurable. This client does not fake a public online server.
 let socket=null;function connectOnline(){const url=$('serverUrl')?.value.trim(),room=($('roomCode')?.value||'SALA1').toUpperCase();if(!/^wss?:\/\//.test(url||'')){$('onlineInfo').textContent='Escribí una dirección WebSocket válida (wss://...)';return}save('rlserver3',url);if(socket)socket.close();try{socket=new WebSocket(url);$('onlineInfo').textContent='Conectando al servidor…';socket.onopen=()=>{socket.send(JSON.stringify({type:'join',room,name:nick}));$('onlineInfo').textContent='Conectado. Esperando jugadores…'};socket.onmessage=e=>{try{let msg=JSON.parse(e.data);if(msg.type==='state')$('onlineInfo').textContent=`Sala ${room} · ${msg.players.length}/8 personas conectadas`;if(msg.type==='error')$('onlineInfo').textContent=msg.message;if(msg.type==='welcome')$('onlineInfo').textContent='Conexión establecida con servidor de salas'}catch(x){}};socket.onerror=()=>{$('onlineInfo').textContent='No se pudo conectar. Verificá si el servidor está publicado'};socket.onclose=()=>{let el=$('onlineInfo');if(el)el.textContent='Desconectado del servidor'}}catch(e){$('onlineInfo').textContent='Servidor inválido'}}
 home();
-</script></body></html>
+</script>
+<script id="v11live">
+(()=>{
+ const cards=[...document.querySelectorAll('[data-v11player]')];
+ const labels=['KAEL','RYU','ZEN','REI','SHIN','HARU','SORA','JIN','KAI','LEO','NAGI','TOU','AOKI','KAZE','REN','KYO'];
+ // The first six are existing playable base models. The others use their own selectable character profiles.
+ const saved=JSON.parse(localStorage.getItem('rlv11cosmetics')||'{}');
+ let active=Number.isInteger(saved.active)?saved.active:0;
+ const prototypes=labels.map((name,i)=>({name,number:[10,7,9,11,8,6,14,4,5,3,2,12,1,15,16,17][i],hair:['Nube plateada','Negro azul desordenado','Fuego rojo','Violeta rebelde','Verde EGO','Rubio salvaje'][i%6],hairColor:['#eaf1ff','#10243e','#ed394d','#9a6deb','#115649','#f7d17e'][i%6],uniform:i%2?'#1761cb':'#b52b50',skin:['#ecc5a9','#b9866c','#f0c1a9','#dbad87'][i%4],eyes:['#e34553','#26a0fc','#c64efe','#71fadc'][i%4],face:'oval',eyeShape:'anime',aura:'Ninguna'}));
+ function mark(i){active=i;cards.forEach((b,j)=>{b.classList.toggle('v11-active',i===j);b.setAttribute('aria-pressed',String(i===j))});localStorage.setItem('rlv11cosmetics',JSON.stringify({active:i}));document.getElementById('v11PlayerNick').textContent=labels[i];
+  // For first six use original full-body playable models; additional characters are selectable via existing game custom profile mechanism.
+  try{if(i<6){selectPlayer(i)}else{
+    const p=prototypes[i];let found=customPlayers.findIndex(x=>x.name==='V11 '+p.name);
+    if(found===-1){customPlayers.push({...p,name:'V11 '+p.name});save('rlcustom8',customPlayers);found=customPlayers.length-1}
+    selectPlayer(6+found)
+  }}catch(e){console.warn('Character select',e)}
+ }
+ cards.forEach((b,i)=>b.addEventListener('click',()=>mark(i)));
+ mark(Math.max(0,Math.min(active,15)));
+ // Add fully functional separate screens, keeping pre-existing gameplay and store.
+ const originalNavigate=navigate;
+ window.v11Rewards={
+ prices:[500,1500,3000,6000,10000],names:['COMÚN','PLATA','ORO','REY','EGO'],loot:[['Botines clásicos','Camiseta azul'],['Aura eléctrica','Celebración salto'],['Efecto de gol azul','Uniforme oro'],['Aura roja','Explosión de gol'],['Aura legendaria','Efecto galaxia']]
+ };
+ const prizes=window.v11Rewards;
+ const palette=['#fb546d','#438bff','#ffd148','#bd72ff','#35ce8b'];
+ const bag=()=>Array.isArray(owned)?owned:[];
+ function chestScreen(){render('COFRES',`<div class="panel"><h3>🎁 COFRES POR RAREZA</h3><p>Comprá cofres con monedas ganadas en el juego. Las recompensas son cosméticas.</p><div class="tiles">${prizes.names.map((v,i)=>`<button class="tile" data-chest="${i}"><div style="font-size:30px">${['📦','🥈','🥇','👑','💜'][i]}</div>${v}<div>🪙 ${prizes.prices[i].toLocaleString('es-CR')}</div></button>`).join('')}</div><p id="chestResult">Saldo: 🪙 ${currency}</p></div>`)}
+ let passOwned=load('rlv11PassOwned',false),passClaims=load('rlv11PassClaims',[]);
+ const passRewards=['100 monedas','Cofre común','Aura azul','Cofre plata','Efecto de gol eléctrico','Cofre oro','Aura violeta','Cofre rey','Explosión de gol','Cofre EGO'];
+ function passScreen(){render('PASE ULTIMATE',`<div class="panel"><h3>👑 PASE ULTIMATE</h3><p>Precio: 🪙 10.000 monedas virtuales. Cofres, auras y efectos de gol.</p><p>Tu progreso es local y depende de tus sesiones de entrenamiento y partidos.</p><p>Estado: <b>${passOwned?'DESBLOQUEADO':'SIN COMPRAR'}</b></p>${passOwned?'':`<button class="option" data-buy-pass="1">COMPRAR POR 🪙 10.000</button>`}<div class="tiles">${passRewards.map((name,i)=>`<button class="tile" data-pass-reward="${i}">NIVEL ${i+1}<div>${name}</div><small>${passClaims.includes(i)?'✅ Reclamado':'Tocar para reclamar'}</small></button>`).join('')}</div><p id="passResult">Saldo: 🪙 ${currency}</p></div>`)}
+ // Capture in capture phase to bypass legacy navigate only for the two new views.
+ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.hasAttribute('data-chest')){const i=+b.dataset.chest,price=prizes.prices[i],res=document.getElementById('chestResult');if(currency<price){res.textContent=`Faltan ${price-currency} monedas para abrir el cofre ${prizes.names[i]}`;return}currency-=price;save('redcoins3',currency);document.getElementById('money').textContent=currency;const gift=prizes.loot[i][Math.floor(Math.random()*prizes.loot[i].length)];owned.push(gift);save('redowned3',owned);refreshLobby();res.textContent=`🎉 ¡Conseguiste ${gift}! Nuevo saldo: 🪙 ${currency}`;return}
+ if(b.dataset.buyPass){const res=document.getElementById('passResult');if(currency<10000){res.textContent=`Te faltan ${10000-currency} monedas`;return}currency-=10000;passOwned=true;save('rlv11PassOwned',true);save('redcoins3',currency);document.getElementById('money').textContent=currency;refreshLobby();passScreen();return}
+ if(b.hasAttribute('data-pass-reward')){const i=+b.dataset.passReward,res=document.getElementById('passResult');if(!passOwned){res.textContent='Comprá primero el Pase Ultimate';return}if(passClaims.includes(i)){res.textContent='Esta recompensa ya fue reclamada';return}const level=1+Math.floor(training/2)+Math.floor(rank/100);if(level<i+1){res.textContent=`Necesitás el nivel ${i+1}. Tu nivel es ${level}.`;return}passClaims.push(i);save('rlv11PassClaims',passClaims);const prize=passRewards[i];if(i===0){currency+=100;save('redcoins3',currency);document.getElementById('money').textContent=currency}else{owned.push(prize);save('redowned3',owned)}refreshLobby();passScreen();return}
+ if(b.dataset.ult==='cofres'){e.stopImmediatePropagation();chestScreen();return}
+ if(b.dataset.ult==='pase'){e.stopImmediatePropagation();passScreen();return}
+ },true);
+ // When page is opened from another pre-existing game menu, support those screens too.
+ document.getElementById('pageBody').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.goto==='cofres'){e.stopImmediatePropagation();chestScreen()}},true);
+ // Controls: update touch mode when PlayStation controller is connected (existing pollGamepad also runs).
+ window.addEventListener('gamepadconnected',()=>document.body.classList.add('using-gamepad'));
+ window.addEventListener('gamepaddisconnected',()=>{if(![...(navigator.getGamepads?.()||[])].some(Boolean))document.body.classList.remove('using-gamepad')});
+})();
+</script>
+</body></html>
