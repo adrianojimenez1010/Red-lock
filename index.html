@@ -525,142 +525,131 @@ try{if(active&&document.documentElement.requestFullscreen)await document.documen
 };document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&document.body.classList.contains('rl-immersive')){ /* iOS Safari may not support fullscreen API; immersive CSS remains available */ }})})();
 </script>
 
+
 <style id="rl-main-menu-css">
-#rlMainMenu{position:fixed;inset:0;z-index:20000;background:#020916;color:white;display:flex;flex-direction:column;overflow:auto;font-family:system-ui,Arial,sans-serif}
+#rlMainMenu{position:fixed;inset:0;z-index:2147480000;background:#000;color:#fff;font-family:system-ui,Arial,sans-serif;overflow:hidden;display:grid;place-items:center}
 #rlMainMenu[hidden]{display:none!important}
-#rlMainMenu:before{content:"";position:fixed;inset:0;background:linear-gradient(90deg,#010713ed 0%,#010713ae 31%,#01071350 62%,#010713a8 100%),url('menu-background.jpg') center/cover no-repeat;z-index:-1}
-#rlMainMenu button{font:inherit;cursor:pointer;color:white}
-.rl-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 15px;background:#020819b8;border-bottom:1px solid #48a9f5;flex-wrap:wrap}
-.rl-profile{display:flex;gap:10px;align-items:center;font-weight:900}
-.rl-avatar{height:47px;width:47px;border:2px solid #54aaff;border-radius:8px;object-fit:cover}
-.rl-wallet{display:flex;gap:13px;align-items:center;color:#ffe39b;font-weight:800}
-.rl-layout{display:grid;grid-template-columns:minmax(145px,210px) minmax(240px,1fr) minmax(210px,285px);gap:14px;padding:14px;flex:1}
-.rl-nav{display:flex;flex-direction:column;gap:7px}
-.rl-nav button,.rl-action{background:linear-gradient(100deg,#061529e8,#13284bdf);border:1px solid #3677c1;border-radius:6px;padding:12px;text-align:left;font-size:13px!important;font-weight:850!important;min-height:44px}
-.rl-nav button:hover,.rl-nav button:focus-visible,.rl-nav button.rl-selected,.rl-action:focus-visible,.rl-action:hover{outline:2px solid #52bfff;background:linear-gradient(90deg,#7a103c,#173f80);box-shadow:0 0 16px #319fff8a}
-.rl-middle{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:15px}
-.rl-logo{max-width:600px;width:min(100%,600px);max-height:37vh;object-fit:contain;filter:drop-shadow(0 0 22px #1555a9)}
-.rl-headline{font-size:clamp(24px,4vw,50px);font-weight:1000;font-style:italic;line-height:.95;text-align:center;text-shadow:3px 4px 0 #061b3d,0 0 22px #0077ff}
-.rl-headline .red{color:#ff3d5c}.rl-headline .blue{color:#56bdff}
-.rl-play{background:linear-gradient(100deg,#0048aa,#138dfc)!important;border:2px solid #6bdfff!important;border-radius:8px;padding:15px 40px;font-size:25px!important;font-weight:1000!important;box-shadow:0 0 25px #009dff8a;min-width:220px}
-.rl-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%}
-.rl-cards button{min-height:66px;text-align:center;background:#051329df;border:1px solid #399af5;border-radius:7px;font-size:13px!important;font-weight:800!important}
-.rl-right{display:flex;flex-direction:column;gap:10px}
-.rl-panel{background:#06132de8;border:1px solid #377dd3;border-radius:8px;box-shadow:0 0 16px #020a19;padding:12px}
-.rl-panel h3{margin:0 0 10px;color:#a5dfff;font-size:16px}
-.rl-news{display:flex;flex-direction:column;gap:8px}
-.rl-news article{padding:8px;border-left:3px solid #fe3864;background:#102344d9;font-size:12px}
-.rl-news strong{display:block;color:#fff;font-size:13px}
-.rl-news small{color:#bed2e8}
-.rl-note{color:#c7d8ed;font-size:12px}
-.rl-event{background:linear-gradient(120deg,#480a2f,#0b2d5e);border-radius:7px;padding:12px;font-weight:800}
-.rl-clock{font-weight:800;color:#fff}
-.rl-bottom{padding:7px 15px;background:#020819c7;display:flex;gap:9px;flex-wrap:wrap;align-items:center}
-.rl-bottom button{padding:8px 12px;background:#142a52;border:1px solid #397cbb;border-radius:6px}
-@media(max-width:750px){.rl-layout{grid-template-columns:minmax(110px,31%) 1fr;gap:8px;padding:8px}.rl-right{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}.rl-logo{max-height:27vh}.rl-cards{grid-template-columns:repeat(2,1fr)}.rl-nav button{padding:8px 5px;font-size:11px!important}.rl-panel{padding:8px}.rl-play{font-size:18px!important;padding:10px;min-width:140px}}
-@media(max-width:420px){.rl-right{grid-template-columns:1fr}.rl-logo{max-height:22vh}.rl-layout{grid-template-columns:125px 1fr}.rl-top{padding:7px}.rl-nav button{min-height:37px}.rl-wallet{font-size:12px}}
+.rl-exact-stage{position:relative;width:min(100vw,177.586vh);height:min(100vh,56.31vw);aspect-ratio:1648/928;overflow:hidden;background:#000}
+.rl-exact-stage>img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;user-select:none;pointer-events:none}
+.rl-hit{position:absolute;z-index:3;background:transparent;border:2px solid transparent;border-radius:5px;cursor:pointer;color:transparent;font-size:0;padding:0;touch-action:manipulation}
+.rl-hit:focus-visible,.rl-hit.rl-selected{border-color:#fff;box-shadow:inset 0 0 17px #02aafa,0 0 14px #03aeff;outline:none;background:#3ac0ff16}
+.rl-hit:active{background:#ffffff37}
+.rl-help{position:absolute;bottom:2%;right:2%;z-index:4;background:#041127d9;border:1px solid #4eb6ff;border-radius:7px;color:white;font:700 11px system-ui;padding:7px 10px;cursor:pointer}
+.rl-game-msg{position:absolute;left:30%;right:22%;bottom:18%;text-align:center;z-index:5;color:#fff;background:#020d24ed;border:1px solid #229ffc;border-radius:10px;box-shadow:0 0 16px #07f;padding:12px;font:700 clamp(11px,1.25vw,17px) system-ui}
+.rl-game-msg[hidden]{display:none!important}
+.rl-turn{display:none;position:absolute;inset:0;z-index:9;background:#030918ef;color:white;place-items:center;text-align:center;padding:20px}
+.rl-turn h2{margin:4px;font-size:20px}
+.rl-turn button{padding:12px;border:1px solid #51baff;border-radius:8px;background:#063b84;color:#fff}
+@media(orientation:portrait) and (max-width:900px){.rl-exact-stage{width:100vw;height:56.31vw}.rl-turn{display:grid}}
+#rlMainMenu .rl-turn[hidden]{display:none!important}
 </style>
-<div id="rlMainMenu" role="dialog" aria-label="Menú principal RED LOCK UNIVERSO">
- <header class="rl-top">
-  <div class="rl-profile"><img class="rl-avatar" src="icon-512.png" alt="Avatar"><div>⚽ RED LOCK UNIVERSO <div class="rl-note">Nivel 1 · Rango inicial</div></div></div>
-  <div class="rl-wallet">🪙 <span id="rlMenuCoins">100</span> <span>💎 0</span> <span class="rl-clock" id="rlMenuClock"></span></div>
- </header>
- <div class="rl-layout">
-  <nav class="rl-nav" id="rlMenuNav" aria-label="Opciones del juego">
-   <button data-target="inicio">🏠 INICIO</button>
-   <button data-target="partido">⚽ JUGAR</button>
-   <button data-target="historia">📖 MODO HISTORIA</button>
-   <button data-target="mundo">🌍 MUNDO ABIERTO</button>
-   <button data-target="personajes">👥 PERSONAJES</button>
-   <button data-target="estilo">👕 ESTILO</button>
-   <button data-target="habilidades">⚡ HABILIDADES</button>
-   <button data-target="inventario">🎒 INVENTARIO</button>
-   <button data-target="minijuegos">🎮 MINIJUEGOS</button>
-   <button data-target="torneos">🏆 TORNEOS</button>
-   <button data-target="misiones">🎯 MISIONES</button>
-   <button data-target="tienda">🛒 TIENDA</button>
-   <button data-target="noticias">📢 NOTICIAS</button>
-   <button data-target="pase">👑 PASE EGO</button>
-   <button data-target="clasificaciones">📊 CLASIFICACIONES</button>
-   <button data-target="amigos">👥 AMIGOS</button>
-   <button data-target="config">⚙️ CONFIGURACIÓN</button>
-  </nav>
-  <main class="rl-middle">
-   <div class="rl-headline"><span class="red">RED</span> <span class="blue">LOCK</span><div>UNIVERSO</div></div>
-   <img class="rl-logo" src="icon-512.png" alt="Logo rojo y azul con una U">
-   <button class="rl-play" id="rlMenuPlay">⚽ JUGAR</button>
-   <div class="rl-cards">
-    <button data-target="partido">⚽ PARTIDO RÁPIDO</button>
-    <button data-target="historia">📖 HISTORIA</button>
-    <button data-target="torneos">🏆 TORNEOS</button>
-    <button data-target="minijuegos">🎮 MINIJUEGOS</button>
-    <button data-target="mundo">🏋️ ENTRENAMIENTO</button>
-    <button data-target="noticias">📰 NOTICIAS</button>
-   </div>
-  </main>
-  <aside class="rl-right">
-   <section class="rl-panel"><h3>📢 NOTICIAS <small>· Del juego</small></h3><div class="rl-news" id="rlNews">
-    <article><strong>🔴🔵 RED LOCK UNIVERSO</strong><small>Nuevo menú, logo U rojo y azul y navegación con mando.</small></article>
-    <article><strong>🎮 Minijuegos mejorados</strong><small>Penales, regates, tiros, dominadas y portero.</small></article>
-    <article><strong>👤 Nuevos estilos</strong><small>Peinado Nube plateada y personalización.</small></article>
-   </div><p class="rl-note">Noticias internas de esta versión, no noticias en vivo.</p></section>
-   <section class="rl-panel"><h3>🏆 EVENTO ACTUAL</h3><div class="rl-event">⚡ Desafío EGO: ¡jugá y entrená!</div><p class="rl-note">Usá EGO durante el partido para activar tu aura.</p></section>
-   <section class="rl-panel"><h3>🎟️ PASE DE TEMPORADA</h3><div>👑 EGO Supremo · 10.000 monedas</div><p class="rl-note">Consultá las recompensas del pase en el juego.</p></section>
-   <section class="rl-panel"><h3>🎮 CONTROL PLAYSTATION</h3><p class="rl-note">Cruceta o stick izquierdo: seleccionar · ✕: aceptar · ◯: volver al menú · START: jugar/volver.</p></section>
-  </aside>
+<div id="rlMainMenu" role="dialog" aria-label="Menú de RED LOCK UNIVERSO">
+ <div class="rl-exact-stage" id="rlExactStage">
+ <img src="menu-exacto.png" alt="RED LOCK UNIVERSO: menú horizontal rojo y azul con noticias, personajes, eventos y opciones">
+ <button type="button" class="rl-hit" data-target="inicio" aria-label="INICIO" title="INICIO" style="left:1.2136%;top:12.0690%;width:12.7427%;height:4.6336%"></button>
+<button type="button" class="rl-hit" data-target="partido" aria-label="JUGAR" title="JUGAR" style="left:1.2136%;top:17.7802%;width:12.7427%;height:5.2802%"></button>
+<button type="button" class="rl-hit" data-target="historia" aria-label="MODO HISTORIA" title="MODO HISTORIA" style="left:1.2136%;top:24.1379%;width:12.7427%;height:5.1724%"></button>
+<button type="button" class="rl-hit" data-target="personajes" aria-label="PERSONAJES" title="PERSONAJES" style="left:1.2136%;top:30.4957%;width:12.7427%;height:4.7414%"></button>
+<button type="button" class="rl-hit" data-target="estilo" aria-label="ESTILO" title="ESTILO" style="left:1.2136%;top:36.5302%;width:12.7427%;height:4.8491%"></button>
+<button type="button" class="rl-hit" data-target="habilidades" aria-label="HABILIDADES" title="HABILIDADES" style="left:1.2136%;top:42.4569%;width:12.7427%;height:4.8491%"></button>
+<button type="button" class="rl-hit" data-target="inventario" aria-label="INVENTARIO" title="INVENTARIO" style="left:1.2136%;top:48.8147%;width:12.7427%;height:4.7414%"></button>
+<button type="button" class="rl-hit" data-target="minijuegos" aria-label="MINIJUEGOS" title="MINIJUEGOS" style="left:1.2136%;top:55.0647%;width:12.7427%;height:4.8491%"></button>
+<button type="button" class="rl-hit" data-target="torneos" aria-label="TORNEOS" title="TORNEOS" style="left:1.2136%;top:61.4224%;width:12.7427%;height:4.7414%"></button>
+<button type="button" class="rl-hit" data-target="misiones" aria-label="MISIONES" title="MISIONES" style="left:1.2136%;top:67.6724%;width:12.7427%;height:4.7414%"></button>
+<button type="button" class="rl-hit" data-target="tienda" aria-label="TIENDA" title="TIENDA" style="left:1.2136%;top:73.8147%;width:12.7427%;height:4.7414%"></button>
+<button type="button" class="rl-hit" data-target="config" aria-label="CONFIGURACIÓN" title="CONFIGURACIÓN" style="left:1.2136%;top:80.6034%;width:12.7427%;height:5.9267%"></button>
+<button type="button" class="rl-hit" data-target="noticias" aria-label="NOTICIAS" title="NOTICIAS" style="left:15.4126%;top:10.1293%;width:19.1748%;height:5.6034%"></button>
+<button type="button" class="rl-hit" data-target="evento" aria-label="RIVALES ETERNOS" title="RIVALES ETERNOS" style="left:74.7573%;top:16.4871%;width:23.3617%;height:33.9440%"></button>
+<button type="button" class="rl-hit" data-target="pase" aria-label="PASE DE TEMPORADA" title="PASE DE TEMPORADA" style="left:74.0291%;top:54.5259%;width:24.2718%;height:15.7328%"></button>
+<button type="button" class="rl-hit" data-target="partido" aria-label="PARTIDO RÁPIDO" title="PARTIDO RÁPIDO" style="left:15.5340%;top:71.5517%;width:15.5947%;height:13.4698%"></button>
+<button type="button" class="rl-hit" data-target="historia" aria-label="MODO HISTORIA" title="MODO HISTORIA" style="left:31.6748%;top:71.5517%;width:15.5947%;height:13.4698%"></button>
+<button type="button" class="rl-hit" data-target="torneos" aria-label="TORNEOS" title="TORNEOS" style="left:48.4830%;top:71.5517%;width:15.3519%;height:13.4698%"></button>
+<button type="button" class="rl-hit" data-target="minijuegos" aria-label="MINIJUEGOS" title="MINIJUEGOS" style="left:64.4417%;top:71.5517%;width:15.7160%;height:13.4698%"></button>
+<button type="button" class="rl-hit" data-target="mundo" aria-label="ENTRENAMIENTO" title="ENTRENAMIENTO" style="left:80.7039%;top:71.5517%;width:18.0218%;height:13.4698%"></button>
+<button type="button" class="rl-hit" data-target="personajes" aria-label="PERSONAJES" title="PERSONAJES" style="left:15.4733%;top:87.0690%;width:9.1019%;height:11.2069%"></button>
+<button type="button" class="rl-hit" data-target="estilo" aria-label="ESTILOS" title="ESTILOS" style="left:25.3641%;top:87.0690%;width:9.0413%;height:11.2069%"></button>
+<button type="button" class="rl-hit" data-target="habilidades" aria-label="HABILIDADES" title="HABILIDADES" style="left:35.0121%;top:87.0690%;width:9.1019%;height:11.2069%"></button>
+<button type="button" class="rl-hit" data-target="inventario" aria-label="INVENTARIO" title="INVENTARIO" style="left:44.6602%;top:87.0690%;width:9.7694%;height:11.2069%"></button>
+<button type="button" class="rl-hit" data-target="tienda" aria-label="TIENDA" title="TIENDA" style="left:55.2791%;top:87.0690%;width:9.5267%;height:11.2069%"></button>
+<button type="button" class="rl-hit" data-target="misiones" aria-label="MISIONES" title="MISIONES" style="left:65.5340%;top:87.0690%;width:9.3447%;height:11.2069%"></button>
+<button type="button" class="rl-hit" data-target="clasificaciones" aria-label="CLASIFICACIONES" title="CLASIFICACIONES" style="left:75.6068%;top:87.0690%;width:10.1942%;height:11.2069%"></button>
+<button type="button" class="rl-hit" data-target="config" aria-label="CONFIGURACIÓN" title="CONFIGURACIÓN" style="left:86.4078%;top:87.0690%;width:12.3786%;height:11.2069%"></button>
+<button type="button" class="rl-hit" data-target="amigos" aria-label="AMIGOS" title="AMIGOS" style="left:70.8738%;top:0.5388%;width:4.1869%;height:6.8966%"></button>
+ <button class="rl-help" type="button" id="rlPlayFullscreen">⛶ Pantalla completa</button>
+ <div class="rl-game-msg" id="rlGameMsg" hidden></div>
+ <div class="rl-turn" id="rlTurnHint"><div><div style="font-size:48px">📱 ↻ 🎮</div><h2>Girá el teléfono horizontalmente</h2><p>Desactivá el bloqueo de rotación para disfrutar del menú completo.</p><button type="button" id="rlForceContinue">Seguir así</button></div></div>
  </div>
- <footer class="rl-bottom"><button id="rlMenuClose">▶ VOLVER AL JUEGO</button><span class="rl-note" id="rlMenuMessage">Seleccioná una opción con el mando o tocando la pantalla.</span></footer>
 </div>
 <script id="rl-main-menu-js">
 (()=>{
-const menu=document.getElementById('rlMainMenu'),nav=[...menu.querySelectorAll('[data-target]')],msg=document.getElementById('rlMenuMessage');
-let selected=0,prevButtons=[],lastMove=0;
-function focus(i){selected=(i+nav.length)%nav.length;nav.forEach((b,k)=>b.classList.toggle('rl-selected',k===selected));nav[selected].focus({preventScroll:true})}
-function open(){menu.hidden=false;document.body.classList.remove('rl-immersive');focus(selected)}
-function close(){menu.hidden=true}
-function mode(name){const btn=document.querySelector('#modes button[data-mode="'+name+'"]');if(btn){btn.click();close();return true}return false}
-function go(target){
- if(target==='inicio'){open();return}
- if(target==='partido'){mode('match');return}
- if(target==='historia'){mode('story');return}
- if(target==='mundo'){mode('world');return}
- if(target==='minijuegos'){close();document.getElementById('miniZone')?.scrollIntoView({behavior:'smooth'});return}
- if(target==='personajes'){close();document.getElementById('roster')?.scrollIntoView({behavior:'smooth'});return}
- if(target==='estilo'){close();document.querySelector('[id*="custom"],[id*="style"],[id*="hair"]')?.scrollIntoView({behavior:'smooth'});return}
- if(target==='tienda'){close();document.getElementById('shop')?.scrollIntoView({behavior:'smooth'});return}
- if(target==='habilidades'){close();document.getElementById('stats')?.scrollIntoView({behavior:'smooth'});return}
- if(target==='misiones'){mode('world');document.getElementById('worldhelp')?.scrollIntoView({behavior:'smooth'});return}
- if(target==='config'){close();document.getElementById('rlImmersiveBar')?.scrollIntoView({behavior:'smooth'});return}
- if(target==='noticias'){document.getElementById('rlNews')?.scrollIntoView({behavior:'smooth'});msg.textContent='📰 Noticias internas de RED LOCK UNIVERSO';return}
- msg.textContent='🚧 '+target.toUpperCase()+': esta sección está en desarrollo; todavía no tiene un sistema jugable completo.';
-}
-nav.forEach(b=>b.addEventListener('click',()=>go(b.dataset.target)));
-document.getElementById('rlMenuPlay').onclick=()=>go('partido');
-document.getElementById('rlMenuClose').onclick=close;
-const reopen=document.createElement('button');reopen.id='rlReopenMenu';reopen.textContent='☰ MENÚ';reopen.style.cssText='position:fixed;top:8px;left:8px;z-index:10025;background:#071b37e8;color:white;border:2px solid #39a6fc;border-radius:7px;padding:7px 10px;font-weight:800';
-reopen.onclick=open;document.body.appendChild(reopen);
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){open();return}if(menu.hidden)return;
- if(['ArrowDown','ArrowRight'].includes(e.key)){e.preventDefault();focus(selected+1)}
- if(['ArrowUp','ArrowLeft'].includes(e.key)){e.preventDefault();focus(selected-1)}
- if(e.key==='Enter'){e.preventDefault();nav[selected].click()}
-});
-function tick(){
- const now=new Date();document.getElementById('rlMenuClock').textContent=now.toLocaleTimeString('es-CR',{hour:'2-digit',minute:'2-digit'});
- const coins=document.getElementById('coins');if(coins)document.getElementById('rlMenuCoins').textContent=coins.textContent;
- const pads=navigator.getGamepads?.()||[];
- const p=[...pads].find(Boolean);
- if(p){
-  const pressed=i=>Boolean(p.buttons[i]?.pressed),dir=(p.axes[1]>0.55||pressed(13))?1:(p.axes[1]<-0.55||pressed(12))?-1:0;
-  if(!menu.hidden&&dir&&performance.now()-lastMove>220){focus(selected+dir);lastMove=performance.now()}
-  const btns=[pressed(0),pressed(1),pressed(9)];
-  if(btns[0]&&!prevButtons[0]&&!menu.hidden)nav[selected].click();
-  if(btns[1]&&!prevButtons[1]){if(menu.hidden)open();else close()}
-  if(btns[2]&&!prevButtons[2]){if(menu.hidden)open();else go('partido')}
-  prevButtons=btns;
+ const menu=document.getElementById('rlMainMenu'),hits=Array.from(menu.querySelectorAll('.rl-hit')),msg=document.getElementById('rlGameMsg');
+ let selected=0,was=[],lastMove=0,lastMessage=0;
+ function showMessage(text){msg.textContent=text;msg.hidden=false;lastMessage=Date.now();}
+ function focus(i){selected=(i+hits.length)%hits.length;hits.forEach((b,j)=>b.classList.toggle('rl-selected',i===j));hits[selected].focus({preventScroll:true});}
+ function open(){menu.hidden=false;msg.hidden=true;focus(selected)}
+ function close(){menu.hidden=true;msg.hidden=true}
+ function goMode(name){let b=document.querySelector('#modes button[data-mode="'+name+'"]');if(b){close();b.click();return true}return false}
+ const sections={
+ 'personajes':['#rlCharacters','#rlCharCards','#creator'],
+ 'estilo':['#creator','#ccHairStyle'],
+ 'habilidades':['#stats','#rlCharacters','#rlGym'],
+ 'inventario':['#inventory','#rlExtras'],
+ 'minijuegos':['#miniZone','#miniSelect'],
+ 'torneos':['#tournaments','#rlTournaments'],
+ 'misiones':['#mission','#rlGym','#gymmission'],
+ 'tienda':['#shop','#rlShop'],
+ 'config':['#rlImmersiveBar','#rlDifficulty'],
+ 'pase':['#pass','#rlPass'],
+ 'clasificaciones':['#leaderboard','#rankings'],
+ 'amigos':['#rlFriendList','#rlFriendAdd']
+ };
+ function go(t){
+ if(t==='inicio'){open();return}
+ if(t==='partido'){if(!goMode('match'))showMessage('Partido no disponible');return}
+ if(t==='historia'){if(!goMode('story'))showMessage('Modo historia en desarrollo');return}
+ if(t==='mundo'){if(!goMode('world'))showMessage('Entrenamiento en desarrollo');return}
+ if(t==='noticias'){showMessage('📰 Noticias de esta versión: nuevo menú horizontal, logo rojo y azul y control DualSense.');return}
+ if(t==='evento'){showMessage('🏆 Rivales Eternos: evento ilustrativo; aún no hay desafíos en vivo.');return}
+ const match=(sections[t]||[]).map(s=>document.querySelector(s)).find(Boolean);
+ if(match){close();match.scrollIntoView({block:'center',behavior:'smooth'});}
+ else showMessage('🚧 '+t.toUpperCase()+': próximamente; esta opción todavía no tiene una función completa.');
  }
- requestAnimationFrame(tick);
-}
-focus(0);requestAnimationFrame(tick);
+ hits.forEach((b,i)=>b.addEventListener('click',()=>{selected=i;go(b.dataset.target)}));
+ document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){open();return}
+  if(menu.hidden)return;
+  if(['ArrowRight','ArrowDown'].includes(e.key)){e.preventDefault();focus(selected+1)}
+  if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();focus(selected-1)}
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();hits[selected].click()}
+ });
+ let skipped=false;
+ document.getElementById('rlForceContinue').onclick=()=>{skipped=true;document.getElementById('rlTurnHint').hidden=true};
+ function orientation(){document.getElementById('rlTurnHint').hidden=skipped||innerWidth>innerHeight}
+ addEventListener('resize',orientation);orientation();
+ document.getElementById('rlPlayFullscreen').onclick=async()=>{
+  try{await document.getElementById('rlExactStage').requestFullscreen?.();}
+  catch(e){showMessage('En Safari, agregá el juego a la pantalla de inicio para una experiencia más amplia.')}
+  try{await screen.orientation?.lock?.('landscape')}catch(e){}
+ };
+ const reopen=document.createElement('button');reopen.textContent='☰ MENÚ';reopen.id='rlReopenMenu';reopen.setAttribute('aria-label','Abrir menú');
+ reopen.style.cssText='position:fixed;top:8px;left:8px;z-index:10025;color:white;background:#071b37;border:2px solid #36a7ff;border-radius:6px;padding:8px';
+ reopen.onclick=open;document.body.appendChild(reopen);
+ function loop(){
+  if(!menu.hidden&&!msg.hidden&&Date.now()-lastMessage>5500)msg.hidden=true;
+  const pad=Array.from(navigator.getGamepads?.()||[]).find(Boolean);
+  if(pad){
+   const b=i=>!!pad.buttons[i]?.pressed;const dir=(pad.axes[1]>.55||b(13))?1:(pad.axes[1]<-.55||b(12))?-1:0;
+   if(!menu.hidden&&dir&&performance.now()-lastMove>200){focus(selected+dir);lastMove=performance.now()}
+   const now=[b(0),b(1),b(9)];
+   if(now[0]&&!was[0]&&!menu.hidden)hits[selected].click();
+   if(now[1]&&!was[1]){if(menu.hidden)open();else close()}
+   if(now[2]&&!was[2]){if(menu.hidden)open();else go('partido')}
+   was=now;
+  }
+  requestAnimationFrame(loop);
+ }
+ requestAnimationFrame(loop);
 })();
 </script>
+
 </body></html>
