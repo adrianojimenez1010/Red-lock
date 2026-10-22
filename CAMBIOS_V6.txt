@@ -1,0 +1,9 @@
+RED LOCK ULTIMATE V6 - CORRECCIONES
+- Menú y HUD adaptados a pantalla horizontal de móvil
+- Detección y botones DualSense corregidos (X pase, O tiro, triángulo tiro elevado, cuadrado cambiar, R1 EGO, R2 correr, Options salir)
+- Oculta controles táctiles automáticamente al detectar mando
+- Tiro elevado con parábola simple y rebote; pelota libre, tiro mal apuntado no auto-marca
+- Modo penales con punto de lanzamiento y pelota libre tras fallar
+- Fondo clásico rojo y azul conservado
+ATENCIÓN: La pantalla completa del iPhone depende de Safari/PWA. No se ha probado físicamente un control DualSense. El multijugador sincronizado todavía no está disponible.
+Para publicar: subí TODOS los archivos del ZIP a GitHub, rama main.

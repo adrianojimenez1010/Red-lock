@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#03091b"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>RED LOCK ULTIMATE — Equipo Completo V5</title>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#03091b"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>RED LOCK ULTIMATE V6 — Tiros elevados y penales</title>
 <style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#030611;color:#fff;font-family:system-ui,Arial,sans-serif;overflow:hidden;touch-action:none}button,input,select{font:inherit}button{cursor:pointer;color:white}.hidden{display:none!important}
 #app{position:fixed;inset:0;display:flex;flex-direction:column;background:radial-gradient(ellipse at 25% 50%,#370d29 0,transparent 48%),radial-gradient(ellipse at 70% 45%,#072e79 0,transparent 48%),#040917}.bar{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:7px 14px;border-bottom:1px solid #309cf5;background:#040b1be9;flex-shrink:0}.bar h1{font-size:clamp(14px,2vw,22px);margin:0;font-weight:1000}.bar small{color:#a5c3e9}.bar button,.pill{border:1px solid #427dca;background:#0b2249;border-radius:7px;padding:8px 12px}.bar button:focus-visible,.tile:focus-visible,.option:focus-visible{outline:3px solid #ffcf54}
@@ -39,7 +39,20 @@ body.using-gamepad #touchControls,body.using-gamepad #joybase,body.using-gamepad
 .ult-face.chosen{outline:2px solid #ffe579!important}
 @media(max-height:550px){.roster-card img{height:160px}}
 </style>
-</head><body>
+<style id="fixesV6">
+/* Use the full safe viewport, avoiding clipped UI on narrow phones. */
+#app{height:100dvh;width:100vw;inset:0;overflow:hidden}
+#dashboard.ultimate-lobby{width:min(100%,calc((100dvh - 42px)*1.77586));height:min(100%,calc(100vw/1.77586));max-width:100vw;max-height:100%;border:0;background-size:100% 100%!important}
+.ult-masthead{font-size:clamp(8px,1.15vw,16px)}.ult-game{font-size:clamp(10px,2.1vw,32px)}
+.ult-left .ult-primary{font-size:clamp(10px,1.65vw,23px)!important;padding:clamp(3px,.35vw,7px)!important}
+.ult-left button,.ult-right button,.ult-footer button{font-size:clamp(8px,1vw,14px)!important;padding:clamp(3px,.38vw,7px)!important;line-height:1.12}
+#match{min-height:0}#scoreHud{font-size:clamp(11px,1.4vw,17px);padding:4px 9px}
+#joyBase{width:clamp(72px,15vh,108px);height:clamp(72px,15vh,108px)}.action{width:clamp(47px,10vh,68px);height:clamp(47px,10vh,68px);font-size:clamp(9px,1.5vh,12px)}
+.action[data-action=lob]{right:17%;bottom:39%;background:#226eacdf}
+#tip{top:14%;font-size:clamp(9px,1.6vh,13px)}
+body.using-gamepad #joyBase,body.using-gamepad .action,body.using-gamepad #joyEdit{display:none!important}
+@media(max-height:460px){.bar{padding:2px 7px}.bar h1{font-size:12px}.bar small{display:none}.bar button{padding:4px 7px;font-size:11px}.ult-resources{top:9%;height:8%}.ult-hero{top:17%;height:66%}.ult-right{top:12%;height:68%}#matchButtons button{padding:4px;font-size:10px}}
+</style></head><body>
 <div id="turn"><div><div style="font-size:42px">📱 ↻ 🎮</div><h2>¡Giralo en horizontal!</h2><p>Desactivá el bloqueo de rotación de tu iPhone para disfrutar todo el juego.</p><button id="turnContinue">Continuar de todas formas</button></div></div>
 <div id="app"><header class="bar"><button id="back">☰ MENÚ</button><div><h1>🔴 RED LOCK <span style="color:#4db9ff">ULTIMATE</span></h1><small id="where">FÚTBOL LIBRE • TEMPORADA EGO</small></div><button type="button" class="pill" id="coinOpen">🪙 <span id="money">1250</span> ▸</button><button id="full">⛶ Pantalla</button></header>
 <div id="home"><div id="dashboard" class="ultimate-lobby">
@@ -49,7 +62,7 @@ body.using-gamepad #touchControls,body.using-gamepad #joybase,body.using-gamepad
  <div class="ult-footer"><button data-ult="rapido">⚽ PARTIDO RÁPIDO</button><button data-ult="historia">📖 HISTORIA</button><button data-ult="minijuegos">🎮 MINIJUEGOS</button><button data-ult="torneos">🏆 TORNEOS</button><button data-ult="tienda">🛒 TIENDA</button><button data-ult="config">⚙️ AJUSTES</button></div>
  </div></div>
 <section id="page"><div class="pageBody" id="pageBody"></div></section>
-<section id="match"><canvas id="pitch" aria-label="Campo de fútbol con pelota física y jugadores"></canvas><div id="scoreHud">RED 0 : 0 AZUL • 00:00</div><div id="matchButtons"><button id="exitMatch">← Salir</button><button id="joyEdit">✥ Mover controles</button></div><div id="tip">Movete con el joystick • PASAR • TIRAR • EGO</div><div id="joyBase"><div id="joyKnob"></div></div><button class="action" data-action="shoot" id="shoot">TIRAR</button><button class="action" data-action="pass" id="pass">PASAR</button><button class="action" data-action="switch" id="switch">CAMBIAR</button><button class="action" data-action="sprint" id="sprint">CORRER</button><button class="action" data-action="ego" id="ego">EGO</button></section>
+<section id="match"><canvas id="pitch" aria-label="Campo de fútbol con pelota física y jugadores"></canvas><div id="scoreHud">RED 0 : 0 AZUL • 00:00</div><div id="matchButtons"><button id="exitMatch">← Salir</button><button id="joyEdit">✥ Mover controles</button></div><div id="tip">Movete con el joystick • PASAR • TIRAR • EGO</div><div id="joyBase"><div id="joyKnob"></div></div><button class="action" data-action="shoot" id="shoot">TIRAR</button><button class="action" data-action="pass" id="pass">PASAR</button><button class="action" data-action="lob" id="lob">ALTO △</button><button class="action" data-action="switch" id="switch">CAMBIAR</button><button class="action" data-action="sprint" id="sprint">CORRER</button><button class="action" data-action="ego" id="ego">EGO</button></section>
 </div>
 <script>
 'use strict';
@@ -114,16 +127,23 @@ $('turnContinue').onclick=()=>$('turn').classList.add('dismissed');
 // Independent movement and collisions: all modes share the same engine.
 const canvas=$('pitch'),ctx=canvas.getContext('2d');let tickPrev=0,lastMessage=0,tipText='';
 function player(x,y,team,num,goalie=false){return{x,y,vx:0,vy:0,team,num,goalie,r:goalie?18:17,energy:100,skill:0}}
-function resetBall(s,side=0){s.ball={x:W/2+(side?side*65:0),y:H/2,vx:0,vy:0,r:11,spin:0};s.lastTouch=-1;}
+function resetBall(s,side=0){s.ball={x:W/2+(side?side*65:0),y:H/2,vx:0,vy:0,r:11,spin:0,z:0,vz:0};s.lastTouch=-1;}
 function setupPlayers(s){s.players=[];s.players.push(player(280,345,0,10));s.players.push(player(210,210,0,7));s.players.push(player(210,480,0,8));s.players.push(player(98,345,0,1,true));s.players.push(player(870,345,1,10));s.players.push(player(975,220,1,7));s.players.push(player(975,470,1,8));s.players.push(player(1100,345,1,1,true));if(s.mode==='uno')s.players=s.players.filter(p=>p.num===10||p.goalie);s.me=s.players.findIndex(p=>p.team===0&&!p.goalie);}
-function startMatch(mode='rapido',difficulty){home();const diff=difficulty||load('rldifficulty3','normal');match={mode,diff,players:[],ball:null,me:0,goals:[0,0],clock:0,end:mode==='entrenar'?9999:mode==='penales'?85:mode==='tiros'?120:mode==='dominadas'?80:mode==='regates'?95:170,score:0,ego:0,goalPause:0,consecutive:0,online:false,saved:false};setupPlayers(match);resetBall(match);$('home').classList.add('hidden');$('match').classList.add('active');$('where').textContent=mode.toUpperCase();$('tip').textContent='Pelota libre: pateá, pasá, defendé y aprovechá los rebotes';$('scoreHud').textContent='RED 0 : 0 AZUL';$('joyEdit').textContent='✥ Mover controles';ctrlEdit=false;$('match').classList.remove('edit-controls');applyCtrlPositions();tickPrev=performance.now();cancelAnimationFrame(matchAnim);matchAnim=requestAnimationFrame(frame);}
+function startMatch(mode='rapido',difficulty){home();const diff=difficulty||load('rldifficulty3','normal');match={mode,diff,players:[],ball:null,me:0,goals:[0,0],clock:0,end:mode==='entrenar'?9999:mode==='penales'?85:mode==='tiros'?120:mode==='dominadas'?80:mode==='regates'?95:170,score:0,ego:0,goalPause:0,consecutive:0,online:false,saved:false};setupPlayers(match);resetBall(match);if(mode==='penales'){match.end=130;match.ball.x=950;match.ball.y=H/2;const striker=match.players.find(p=>p.team===0&&!p.goalie);striker.x=905;striker.y=H/2;match.me=match.players.indexOf(striker);match.players.filter(p=>!p.goalie&&p!==striker).forEach((p,i)=>{p.x=p.team===1?790:340;p.y=90+i*50});$('tip').textContent='PENALES: apuntá con el stick y tirá. Si fallás, la pelota queda suelta.';} $('home').classList.add('hidden');$('match').classList.add('active');$('where').textContent=mode.toUpperCase();$('tip').textContent=mode==='penales'?'PENALES: apuntá con el stick y tirá. Si fallás, la pelota queda suelta.':'Pelota libre: apuntá con el stick. △ tiro elevado; si fallás, la pelota sigue suelta.';$('scoreHud').textContent='RED 0 : 0 AZUL';$('joyEdit').textContent='✥ Mover controles';ctrlEdit=false;$('match').classList.remove('edit-controls');applyCtrlPositions();tickPrev=performance.now();cancelAnimationFrame(matchAnim);matchAnim=requestAnimationFrame(frame);}
 function stopMatch(){if(match&&!match.saved&&match.clock>5){award(match)}match=null;cancelAnimationFrame(matchAnim);home()}
 function award(s){s.saved=true;let won=s.goals[0]>s.goals[1]||s.score>=3,coins=won?100:25;currency+=coins;save('redcoins3',currency);$('money').textContent=currency;refreshLobby();if(s.mode==='ranked'){rank+=won?25:-15;rank=Math.max(0,rank);save('redrank3',rank)}if(s.mode==='entrenar'&&s.clock>20){training=Math.min(10,training+1);save('redtraining3',training)} }
 function vecTo(a,b){let dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1;return{dx:dx/d,dy:dy/d,d}}
-function kick(p,power,target=null){const b=match.ball,v=vecTo(p,target||{x:p.team===0?W:0,y:H/2});if(Math.hypot(b.x-p.x,b.y-p.y)>63)return false;b.vx=v.dx*power+p.vx*.3;b.vy=v.dy*power+p.vy*.3;b.spin=(Math.random()-.5)*.18;match.lastTouch=p.team;return true}
+function kick(p,power,target=null){const b=match.ball,v=vecTo(p,target||{x:p.team===0?W:0,y:H/2});if(Math.hypot(b.x-p.x,b.y-p.y)>63)return false;b.vx=v.dx*power+p.vx*.3;b.vy=v.dy*power+p.vy*.3;b.spin=(Math.random()-.5)*.12;b.z=Math.max(0,b.z||0);if(!b.vz)b.vz=0;match.lastTouch=p.team;return true}
 function kickTarget(type){if(!match||ctrlEdit)return;const s=match,p=s.players[s.me],b=s.ball;if(type==='switch'){const candidates=s.players.map((p,i)=>({...p,i})).filter(x=>x.team===0&&!x.goalie);candidates.sort((a,b)=>Math.hypot(a.x-b.x,a.y-b.y)-Math.hypot(b.x-b.x,b.y-b.y));s.me=candidates[(candidates.findIndex(x=>x.i===s.me)+1)%candidates.length].i;return}
 if(type==='ego'){s.ego=8;showTip('⚡ MODO EGO ACTIVADO');return}
-if(type==='shoot'){let spread={easy:0.30,normal:.42,hard:.57,extreme:.68}[s.diff];return kick(p,600+training*6,{x:W+20,y:H/2+(Math.random()-.5)*120*spread})}
+if(type==='shoot'||type==='lob'){
+// Aim follows the player's joystick, rather than always auto-targeting the goal.
+ const ax=joy.x,ay=joy.y,aiming=Math.hypot(ax,ay)>.22;
+ const target=aiming?{x:p.x+ax*750,y:p.y+ay*750}:{x:W+20,y:H/2};
+ const ok=kick(p,type==='lob'?425:510+training*5,target);
+ if(ok){b.vz=type==='lob'?330:0;b.z=type==='lob'?3:0;showTip(type==='lob'?'🌈 ¡TIRO ELEVADO!':'⚽ ¡DISPARO!');}
+ return ok;
+ }
 if(type==='pass'){const other=s.players.filter(x=>x.team===0&&x!==p&&!x.goalie).sort((a,b)=>vecTo(p,a).d-vecTo(p,b).d)[0];return kick(p,385,other||{x:p.x+250,y:p.y})}
 }
 function showTip(t){tipText=t;lastMessage=performance.now();$('tip').textContent=t}
@@ -133,12 +153,12 @@ let p=s.players[s.me],movx=joy.x+(keys.has('a')||keys.has('arrowleft')?-1:0)+(ke
 const rivalSpeed={easy:82,normal:125,hard:165,extreme:196}[s.diff];for(let i=0;i<s.players.length;i++){const q=s.players[i];if(i!==s.me){if(q.goalie){const gx=q.team===0?76:1124,qy=clamp(b.y,255,435);q.vx=clamp((gx-q.x)*3,-135,135);q.vy=clamp((qy-q.y)*3,-(rivalSpeed+80),(rivalSpeed+80))}else{let aim=q.team===1?b:{x:q.num===7?clamp(b.x-55,160,950):clamp(b.x-150,120,920),y:q.num===7?clamp(b.y-55,80,610):clamp(b.y+110,80,610)};const v=vecTo(q,aim),speed=q.team===1?rivalSpeed:135;if(v.d>38){q.vx=v.dx*speed;q.vy=v.dy*speed}else{q.vx*=.6;q.vy*=.6}}}
 q.x=clamp(q.x+q.vx*dt,48,W-48);q.y=clamp(q.y+q.vy*dt,45,H-45)}
 // A physical free ball: independent velocity, rolling friction, wall rebounds and collisions.
-b.vx+=b.spin*b.vy*dt;b.vy-=b.spin*b.vx*dt;let friction=Math.pow(.987,dt*60);b.vx*=friction;b.vy*=friction;b.x+=b.vx*dt;b.y+=b.vy*dt;
+b.vx+=b.spin*b.vy*dt;b.vy-=b.spin*b.vx*dt;b.z=Math.max(0,(b.z||0)+(b.vz||0)*dt);b.vz=(b.vz||0)-710*dt;if(b.z===0){if(b.vz < -95)b.vz=-b.vz*.28;else b.vz=0}let friction=Math.pow(b.z>0?.997:.987,dt*60);b.vx*=friction;b.vy*=friction;b.x+=b.vx*dt;b.y+=b.vy*dt;
 if(b.y<b.r+25){b.y=b.r+25;b.vy=Math.abs(b.vy)*.75;b.spin*=-.5}if(b.y>H-b.r-25){b.y=H-b.r-25;b.vy=-Math.abs(b.vy)*.75;b.spin*=-.5}
-if(b.x<35||b.x>W-35){const right=b.x>W/2,goal=b.y>H/2-86&&b.y<H/2+86;if(goal){s.goals[right?0:1]++;if(right){showTip('¡¡GOOOOL RED LOCK!! 🔥');currency+=30;save('redcoins3',currency);$('money').textContent=currency;}else showTip('Gol del rival. ¡Defendé!');resetBall(s,right?-1:1);s.goalPause=1.2}else{b.x=clamp(b.x,36,W-36);b.vx*=-.7}}
-for(let i=0;i<s.players.length;i++){const q=s.players[i],d=distance(q,b),min=q.r+b.r;if(d<min){let nx=(b.x-q.x)/(d||1),ny=(b.y-q.y)/(d||1);b.x=q.x+nx*(min+.5);b.y=q.y+ny*(min+.5);let overlapSpeed=Math.max(55,Math.hypot(q.vx,q.vy));b.vx+=nx*overlapSpeed*.8+q.vx*.17;b.vy+=ny*overlapSpeed*.8+q.vy*.17;s.lastTouch=q.team;
+if(b.x<35||b.x>W-35){const right=b.x>W/2,goal=b.y>H/2-86&&b.y<H/2+86;if(goal&&b.z<65){s.goals[right?0:1]++;if(right){showTip('¡¡GOOOOL RED LOCK!! 🔥');currency+=30;save('redcoins3',currency);$('money').textContent=currency;}else showTip('Gol del rival. ¡Defendé!');resetBall(s,right?-1:1);if(s.mode==='penales'){s.ball.x=950;s.ball.y=H/2;let striker=s.players[s.me];striker.x=905;striker.y=H/2;}s.goalPause=1.2}else{b.x=clamp(b.x,36,W-36);b.vx*=-.7}}
+for(let i=0;i<s.players.length;i++){const q=s.players[i],d=distance(q,b),min=q.r+b.r;if(d<min&&b.z<42){let nx=(b.x-q.x)/(d||1),ny=(b.y-q.y)/(d||1);b.x=q.x+nx*(min+.5);b.y=q.y+ny*(min+.5);let overlapSpeed=Math.max(55,Math.hypot(q.vx,q.vy));b.vx+=nx*overlapSpeed*.8+q.vx*.17;b.vy+=ny*overlapSpeed*.8+q.vy*.17;s.lastTouch=q.team;
 if(q.team===1&&!q.goalie&&distance(q,b)<31&&Math.random()<dt*1.9){kick(q,420,{x:0,y:H/2+(Math.random()-.5)*180})}
-if(q.goalie){b.vx=(q.team===0?1:-1)*Math.max(330,Math.abs(b.vx)*.9);b.vy=(b.y-H/2)*2.4+(Math.random()-.5)*130;showTip('🧤 ¡ATAJADA!')}}}
+if(q.goalie){b.vz=145;b.vx=(q.team===0?1:-1)*Math.max(330,Math.abs(b.vx)*.9);b.vy=(b.y-H/2)*2.4+(Math.random()-.5)*130;showTip('🧤 ¡ATAJADA!')}}}
 // Harder shots: keepers read the ball, defenders are active and the goal is narrow.
 if(s.mode==='regates'&&p.x>1035){s.score++;p.x=165;b.x=215;b.y=H/2;showTip('⚡ REGATE COMPLETADO +1')}
 if(s.mode==='dominadas'&&distance(p,b)<52&&b.y>90){s.consecutive+=dt;if(s.consecutive>4){s.score++;s.consecutive=0;showTip('⚽ CONTROL PERFECTO +1')}}else s.consecutive=0;
@@ -148,16 +168,41 @@ $('scoreHud').textContent=`RED ${s.goals[0]} : ${s.goals[1]} AZUL • ${Math.flo
 function draw(){const s=match;if(!s)return;let canvasRect=canvas.getBoundingClientRect();let ratio=Math.min(devicePixelRatio||1,2),w=Math.round(canvasRect.width*ratio),h=Math.round(canvasRect.height*ratio);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h}const scale=Math.min(w/W,h/H),offX=(w-W*scale)/2,offY=(h-H*scale)/2;ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,w,h);ctx.fillStyle='#021528';ctx.fillRect(0,0,w,h);ctx.translate(offX,offY);ctx.scale(scale,scale);
 ctx.fillStyle='#18793a';ctx.fillRect(25,25,W-50,H-50);for(let i=0;i<9;i++){ctx.fillStyle=i%2?'#0e622e':'#248544';ctx.fillRect(30+i*(W-60)/9,30,(W-60)/9,H-60)}ctx.strokeStyle='#effff8';ctx.lineWidth=3;ctx.strokeRect(35,25,W-70,H-50);ctx.beginPath();ctx.moveTo(W/2,25);ctx.lineTo(W/2,H-25);ctx.stroke();ctx.beginPath();ctx.arc(W/2,H/2,85,0,Math.PI*2);ctx.stroke();ctx.strokeRect(35,205,180,280);ctx.strokeRect(W-215,205,180,280);ctx.strokeRect(35,264,72,162);ctx.strokeRect(W-107,264,72,162);ctx.strokeStyle='#a8eaff';ctx.lineWidth=7;ctx.strokeRect(20,H/2-86,16,172);ctx.strokeRect(W-36,H/2-86,16,172);
 for(const [i,p] of s.players.entries()){const me=i===s.me;ctx.fillStyle='#0009';ctx.beginPath();ctx.ellipse(p.x,p.y+12,20,9,0,0,Math.PI*2);ctx.fill();ctx.fillStyle=p.team===0?'#e84054':'#2688f5';ctx.strokeStyle=me?'#ffe650':'white';ctx.lineWidth=me?5:2;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='white';ctx.font='bold 15px Arial';ctx.textAlign='center';ctx.fillText(p.goalie?'G':String(p.num),p.x,p.y+5);if(me){ctx.fillStyle=s.ego>0?'#fdbe35':'#fcf6b2';ctx.font='bold 15px Arial';ctx.fillText(nick,p.x,p.y-29);if(s.ego>0){ctx.strokeStyle='#ffd500';ctx.lineWidth=3;ctx.beginPath();ctx.arc(p.x,p.y,27+Math.sin(performance.now()*.01)*3,0,7);ctx.stroke()}}}
-const b=s.ball;ctx.fillStyle='#0008';ctx.beginPath();ctx.ellipse(b.x,b.y+9,14,7,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='white';ctx.strokeStyle='#1b2030';ctx.lineWidth=3;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,7);ctx.fill();ctx.stroke();ctx.fillStyle='#1f2e50';ctx.beginPath();ctx.arc(b.x,b.y,4,0,7);ctx.fill();}
+const b=s.ball;ctx.fillStyle='#0008';ctx.beginPath();ctx.ellipse(b.x,b.y+9,14,7,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='white';ctx.strokeStyle='#1b2030';ctx.lineWidth=3;ctx.beginPath();ctx.arc(b.x,b.y-b.z*.60,b.r*(1+Math.min(.5,b.z/250)),0,7);ctx.fill();ctx.stroke();ctx.fillStyle='#1f2e50';ctx.beginPath();ctx.arc(b.x,b.y-b.z*.60,4,0,7);ctx.fill();}
 function frame(t){if(!match)return;let delta=clamp((t-tickPrev)/1000,0,.035);tickPrev=t;update(delta);draw();matchAnim=requestAnimationFrame(frame)}
 let sprintTouch=false;const joybase=$('joyBase'),knob=$('joyKnob');
 function ctrlDrag(el,point){const m=$('match').getBoundingClientRect();let x=clamp(point.clientX-m.x-el.offsetWidth/2,0,m.width-el.offsetWidth),y=clamp(point.clientY-m.y-el.offsetHeight/2,0,m.height-el.offsetHeight);el.style.left=(x/m.width*100)+'%';el.style.top=(y/m.height*100)+'%';el.style.right='auto';el.style.bottom='auto';ctrlPositions[el.id]={x:x/m.width,y:y/m.height};}
-function applyCtrlPositions(){for(let id of ['joyBase','shoot','pass','switch','sprint','ego']){let p=ctrlPositions[id],el=$(id);if(p){el.style.left=(p.x*100)+'%';el.style.top=(p.y*100)+'%';el.style.right='auto';el.style.bottom='auto'}}}
+function applyCtrlPositions(){for(let id of ['joyBase','shoot','pass','lob','switch','sprint','ego']){let p=ctrlPositions[id],el=$(id);if(p){el.style.left=(p.x*100)+'%';el.style.top=(p.y*100)+'%';el.style.right='auto';el.style.bottom='auto'}}}
 $('joyEdit').onclick=()=>{ctrlEdit=!ctrlEdit;$('match').classList.toggle('edit-controls',ctrlEdit);$('joyEdit').textContent=ctrlEdit?'✅ Guardar posiciones':'✥ Mover controles';if(!ctrlEdit){save('redcontrols3',ctrlPositions);showTip('Controles guardados para todos los modos')}};
 for(const el of [joybase,...document.querySelectorAll('.action')]){el.addEventListener('pointerdown',e=>{e.preventDefault();el.setPointerCapture(e.pointerId);dragging=el;if(ctrlEdit){ctrlDrag(el,e);return}if(el===joybase){moveJoy(e)}else if(el.dataset.action==='sprint')sprintTouch=true;else kickTarget(el.dataset.action)});el.addEventListener('pointermove',e=>{if(dragging!==el)return;if(ctrlEdit)ctrlDrag(el,e);else if(el===joybase)moveJoy(e)});const done=()=>{if(dragging===el){dragging=null;if(el===joybase){joy={x:0,y:0};knob.style.transform='translate(0,0)'}if(el.dataset.action==='sprint')sprintTouch=false}};el.addEventListener('pointerup',done);el.addEventListener('pointercancel',done)}
 function moveJoy(e){const r=joybase.getBoundingClientRect(),cx=r.x+r.width/2,cy=r.y+r.height/2,dx=e.clientX-cx,dy=e.clientY-cy,d=Math.max(1,Math.hypot(dx,dy)),size=Math.min(1,d/(r.width*.39));joy={x:dx/d*size,y:dy/d*size};knob.style.transform=`translate(${joy.x*r.width*.30}px,${joy.y*r.width*.30}px)`;}
-addEventListener('keydown',e=>{if([' ','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key))e.preventDefault();const k=e.key.toLowerCase();keys.add(k);if(match){if(!e.repeat){if(k==='j')kickTarget('pass');if(k==='k'||k===' ')kickTarget('shoot');if(k==='q')kickTarget('switch');if(k==='e')kickTarget('ego');if(k==='escape')stopMatch()}}else if(currentPage==='inicio'){if(k==='arrowright'||k==='arrowdown')choose(selected+1);if(k==='arrowleft'||k==='arrowup')choose(selected-1);if(k==='enter')hotspots[selected].click()}else if(k==='escape')home()});addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));
-function pollGamepad(){const p=Array.from(navigator.getGamepads?.()||[]).find(Boolean);document.body.classList.toggle('using-gamepad',!!p);if(p){let now=[0,1,2,3,9,12,13,14,15].map(i=>!!p.buttons[i]?.pressed);let pressed=i=>now[i]&&!gamepadWas[i];if(match){if(!dragging){joy.x=Math.abs(p.axes[0])>.17?p.axes[0]:0;joy.y=Math.abs(p.axes[1])>.17?p.axes[1]:0;}sprintTouch=!!p.buttons[7]?.pressed;if(pressed(0))kickTarget('pass');if(pressed(1))kickTarget('shoot');if(pressed(2))kickTarget('switch');if(pressed(3))kickTarget('ego');if(pressed(4))stopMatch();}else if(currentPage==='inicio'){if(pressed(5)||pressed(7))choose(selected+1);if(pressed(6)||pressed(8))choose(selected-1);if(pressed(0))hotspots[selected].click()}else if(pressed(1))home();gamepadWas=now;}requestAnimationFrame(pollGamepad)}requestAnimationFrame(pollGamepad);
+addEventListener('keydown',e=>{if([' ','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key))e.preventDefault();const k=e.key.toLowerCase();keys.add(k);if(match){if(!e.repeat){if(k==='j')kickTarget('pass');if(k==='k'||k===' ')kickTarget('shoot');if(k==='l')kickTarget('lob');if(k==='q')kickTarget('switch');if(k==='e')kickTarget('ego');if(k==='escape')stopMatch()}}else if(currentPage==='inicio'){if(k==='arrowright'||k==='arrowdown')choose(selected+1);if(k==='arrowleft'||k==='arrowup')choose(selected-1);if(k==='enter')hotspots[selected].click()}else if(k==='escape')home()});addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));
+let padNavAt=0;
+function pollGamepad(){
+ const pads=navigator.getGamepads?.()||[],p=Array.from(pads).find(x=>x&&x.connected);
+ document.body.classList.toggle('using-gamepad',!!p);
+ if(p){
+  const b=i=>!!p.buttons[i]?.pressed, prev=i=>!!gamepadWas[i], just=i=>b(i)&&!prev(i);
+  if(match){
+   joy.x=Math.abs(p.axes?.[0]||0)>.17?p.axes[0]:0;
+   joy.y=Math.abs(p.axes?.[1]||0)>.17?p.axes[1]:0;
+   sprintTouch=b(7);
+   if(just(0))kickTarget('pass');
+   if(just(1))kickTarget('shoot');
+   if(just(3))kickTarget('lob');
+   if(just(2))kickTarget('switch');
+   if(just(5))kickTarget('ego');
+   if(just(9))stopMatch();
+  }else if(currentPage==='inicio'){
+   const axis=p.axes?.[1]||0,nav=axis>.6||b(13)?1:axis<-.6||b(12)?-1:0;
+   if(nav&&performance.now()-padNavAt>220){choose(selected+nav);padNavAt=performance.now()}
+   if(just(0))hotspots[selected]?.click();
+  }else if(just(1)||just(9))home();
+  gamepadWas=p.buttons.map(v=>!!v.pressed);
+ }else{gamepadWas=[];sprintTouch=false}
+ requestAnimationFrame(pollGamepad);
+}
+requestAnimationFrame(pollGamepad);
 // Multiplayer status: URL is configurable. This client does not fake a public online server.
 let socket=null;function connectOnline(){const url=$('serverUrl')?.value.trim(),room=($('roomCode')?.value||'SALA1').toUpperCase();if(!/^wss?:\/\//.test(url||'')){$('onlineInfo').textContent='Escribí una dirección WebSocket válida (wss://...)';return}save('rlserver3',url);if(socket)socket.close();try{socket=new WebSocket(url);$('onlineInfo').textContent='Conectando al servidor…';socket.onopen=()=>{socket.send(JSON.stringify({type:'join',room,name:nick}));$('onlineInfo').textContent='Conectado. Esperando jugadores…'};socket.onmessage=e=>{try{let msg=JSON.parse(e.data);if(msg.type==='state')$('onlineInfo').textContent=`Sala ${room} · ${msg.players.length}/8 personas conectadas`;if(msg.type==='error')$('onlineInfo').textContent=msg.message;if(msg.type==='welcome')$('onlineInfo').textContent='Conexión establecida con servidor de salas'}catch(x){}};socket.onerror=()=>{$('onlineInfo').textContent='No se pudo conectar. Verificá si el servidor está publicado'};socket.onclose=()=>{let el=$('onlineInfo');if(el)el.textContent='Desconectado del servidor'}}catch(e){$('onlineInfo').textContent='Servidor inválido'}}
 home();
