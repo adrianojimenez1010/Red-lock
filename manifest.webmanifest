@@ -1,0 +1,16 @@
+{
+  "name": "RED LOCK UNIVERSO",
+  "short_name": "RED LOCK",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07152c",
+  "theme_color": "#07152c",
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

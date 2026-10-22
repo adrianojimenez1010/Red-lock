@@ -1,8 +1,55 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>RED LOCK 2 — Mundo Ego</title><style>
+<!doctype html><html lang="es"><head><meta name="theme-color" content="#07152c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="RED LOCK UNIVERSO"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="512x512" href="icon-512.png"><link rel="manifest" href="manifest.webmanifest"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>RED LOCK UNIVERSO — Temporada EGO</title><style>
 *{box-sizing:border-box}body{margin:0;background:#091225;color:#fff;font:14px system-ui,Arial}.wrap{max-width:900px;margin:auto;padding:12px}h1{margin:0;color:#ff587b;letter-spacing:2px}button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;color:white;background:#263e64;border:1px solid #5b79a1;border-radius:9px;padding:10px;font-weight:750;cursor:pointer}button.active{background:#b62450}.scene-box{animation:pop .55s ease-out;background:#16243de8;padding:20px;border-radius:14px;border:2px solid #e74779;max-width:360px}.scene-box #sceneactor{animation:bob 1.3s ease-in-out infinite alternate}@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}@keyframes bob{from{transform:translateY(8px) rotate(-6deg)}to{transform:translateY(-12px) rotate(5deg)}}button:disabled{opacity:.5}.row{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:9px 0}.panel{background:#172941;padding:11px;border-radius:11px;margin:10px 0}.small{font-size:12px;color:#bed0e8}.game{position:relative}canvas{width:100%;aspect-ratio:16/9;display:block;border-radius:10px;border:2px solid #50799b;touch-action:none}.overlay{position:absolute;inset:0;background:#07152ce8;display:grid;place-items:center;text-align:center;padding:15px;border-radius:10px}.hidden{display:none}.controls{display:flex;align-items:center;gap:12px}.stick{width:112px;height:112px;border:2px solid #9dd5ff;background:#21395b;border-radius:50%;position:relative;touch-action:none;flex-shrink:0}.nub{width:40px;height:40px;border-radius:50%;background:#65c5ff;position:absolute;top:34px;left:34px;pointer-events:none}.buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;flex:1}.shop{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.item{padding:10px;border-radius:9px;background:#223653}.item button{width:100%}#roster button{font-size:12px}.hud{display:flex;justify-content:space-between;align-items:center}#notice{color:#ffe29a;min-height:20px}#dialog{padding:8px;border-left:3px solid #ff658e;background:#0c1b30}#storybox{display:block}@media(max-width:420px){button{padding:9px 5px;font-size:11px}.wrap{padding:8px}.stick{width:100px;height:100px}.nub{top:29px;left:29px}.buttons{gap:4px}}
-</style></head><body><main class="wrap"><div class="hud"><div><h1>🔴 RED LOCK 2</h1><span class="small">EGO ARENA · Mundo abierto y misiones</span></div><strong>🪙 <span id="coins">100</span></strong></div><div class="row" id="modes"><button data-mode="world">🌍 Mundo abierto</button><button data-mode="story" class="active">📖 Historia</button><button data-mode="match">🏆 Partido</button><button data-mode="sandbox">🛠 Sandbox</button><button data-mode="local">🎮 2 jugadores</button></div><section class="panel" id="storybox"><b id="chapter">Capítulo 1</b><p id="mission" class="small"></p><div id="dialog"></div><button id="next" style="margin-top:7px">💬 Siguiente diálogo</button><button id="cutscene" style="margin-top:7px">🎬 Ver escena animada</button></section><section class="panel"><b>👥 Personajes</b><div class="row" id="roster"></div><p id="stats" class="small"></p></section><div class="hud"><strong id="score" style="font-size:23px">0 — 0</strong><b id="timer">01:30</b><button id="pause">⏸ Pausa</button></div><div id="worldhelp" class="panel" style="display:none"><b>🌍 Ciudad RED LOCK</b><p class="small">Caminá con el joystick. Acercate a un personaje y tocá HABLAR para aceptar misiones. Ganá monedas explorando y cumpliendo desafíos.</p><b id="worldquest">Misión: visitá al entrenador</b><p id="worlddistance" class="small"></p><button id="worldtalk">💬 HABLAR / INTERACTUAR</button><button id="worldmatch">⚽ IR AL ESTADIO</button><button id="gymtrain">🏋️ ENTRENAR</button><button id="gymmission">🎯 MISIÓN DEL GIMNASIO</button><p class="small" id="gymstatus">🏋️ Gimnasio al sureste de la ciudad. Acercate para entrenar.</p></div><div class="game"><canvas id="field" width="768" height="432"></canvas><div id="scene" class="overlay hidden" style="z-index:4"><div class="scene-box"><div id="sceneactor" style="font-size:55px">⚡</div><h2 id="scenetitle">RED LOCK</h2><p id="scenetext"></p><button id="sceneclose">▶ Continuar</button></div></div><div id="overlay" class="overlay"><div><h2 id="title">¡RED LOCK!</h2><p id="subtitle">Jugá, ganá monedas y desbloqueá estrellas.</p><button id="start" style="background:#b62450;padding:13px 24px">▶ JUGAR</button></div></div></div><div class="controls"><div id="stick" class="stick"><div id="nub" class="nub"></div></div><div class="buttons"><button id="shoot">⚽ TIRAR</button><button id="pass">↗ PASE</button><button id="steal">🛡 ROBAR</button><button id="skill">⚡ TÉCNICA</button><button id="ego">🔥 EGO</button><button id="sound">🔊</button></div></div><section class="panel"><div id="notice">¡Elegí tu personaje y empezá!</div><div id="meter" class="small">EGO 100%</div><label class="small"><input type="checkbox" id="infinite"> Poderes infinitos en Sandbox</label><p class="small">En mundo abierto: joystick/WASD para caminar, botón TIRAR para interactuar. PC: J1 WASD, F disparar, G técnica, E robar. J2 flechas, K disparar, L robar. Compatible con controles táctiles.</p></section><h2>🛒 TIENDA RED LOCK</h2><div id="shop" class="shop"></div><p class="small">Guardado automático en este navegador. Multijugador local disponible. El online entre dispositivos requiere un servidor y todavía no está implementado.</p></main><script>
+</style><style id="redlock-landscape">
+/* Vista horizontal para pantallas táctiles */
+html{overflow-x:hidden}body{min-width:0}
+canvas{max-width:100%;height:auto}
+@media (orientation:landscape) and (max-height:600px){
+ .wrap{max-width:none;width:100%;padding:6px 10px}
+ .hud{gap:8px}.row{margin:5px 0}
+ .panel{padding:7px;margin:6px 0}
+ .game{width:calc(100% - 188px);float:left}
+ .game canvas{width:100%;max-height:calc(100dvh - 120px);object-fit:contain}
+ .controls{width:180px;float:right;display:flex;flex-direction:column;gap:5px;align-items:center}
+ .stick{width:84px;height:84px}.nub{width:30px;height:30px;top:25px;left:25px}
+ .buttons{grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+ .buttons button{padding:7px 3px;font-size:10px}
+ .controls+section{clear:both}
+ #onlinePanel{clear:both}
+ #onlineField{max-height:65dvh;object-fit:contain}
+}
+@media (orientation:portrait) and (max-width:700px){
+ #landscapeHint{display:block!important}
+}
+#landscapeHint{display:none;text-align:center;background:#1c3659;color:#e7f5ff;padding:8px;border-radius:8px;margin:8px 0;font-size:13px}
+</style></head><body><main class="wrap"><div id="landscapeHint">📱 Girá el teléfono de lado para jugar con la cancha más grande. Si no gira, revisá el bloqueo de orientación.</div><div class="hud"><div><h1>🔴 RED LOCK UNIVERSO</h1><span class="small">EGO ARENA · Mundo abierto y misiones</span></div><strong>🪙 <span id="coins">100</span></strong></div><div class="row" id="modes"><button data-mode="world">🌍 Mundo abierto</button><button data-mode="story" class="active">📖 Historia</button><button data-mode="match">🏆 Partido</button><button data-mode="sandbox">🛠 Sandbox</button><button data-mode="local">🎮 2 jugadores</button></div><section class="panel" id="storybox"><b id="chapter">Capítulo 1</b><p id="mission" class="small"></p><div id="dialog"></div><button id="next" style="margin-top:7px">💬 Siguiente diálogo</button><button id="cutscene" style="margin-top:7px">🎬 Ver escena animada</button></section><section class="panel"><b>👥 Personajes</b><div class="row" id="roster"></div><p id="stats" class="small"></p></section><div class="hud"><strong id="score" style="font-size:23px">0 — 0</strong><b id="timer">01:30</b><button id="pause">⏸ Pausa</button></div><div id="worldhelp" class="panel" style="display:none"><b>🌍 Ciudad RED LOCK</b><p class="small">Caminá con el joystick. Acercate a un personaje y tocá HABLAR para aceptar misiones. Ganá monedas explorando y cumpliendo desafíos.</p><b id="worldquest">Misión: visitá al entrenador</b><p id="worlddistance" class="small"></p><button id="worldtalk">💬 HABLAR / INTERACTUAR</button><button id="worldmatch">⚽ IR AL ESTADIO</button><button id="gymtrain">🏋️ ENTRENAR</button><button id="gymmission">🎯 MISIÓN DEL GIMNASIO</button><p class="small" id="gymstatus">🏋️ Gimnasio al sureste de la ciudad. Acercate para entrenar.</p></div><div class="game"><canvas id="field" width="768" height="432"></canvas><div id="scene" class="overlay hidden" style="z-index:4"><div class="scene-box"><div id="sceneactor" style="font-size:55px">⚡</div><h2 id="scenetitle">RED LOCK</h2><p id="scenetext"></p><button id="sceneclose">▶ Continuar</button></div></div><div id="overlay" class="overlay"><div><h2 id="title">¡RED LOCK!</h2><p id="subtitle">Jugá, ganá monedas y desbloqueá estrellas.</p><button id="start" style="background:#b62450;padding:13px 24px">▶ JUGAR</button></div></div></div><div class="controls"><div id="stick" class="stick"><div id="nub" class="nub"></div></div><div class="buttons"><button id="shoot">⚽ TIRAR</button><button id="pass">↗ PASE</button><button id="steal">🛡 ROBAR</button><button id="skill">⚡ TÉCNICA</button><button id="ego">🔥 EGO</button><button id="sound">🔊</button></div></div><section class="panel"><div id="notice">¡Elegí tu personaje y empezá!</div><div id="meter" class="small">EGO 100%</div><label class="small"><input type="checkbox" id="infinite"> Poderes infinitos en Sandbox</label><p class="small">En mundo abierto: joystick/WASD para caminar, botón TIRAR para interactuar. PC: J1 WASD, F disparar, G técnica, E robar. J2 flechas, K disparar, L robar. Compatible con controles táctiles.</p></section><h2>🛒 TIENDA RED LOCK</h2><div id="shop" class="shop"></div><p class="small">Guardado automático en este navegador. Multijugador local disponible. El online entre dispositivos requiere un servidor y todavía no está implementado.</p></main>
+<script>
+// RED LOCK 2: shared humanoid renderer for the arena, city and online court.
+window.rlHuman=function(ctx,x,y,opt={}){
+ const scale=opt.scale||1,shirt=opt.shirt||'#d43c60',skin=opt.skin||'#d89b73',hair=opt.hair||'#242331',keeper=!!opt.keeper,style=opt.hairStyle||'corto';
+ ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);
+ // Shadow and running pose
+ ctx.fillStyle='#001e2190';ctx.beginPath();ctx.ellipse(0,17,13,4,0,0,Math.PI*2);ctx.fill();
+ ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#1d2941';ctx.lineWidth=5;
+ ctx.beginPath();ctx.moveTo(-5,5);ctx.lineTo(-8,13);ctx.lineTo(-11,16);ctx.moveTo(5,5);ctx.lineTo(9,13);ctx.lineTo(11,16);ctx.stroke();
+ ctx.strokeStyle=skin;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(-8,-7);ctx.lineTo(-13,0);ctx.moveTo(8,-7);ctx.lineTo(13,0);ctx.stroke();
+ if(keeper){ctx.fillStyle='#e8f9ff';for(let k of [-13,13]){ctx.beginPath();ctx.arc(k,0,3.5,0,Math.PI*2);ctx.fill()}}
+ ctx.fillStyle=shirt;ctx.beginPath();ctx.moveTo(-8,-10);ctx.lineTo(8,-10);ctx.lineTo(9,5);ctx.lineTo(-9,5);ctx.closePath();ctx.fill();
+ ctx.fillStyle=skin;ctx.fillRect(-3,-15,6,5);ctx.beginPath();ctx.arc(0,-20,8,0,Math.PI*2);ctx.fill();
+ ctx.fillStyle=hair;ctx.beginPath();
+ if(style==='rapado'){ctx.ellipse(0,-24,7,3,0,Math.PI,Math.PI*2)}
+ else if(style==='largo'){ctx.moveTo(-9,-19);ctx.lineTo(-11,-8);ctx.lineTo(-6,-11);ctx.lineTo(-7,-25);ctx.quadraticCurveTo(0,-34,8,-25);ctx.lineTo(11,-8);ctx.lineTo(7,-11);ctx.lineTo(8,-19);ctx.quadraticCurveTo(0,-28,-9,-19)}
+ else if((style==='puntas'||style==='nube')){ctx.moveTo(-8,-19);ctx.lineTo(-11,-31);ctx.lineTo(-4,-27);ctx.lineTo(-2,-36);ctx.lineTo(3,-28);ctx.lineTo(10,-34);ctx.lineTo(8,-19);ctx.closePath()}
+ else if(style==='rizado'){for(let j=-2;j<=2;j++){ctx.moveTo(j*4+4,-25);ctx.arc(j*4,-25,4,0,Math.PI*2)}ctx.moveTo(-8,-20);ctx.lineTo(8,-20)}
+ else {ctx.arc(0,-22,8,Math.PI,Math.PI*2);ctx.lineTo(8,-19);ctx.lineTo(4,-24);ctx.lineTo(-4,-24);ctx.lineTo(-8,-19)}ctx.fill();
+ ctx.fillStyle='#1d2432';ctx.fillRect(-4,-20,2,1.6);ctx.fillRect(3,-20,2,1.6);
+ if(opt.number){ctx.fillStyle='#fff';ctx.font='bold 9px system-ui';ctx.textAlign='center';ctx.fillText(String(opt.number),0,1)}
+ ctx.restore();
+};
+</script>
+<script>
 (()=>{'use strict';const $=id=>document.getElementById(id),c=$('field'),g=c.getContext('2d'),cl=(n,a,b)=>Math.max(a,Math.min(b,n)),distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
-const heroes=[{n:'Axel',c:'#5dc8ff',ability:'Visión total',price:0,spd:3.5},{n:'Rex',c:'#ff697d',ability:'Tiro volcán',price:0,spd:3.4},{n:'Kai',c:'#dbeaff',ability:'Control aéreo',price:250,spd:3.2},{n:'Zeno',c:'#66f4b5',ability:'Regate fantasma',price:350,spd:4.3},{n:'Dante',c:'#c79dff',ability:'Tiro orbital',price:500,spd:3.5},{n:'Leo',c:'#ffe07a',ability:'Rayo veloz',price:650,spd:4.6},{n:'Haru',c:'#77e8e8',ability:'Intercepción',price:800,spd:3.8},{n:'Viktor',c:'#f5b865',ability:'Impacto imperial',price:1000,spd:3.8}];const chapters=[{name:'La primera prueba',goals:1,passes:0,reward:120},{name:'Juego en equipo',goals:1,passes:2,reward:180},{name:'Duelo de estrellas',goals:2,passes:1,reward:260},{name:'La final del Ego',goals:3,passes:2,reward:400}];
+const heroes=[{n:'Axel',c:'#5dc8ff',ability:'Visión total',price:0,spd:3.5},{n:'Rex',c:'#ff697d',ability:'Tiro volcán',price:0,spd:3.4},{n:'Kai',c:'#dbeaff',ability:'Control aéreo',price:250,spd:3.2},{n:'Zeno',c:'#66f4b5',ability:'Regate fantasma',price:350,spd:4.3},{n:'Dante',c:'#c79dff',ability:'Tiro orbital',price:500,spd:3.5},{n:'Leo',c:'#ffe07a',ability:'Rayo veloz',price:650,spd:4.6},{n:'Haru',c:'#77e8e8',ability:'Intercepción',price:800,spd:3.8},{n:'Viktor',c:'#f5b865',ability:'Impacto imperial',price:1000,spd:3.8},{n:'Niko',c:'#88f7b3',ability:'Pase calculado',price:1150,spd:4.0},{n:'Sora',c:'#ffc48c',ability:'Salto celeste',price:1300,spd:4.1},{n:'Mika',c:'#f8a7dc',ability:'Giro relámpago',price:1450,spd:4.5},{n:'Noah',c:'#b6c8ff',ability:'Muro defensivo',price:1600,spd:3.7},{n:'Akira',c:'#f4d96b',ability:'Tiro cometa',price:1800,spd:4.2},{n:'Luna',c:'#c8a6ff',ability:'Visión lunar',price:2000,spd:4.4},{n:'Taro',c:'#ffa08a',ability:'Fuerza titán',price:2200,spd:3.8},{n:'Yuki',c:'#98e6ff',ability:'Hielo veloz',price:2400,spd:4.7}];const chapters=[{name:'La primera prueba',goals:1,passes:0,reward:120},{name:'Juego en equipo',goals:1,passes:2,reward:180},{name:'Duelo de estrellas',goals:2,passes:1,reward:260},{name:'La final del Ego',goals:3,passes:2,reward:400}];
 let world={x:170,y:220,quest:0,steps:0,active:false,training:0,gymMission:false},worldNPCs=[{x:570,y:125,name:'Director Vega',emoji:'🎓'},{x:585,y:325,name:'Rex',emoji:'🔥'},{x:335,y:310,name:'Kai',emoji:'⚽'}],coins=100,owned=[0,1],selected=0,chapter=0,mode='story',state='menu',score=[0,0],remaining=90,ego=100,skillCooldown=0,egoCooldown=0,boost=0,shield=0,freeze=0,players=[],ball={},projectile=null,joy={x:0,y:0},keys={},touching=false,progress={goals:0,passes:0},dialog=0,last=0,acc=0,sec=0,silent=false,audio=null,padPrev=[[],[]],pad2={x:0,y:0};
 try{const s=JSON.parse(localStorage.getItem('redlock-ego-v1')||'null');if(s){coins=Number.isFinite(s.coins)?s.coins:100;owned=Array.isArray(s.owned)?s.owned.filter(x=>Number.isInteger(x)&&x>=0&&x<heroes.length):[0,1];owned=[...new Set([0,1,...owned])];chapter=cl(s.chapter|0,0,3);selected=owned.includes(s.selected)?s.selected:0;world.quest=cl(s.worldQuest|0,0,3);world.training=Math.max(0,s.training|0);world.gymMission=!!s.gymMission}}catch(e){}function save(){try{localStorage.setItem('redlock-ego-v1',JSON.stringify({coins,owned,chapter,selected,worldQuest:world.quest,training:world.training,gymMission:world.gymMission}))}catch(e){}}function sound(freq=420){if(silent)return;try{const A=window.AudioContext||window.webkitAudioContext;if(!A)return;audio??=new A();audio.resume();let o=audio.createOscillator(),v=audio.createGain(),t=audio.currentTime;o.type='triangle';o.frequency.setValueAtTime(freq,t);o.frequency.exponentialRampToValueAtTime(Math.max(70,freq/2),t+.19);v.gain.setValueAtTime(.08,t);v.gain.exponentialRampToValueAtTime(.001,t+.2);o.connect(v);v.connect(audio.destination);o.start(t);o.stop(t+.21)}catch(e){}}function notify(s){$('notice').textContent=s}function available(i){return owned.includes(i)||mode==='sandbox'}function renderRoster(){$('roster').replaceChildren();heroes.forEach((h,i)=>{let b=document.createElement('button');b.className=selected===i?'active':'';b.textContent=(selected===i?'✓ ':'')+h.n+(available(i)?'':' 🔒');b.onclick=()=>{if(state==='play'||state==='paused')return;if(!available(i)){notify('Compralo en la tienda');return}selected=i;renderRoster();save()};$('roster').append(b)});$('stats').textContent=heroes[selected].ability+' · Velocidad '+Math.round(heroes[selected].spd*20)}function renderShop(){$('shop').replaceChildren();heroes.forEach((h,i)=>{if(!h.price)return;let box=document.createElement('div');box.className='item';let label=document.createElement('div');label.innerHTML='<b style="color:'+h.c+'">'+h.n+'</b><p class="small">'+h.ability+'</p>';let b=document.createElement('button');b.textContent=owned.includes(i)?'✓ Elegir':'🪙 '+h.price+' · Comprar';b.onclick=()=>{if(state==='play'||state==='paused'){notify('Terminá el partido para comprar');return}if(!owned.includes(i)){if(coins<h.price){notify('¡Necesitás más monedas!');return}coins-=h.price;owned.push(i);sound(850)}selected=i;save();renderShop();renderRoster();hud()};box.append(label,b);$('shop').append(box)})}function talk(){let messages=[['Director Vega','¡Demostrá que sos el mejor delantero!'],['Axel','¡Voy a encontrar la oportunidad perfecta!'],['Rex','¡Mi disparo va a romper la defensa!'],['Kai','¡El trabajo en equipo también gana partidos!']];let m=messages[dialog%messages.length];$('dialog').textContent=m[0]+': '+m[1]}function hud(){$('coins').textContent=coins;$('score').textContent=score.join(' — ');$('timer').textContent=String(Math.floor(remaining/60)).padStart(2,'0')+':'+String(Math.floor(remaining%60)).padStart(2,'0');$('meter').textContent='EGO '+Math.floor(ego)+'% · Técnica '+(skillCooldown>0?Math.ceil(skillCooldown/60)+'s':'lista')+' · Despertar '+(egoCooldown>0?Math.ceil(egoCooldown/60)+'s':'listo');let ch=chapters[chapter];$('chapter').textContent='📖 Capítulo '+(chapter+1)+': '+ch.name;$('mission').textContent='Objetivo: '+progress.goals+'/'+ch.goals+' goles y '+progress.passes+'/'+ch.passes+' pases · Premio 🪙 '+ch.reward}function setMode(m){if(state==='play')pause();mode=m;world.active=m==='world';document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===m));$('storybox').style.display=m==='story'?'block':'none';$('worldhelp').style.display=m==='world'?'block':'none';if(m==='world'){$('overlay').classList.add('hidden');state='world';worldStatus()}else if(state==='world'){state='menu';$('overlay').classList.remove('hidden')}$('infinite').parentElement.style.display=m==='sandbox'?'block':'none';renderRoster();notify(m==='local'?'J2: flechas, K disparar, L robar':m==='world'?'¡Explorá la ciudad!':'Modo '+m);hud()}function worldStatus(){let q=worldNPCs[Math.min(world.quest,2)];$('worldquest').textContent=world.quest>=3?'🏆 ¡Todas las misiones del mundo completadas!':'🎯 Misión '+(world.quest+1)+': hablá con '+q.name;$('worlddistance').textContent=world.quest>=3?'Podés seguir explorando la ciudad.':'Distancia al objetivo: '+Math.round(distance(world,q))+' metros'}
 function gymTrain(){if(mode!=='world'){notify('Primero entrá al mundo abierto');return}if(distance(world,{x:620,y:335})>150){notify('🏋️ Acercate al gimnasio en la parte inferior derecha');return}world.training++;let reward=world.gymMission?150:35;coins+=reward;ego=100;world.gymMission=false;save();hud();renderShop();$('gymstatus').textContent='💪 Entrenamientos: '+world.training+' · +'+reward+' monedas · Energía recuperada';sceneShow('Entrenador','¡Buen entrenamiento! Ganaste '+reward+' monedas y recuperaste energía.','🏋️');notify('🏋️ ¡Entrenamiento completado! +'+reward+' monedas')}
@@ -10,6 +57,610 @@ function gymMission(){if(mode!=='world'){notify('Entrá al mundo abierto primero
 function worldInteract(){if(mode!=='world')return;let q=worldNPCs[Math.min(world.quest,2)];if(world.quest>=3){notify('¡Completaste las misiones!');return}if(distance(world,q)>78){notify('Acercate a '+q.name+' para hablar');return}let lines=[['🎓','¡Bienvenido a la ciudad RED LOCK! Tomá 80 monedas para comenzar.'],['🔥','¡Encontraste mi zona de entrenamiento! Ganaste 120 monedas.'],['⚽','¡Completaste la ruta de exploración! Ganaste 200 monedas.']];let k=world.quest;coins+=[80,120,200][k];world.quest++;save();renderShop();hud();worldStatus();sceneShow(q.name,lines[k][1],lines[k][0]);notify('🪙 ¡Misión completada!')}
 function sceneShow(name,line,emoji='⚽'){$('scenetitle').textContent=name;$('scenetext').textContent=line;$('sceneactor').textContent=emoji;$('scene').classList.remove('hidden');sound(700)}
 function worldTick(){let x=joy.x+(keys.d?1:0)-(keys.a?1:0),y=joy.y+(keys.s?1:0)-(keys.w?1:0),d=Math.hypot(x,y);if(d>.1){world.x=cl(world.x+x/d*3.8,30,738);world.y=cl(world.y+y/d*3.8,25,408);world.steps++}if(world.steps%35===0)worldStatus()}
-function worldDraw(){g.fillStyle='#284b6d';g.fillRect(0,0,768,432);for(let i=0;i<8;i++){g.fillStyle=i%2?'#314f68':'#345c7c';g.fillRect(i*96,0,92,432)}g.fillStyle='#60778d';g.fillRect(0,182,768,70);g.fillRect(325,0,90,432);for(let i=0;i<10;i++){g.fillStyle='#90a8a8';g.fillRect(i*85+9,213,39,5)}const buildings=[[35,35,195,120,'🏪 TIENDA'],[520,20,216,80,'🏟 ESTADIO'],[25,291,250,118,'🏠 RESIDENCIA'],[508,281,230,126,'🏋️ GIMNASIO']];buildings.forEach(([x,y,w,h,label])=>{g.fillStyle='#152b43';g.fillRect(x+5,y+7,w,h);g.fillStyle='#244c6b';g.fillRect(x,y,w,h);g.strokeStyle='#8ed3ff';g.strokeRect(x,y,w,h);g.fillStyle='#f3fbff';g.textAlign='center';g.font='bold 15px system-ui';g.fillText(label,x+w/2,y+25)});worldNPCs.forEach((n,i)=>{g.font='30px system-ui';g.textAlign='center';g.fillText(n.emoji,n.x,n.y);g.font='bold 13px system-ui';g.fillStyle='white';g.fillText(n.name,n.x,n.y+19);if(i===world.quest){g.font='25px system-ui';g.fillText('❗',n.x,n.y-40)}});g.beginPath();g.fillStyle=heroes[selected].c;g.arc(world.x,world.y,15,0,Math.PI*2);g.fill();g.lineWidth=3;g.strokeStyle='white';g.stroke();g.fillStyle='white';g.font='bold 13px system-ui';g.fillText(heroes[selected].n,world.x,world.y-24);g.font='12px system-ui';g.textAlign='left';g.fillText('🌍 RED LOCK CITY · Mundo abierto',16,422)}
-function initPlayers(){players=[{x:235,y:215,t:0},{x:173,y:110,t:0},{x:175,y:323,t:0},{x:44,y:216,t:0,keeper:true},{x:520,y:215,t:1},{x:567,y:110,t:1},{x:565,y:324,t:1},{x:724,y:216,t:1,keeper:true}];ball={x:249,y:215,owner:0};projectile=null;freeze=0}function start(){score=[0,0];remaining=90;ego=100;skillCooldown=egoCooldown=boost=shield=0;progress={goals:0,passes:0};acc=sec=0;initPlayers();state='play';$('overlay').classList.add('hidden');notify('⚽ ¡Tenés la pelota!');hud()}function overlay(title,sub,button){$('title').textContent=title;$('subtitle').textContent=sub;$('start').textContent=button;$('overlay').classList.remove('hidden')}function pause(){if(state==='play'){state='paused';keys={};clearStick();overlay('⏸ PAUSA','El partido está detenido','▶ CONTINUAR')}else if(state==='paused'){state='play';last=0;$('overlay').classList.add('hidden')}}function finish(completed=false){if(state!=='play')return;state='done';let won=score[0]>score[1],reward=mode==='sandbox'||mode==='local'?0:mode==='story'?(completed?chapters[chapter].reward:30):50+score[0]*40+(won?100:0);coins+=reward;if(completed&&chapter<3)chapter++;save();renderShop();hud();overlay(completed?'🏆 ¡MISIÓN COMPLETADA!':won?'🏆 ¡VICTORIA!':'⚽ FIN DEL PARTIDO',score.join(' — ')+' · Ganaste 🪙 '+reward,'▶ JUGAR OTRA VEZ')}function checkStory(){if(mode!=='story'||state!=='play')return;hud();let ch=chapters[chapter];if(progress.goals>=ch.goals&&progress.passes>=ch.passes)finish(true)}function walk(p,x,y,s){let dx=x-p.x,dy=y-p.y,d=Math.hypot(dx,dy);if(d>.01){p.x+=dx/d*Math.min(s,d);p.y+=dy/d*Math.min(s,d)}p.x=cl(p.x,27,740);p.y=cl(p.y,31,402)}function fire(side,bonus=0){if(projectile||ball.owner===null)return;let p=players[ball.owner],goalX=side===0?739:29,speed=14+bonus*5,target=164+Math.random()*103;projectile={x:p.x,y:p.y,vx:(side===0?1:-1)*speed,vy:(target-p.y)/(Math.abs(goalX-p.x)/speed),side,bonus};ball.owner=null;sound(220);notify('💥 ¡DISPARO!')}function shoot(i=0){if(state!=='play'||freeze)return;if(ball.owner!==i){notify('¡Primero conseguí el balón!');return}fire(i===0?0:1,boost?0.45:0)}function pass(){if(state!=='play'||freeze||ball.owner!==0)return;let mate=players[1].x>players[2].x?1:2;ball.owner=mate;progress.passes++;sound(530);notify('↗️ ¡PASE!');checkStory()}function steal(i=0){if(state!=='play'||freeze||ball.owner===i)return;let target=ball.owner===null?ball:players[ball.owner];if(distance(players[i],target)<72){ball.owner=i;ego=cl(ego+12,0,100);sound(300);notify('🛡 ¡BALÓN RECUPERADO!')}else notify('Acercate al rival para robar')}function special(ultimate=false){if(state!=='play'||freeze)return;let infinite=mode==='sandbox'&&$('infinite').checked,cd=ultimate?egoCooldown:skillCooldown,cost=ultimate?60:25;if(!infinite&&(cd>0||ego<cost)){notify('Tu poder todavía no está listo');return}if(ball.owner!==0){notify('¡Necesitás el balón para usar tu técnica!');return}if(!infinite){ego-=cost;if(ultimate)egoCooldown=1050;else skillCooldown=360}boost=ultimate?270:140;shield=boost;sound(780);notify('🔥 ¡'+heroes[selected].ability.toUpperCase()+'!');if(ultimate)fire(0,.9)}function goal(side){score[side]++;projectile=null;freeze=65;sound(1000);notify(side===0?'⚽ ¡GOOOOOOL!':'⚽ ¡GOL RIVAL!');if(side===0){progress.goals++;checkStory()}}function tick(){if(freeze){freeze--;if(!freeze)initPlayers();return}skillCooldown=Math.max(0,skillCooldown-1);egoCooldown=Math.max(0,egoCooldown-1);boost=Math.max(0,boost-1);shield=Math.max(0,shield-1);ego=cl(ego+.055,0,100);let x=joy.x+(keys.d?1:0)-(keys.a?1:0),y=joy.y+(keys.s?1:0)-(keys.w?1:0),d=Math.hypot(x,y);if(d>.1)walk(players[0],players[0].x+x/d*heroes[selected].spd*(boost?1.7:1),players[0].y+y/d*heroes[selected].spd*(boost?1.7:1),heroes[selected].spd*(boost?1.7:1));if(mode==='local'){let x2=(keys.ArrowRight?1:0)-(keys.ArrowLeft?1:0)+pad2.x,y2=(keys.ArrowDown?1:0)-(keys.ArrowUp?1:0)+pad2.y,d2=Math.hypot(x2,y2);if(d2>.1)walk(players[4],players[4].x+x2/d2*3.6,players[4].y+y2/d2*3.6,3.6)}for(let i=1;i<players.length;i++){let p=players[i];if(mode==='local'&&i===4)continue;if(p.keeper){walk(p,p.t===0?44:724,cl(ball.y,155,278),3.5);continue}if(projectile)continue;if(ball.owner===i){walk(p,p.t===0?692:77,216,2.8);if((p.t===0?p.x>550:p.x<213)&&Math.random()<.035)fire(p.t)}else if(ball.owner!==null&&players[ball.owner].t!==p.t){let target=players[ball.owner];walk(p,target.x,target.y,2.1);if(distance(p,target)<17&&Math.random()<.052&&!(ball.owner===0&&shield))ball.owner=i}else{let target=ball.owner===null?ball:players[ball.owner];walk(p,cl(target.x+(p.t===0?95:-95),28,740),i%2?110:320,1.7)}}if(projectile){let s=projectile;s.x+=s.vx;s.y+=s.vy;ball.x=s.x;ball.y=s.y;let k=players[s.side===0?7:3];if(Math.abs(s.x-k.x)<18){let inside=s.y>151&&s.y<280;if(inside&&Math.abs(k.y-s.y)<22&&Math.random()<.34-s.bonus*.18){projectile=null;ball.owner=s.side===0?7:3;notify('🧤 ¡ATAJADA!')}else if(inside)goal(s.side);else{projectile=null;ball.owner=s.side===0?7:3;notify('¡FUERA!')}}else if(s.x<0||s.x>768){projectile=null;ball.owner=3}}else if(ball.owner!==null){let p=players[ball.owner];ball.x=p.x+(p.t===0?14:-14);ball.y=p.y+8}}function draw(){if(mode==='world'){worldDraw();return}g.fillStyle='#13683e';g.fillRect(0,0,768,432);for(let i=0;i<12;i++){g.fillStyle=i%2?'#16683d':'#1b7847';g.fillRect(18+i*61,18,61,396)}g.strokeStyle='#d9fbe4';g.lineWidth=2.5;g.strokeRect(18,18,732,396);g.beginPath();g.moveTo(384,18);g.lineTo(384,414);g.stroke();g.beginPath();g.arc(384,216,60,0,Math.PI*2);g.stroke();g.strokeRect(18,130,98,172);g.strokeRect(652,130,98,172);g.fillStyle='#c9ecff';g.fillRect(11,154,10,126);g.fillRect(747,154,10,126);players.forEach((p,i)=>{g.fillStyle='#092b2088';g.beginPath();g.ellipse(p.x+3,p.y+14,16,6,0,0,7);g.fill();g.fillStyle=p.keeper?'#ffe08e':p.t===0?(i===0?heroes[selected].c:'#62c4f5'):'#ff718f';g.beginPath();g.arc(p.x,p.y,13,0,7);g.fill();g.fillStyle='#f0c3a3';g.beginPath();g.arc(p.x,p.y-14,9,0,7);g.fill();g.fillStyle=p.t===0?'#142b42':'#64334b';g.beginPath();g.arc(p.x,p.y-18,9,Math.PI,Math.PI*2);g.fill();if(i===0||mode==='local'&&i===4){g.strokeStyle=i===0?'#baf4ff':'#ffe0a0';g.lineWidth=3;g.beginPath();g.arc(p.x,p.y,19,0,7);g.stroke()}g.font='bold 11px system-ui';g.textAlign='center';g.lineWidth=3;g.strokeStyle='#09233a';let name=i===0?heroes[selected].n:i===4&&mode==='local'?'J2':p.t===0?'AZUL':'ROJO';g.strokeText(name,p.x,p.y-29);g.fillStyle='#fff';g.fillText(name,p.x,p.y-29)});g.font='24px system-ui';g.textAlign='center';g.fillText('⚽',ball.x,ball.y+7);if(boost){g.strokeStyle='#79eeff';g.lineWidth=4;g.beginPath();g.arc(players[0].x,players[0].y,27,0,7);g.stroke()}}function gamepad(){if(!navigator.getGamepads)return;let a=Array.from(navigator.getGamepads()).filter(Boolean);a.slice(0,2).forEach((p,j)=>{let x=p.axes[0]||0,y=p.axes[1]||0;if(j===0&&!touching){joy={x:Math.abs(x)>.2?x:0,y:Math.abs(y)>.2?y:0};$('nub').style.transform='translate('+joy.x*32+'px,'+joy.y*32+'px)'}if(j===1){pad2={x:Math.abs(x)>.2?x:0,y:Math.abs(y)>.2?y:0}}let edge=(n,fn)=>{let down=!!p.buttons[n]?.pressed;if(down&&!padPrev[j][n])fn();padPrev[j][n]=down};if(j===0){edge(0,()=>mode==='world'?worldInteract():shoot());edge(1,()=>steal());edge(2,pass);edge(3,()=>special());edge(7,()=>special(true));edge(9,pause)}else if(mode==='local'){edge(0,()=>shoot(4));edge(1,()=>steal(4))}});if(a.length<2)pad2={x:0,y:0}}function loop(t){let dt=Math.min(t-last||16,55);last=t;gamepad();if(state==='world')worldTick();if(state==='play'){sec+=dt;while(sec>=1000){sec-=1000;remaining--;if(remaining<=0){remaining=0;finish();break}}acc+=dt;let n=0;while(state==='play'&&acc>=16.667&&n++<3){tick();acc-=16.667}hud()}draw();requestAnimationFrame(loop)}function clearStick(){touching=false;joy={x:0,y:0};$('nub').style.transform='translate(0,0)'}const stick=$('stick');function point(e){let b=stick.getBoundingClientRect(),x=(e.clientX-b.left-b.width/2)/33,y=(e.clientY-b.top-b.height/2)/33,d=Math.hypot(x,y);if(d>1){x/=d;y/=d}joy={x,y};$('nub').style.transform='translate('+x*32+'px,'+y*32+'px)'}stick.addEventListener('pointerdown',e=>{touching=true;stick.setPointerCapture(e.pointerId);point(e)});stick.addEventListener('pointermove',e=>{if(touching)point(e)});['pointerup','pointercancel','lostpointercapture'].forEach(n=>stick.addEventListener(n,clearStick));window.addEventListener('keydown',e=>{keys[e.key]=true;keys[e.key.toLowerCase()]=true;if(e.key.startsWith('Arrow'))e.preventDefault();if(e.repeat)return;switch(e.key.toLowerCase()){case'f':shoot();break;case'g':special();break;case'e':if(mode==='world')worldInteract();else steal();break;case'k':if(mode==='local')shoot(4);break;case'l':if(mode==='local')steal(4);break;case'escape':pause()}});window.addEventListener('keyup',e=>{keys[e.key]=false;keys[e.key.toLowerCase()]=false});window.addEventListener('blur',()=>{keys={};clearStick()});document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));$('next').onclick=()=>{dialog++;talk()};$('cutscene').onclick=()=>sceneShow('Director Vega',['¡El partido comienza ahora!','¡Tu ego se está despertando!','¡Un nuevo rival te desafía!','¡La final está cerca!'][dialog%4],'🎬');$('sceneclose').onclick=()=>$('scene').classList.add('hidden');$('worldtalk').onclick=worldInteract;$('gymtrain').onclick=gymTrain;$('gymmission').onclick=gymMission;$('worldmatch').onclick=()=>{setMode('match');start()};$('start').onclick=()=>state==='paused'?pause():start();$('pause').onclick=()=>mode==='world'?sceneShow('Ciudad RED LOCK','Explorá, entrená en el gimnasio y completá misiones.','🌍'):pause();$('shoot').onclick=()=>mode==='world'?worldInteract():shoot();$('pass').onclick=()=>mode==='world'?worldInteract():pass();$('steal').onclick=()=>mode==='world'?worldInteract():steal();$('skill').onclick=()=>mode==='world'?gymTrain():special();$('ego').onclick=()=>mode==='world'?gymMission():special(true);$('sound').onclick=()=>{silent=!silent;$('sound').textContent=silent?'🔇':'🔊'};renderRoster();renderShop();talk();initPlayers();setMode('world');hud();$('gymstatus').textContent='🏋️ Entrenamientos: '+world.training+' · Acercate al gimnasio para entrenar';requestAnimationFrame(loop)})();
-</script></body></html>
+function worldDraw(){g.fillStyle='#284b6d';g.fillRect(0,0,768,432);for(let i=0;i<8;i++){g.fillStyle=i%2?'#314f68':'#345c7c';g.fillRect(i*96,0,92,432)}g.fillStyle='#60778d';g.fillRect(0,182,768,70);g.fillRect(325,0,90,432);for(let i=0;i<10;i++){g.fillStyle='#90a8a8';g.fillRect(i*85+9,213,39,5)}const buildings=[[35,35,195,120,'🏪 TIENDA'],[520,20,216,80,'🏟 ESTADIO'],[25,291,250,118,'🏠 RESIDENCIA'],[508,281,230,126,'🏋️ GIMNASIO']];buildings.forEach(([x,y,w,h,label])=>{g.fillStyle='#152b43';g.fillRect(x+5,y+7,w,h);g.fillStyle='#244c6b';g.fillRect(x,y,w,h);g.strokeStyle='#8ed3ff';g.strokeRect(x,y,w,h);g.fillStyle='#f3fbff';g.textAlign='center';g.font='bold 15px system-ui';g.fillText(label,x+w/2,y+25)});worldNPCs.forEach((n,i)=>{g.font='30px system-ui';g.textAlign='center';g.fillText(n.emoji,n.x,n.y);g.font='bold 13px system-ui';g.fillStyle='white';g.fillText(n.name,n.x,n.y+19);if(i===world.quest){g.font='25px system-ui';g.fillText('❗',n.x,n.y-40)}});let avatar={};try{avatar=JSON.parse(localStorage.getItem('redlock2-character-v1')||'{}')}catch(e){}window.rlHuman(g,world.x,world.y,{scale:1.35,shirt:avatar.ccUniform||heroes[selected].c,skin:avatar.ccSkin||'#d89b73',hair:avatar.ccHairColor||'#242331',hairStyle:avatar.ccHairStyle||'corto',keeper:avatar.ccRole==='portero',number:avatar.ccNumber||10});g.fillStyle='white';g.font='bold 13px system-ui';g.fillText(heroes[selected].n,world.x,world.y-24);g.font='12px system-ui';g.textAlign='left';g.fillText('🌍 RED LOCK CITY · Mundo abierto',16,422)}
+function initPlayers(){players=[{x:235,y:215,t:0},{x:173,y:110,t:0},{x:175,y:323,t:0},{x:44,y:216,t:0,keeper:true},{x:520,y:215,t:1},{x:567,y:110,t:1},{x:565,y:324,t:1},{x:724,y:216,t:1,keeper:true}];ball={x:249,y:215,owner:0};projectile=null;freeze=0}function start(){score=[0,0];remaining=90;ego=100;skillCooldown=egoCooldown=boost=shield=0;progress={goals:0,passes:0};acc=sec=0;initPlayers();state='play';$('overlay').classList.add('hidden');notify('⚽ ¡Tenés la pelota!');hud()}function overlay(title,sub,button){$('title').textContent=title;$('subtitle').textContent=sub;$('start').textContent=button;$('overlay').classList.remove('hidden')}function pause(){if(state==='play'){state='paused';keys={};clearStick();overlay('⏸ PAUSA','El partido está detenido','▶ CONTINUAR')}else if(state==='paused'){state='play';last=0;$('overlay').classList.add('hidden')}}function finish(completed=false){if(state!=='play')return;state='done';let won=score[0]>score[1],reward=mode==='sandbox'||mode==='local'?0:mode==='story'?(completed?chapters[chapter].reward:30):50+score[0]*40+(won?100:0);coins+=reward;if(completed&&chapter<3)chapter++;save();renderShop();hud();overlay(completed?'🏆 ¡MISIÓN COMPLETADA!':won?'🏆 ¡VICTORIA!':'⚽ FIN DEL PARTIDO',score.join(' — ')+' · Ganaste 🪙 '+reward,'▶ JUGAR OTRA VEZ')}function checkStory(){if(mode!=='story'||state!=='play')return;hud();let ch=chapters[chapter];if(progress.goals>=ch.goals&&progress.passes>=ch.passes)finish(true)}function walk(p,x,y,s){let dx=x-p.x,dy=y-p.y,d=Math.hypot(dx,dy);if(d>.01){p.x+=dx/d*Math.min(s,d);p.y+=dy/d*Math.min(s,d)}p.x=cl(p.x,27,740);p.y=cl(p.y,31,402)}function fire(side,bonus=0){if(projectile||ball.owner===null)return;let p=players[ball.owner],goalX=side===0?739:29,speed=14+bonus*5,target=164+Math.random()*103;projectile={x:p.x,y:p.y,vx:(side===0?1:-1)*speed,vy:(target-p.y)/(Math.abs(goalX-p.x)/speed),side,bonus};ball.owner=null;sound(220);notify('💥 ¡DISPARO!')}function shoot(i=0){if(state!=='play'||freeze)return;if(ball.owner!==i){notify('¡Primero conseguí el balón!');return}fire(i===0?0:1,boost?0.45:0)}function pass(){if(state!=='play'||freeze||ball.owner!==0)return;let mate=players[1].x>players[2].x?1:2;ball.owner=mate;progress.passes++;sound(530);notify('↗️ ¡PASE!');checkStory()}function steal(i=0){if(state!=='play'||freeze||ball.owner===i)return;let target=ball.owner===null?ball:players[ball.owner];if(distance(players[i],target)<72){ball.owner=i;ego=cl(ego+12,0,100);sound(300);notify('🛡 ¡BALÓN RECUPERADO!')}else notify('Acercate al rival para robar')}function special(ultimate=false){if(state!=='play'||freeze)return;let infinite=mode==='sandbox'&&$('infinite').checked,cd=ultimate?egoCooldown:skillCooldown,cost=ultimate?60:25;if(!infinite&&(cd>0||ego<cost)){notify('Tu poder todavía no está listo');return}if(ball.owner!==0){notify('¡Necesitás el balón para usar tu técnica!');return}if(!infinite){ego-=cost;if(ultimate)egoCooldown=1050;else skillCooldown=360}boost=ultimate?270:140;shield=boost;sound(780);notify('🔥 ¡'+heroes[selected].ability.toUpperCase()+'!');if(ultimate)fire(0,.9)}function goal(side){score[side]++;projectile=null;freeze=65;sound(1000);notify(side===0?'⚽ ¡GOOOOOOL!':'⚽ ¡GOL RIVAL!');if(side===0){progress.goals++;checkStory()}}function tick(){if(freeze){freeze--;if(!freeze)initPlayers();return}skillCooldown=Math.max(0,skillCooldown-1);egoCooldown=Math.max(0,egoCooldown-1);boost=Math.max(0,boost-1);shield=Math.max(0,shield-1);ego=cl(ego+.055,0,100);let x=joy.x+(keys.d?1:0)-(keys.a?1:0),y=joy.y+(keys.s?1:0)-(keys.w?1:0),d=Math.hypot(x,y);if(d>.1)walk(players[0],players[0].x+x/d*heroes[selected].spd*(boost?1.7:1),players[0].y+y/d*heroes[selected].spd*(boost?1.7:1),heroes[selected].spd*(boost?1.7:1));if(mode==='local'){let x2=(keys.ArrowRight?1:0)-(keys.ArrowLeft?1:0)+pad2.x,y2=(keys.ArrowDown?1:0)-(keys.ArrowUp?1:0)+pad2.y,d2=Math.hypot(x2,y2);if(d2>.1)walk(players[4],players[4].x+x2/d2*3.6,players[4].y+y2/d2*3.6,3.6)}for(let i=1;i<players.length;i++){let p=players[i];if(mode==='local'&&i===4)continue;if(p.keeper){walk(p,p.t===0?44:724,cl(ball.y,155,278),3.5);continue}if(projectile)continue;if(ball.owner===i){walk(p,p.t===0?692:77,216,2.8);if((p.t===0?p.x>550:p.x<213)&&Math.random()<.035)fire(p.t)}else if(ball.owner!==null&&players[ball.owner].t!==p.t){let target=players[ball.owner];walk(p,target.x,target.y,2.1);if(distance(p,target)<17&&Math.random()<.052&&!(ball.owner===0&&shield))ball.owner=i}else{let target=ball.owner===null?ball:players[ball.owner];walk(p,cl(target.x+(p.t===0?95:-95),28,740),i%2?110:320,1.7)}}if(projectile){let s=projectile;s.x+=s.vx;s.y+=s.vy;ball.x=s.x;ball.y=s.y;let k=players[s.side===0?7:3];if(Math.abs(s.x-k.x)<18){let inside=s.y>151&&s.y<280;if(inside&&Math.abs(k.y-s.y)<22&&Math.random()<.34-s.bonus*.18){projectile=null;ball.owner=s.side===0?7:3;notify('🧤 ¡ATAJADA!')}else if(inside)goal(s.side);else{projectile=null;ball.owner=s.side===0?7:3;notify('¡FUERA!')}}else if(s.x<0||s.x>768){projectile=null;ball.owner=3}}else if(ball.owner!==null){let p=players[ball.owner];ball.x=p.x+(p.t===0?14:-14);ball.y=p.y+8}}function draw(){if(mode==='world'){worldDraw();return}g.fillStyle='#13683e';g.fillRect(0,0,768,432);for(let i=0;i<12;i++){g.fillStyle=i%2?'#16683d':'#1b7847';g.fillRect(18+i*61,18,61,396)}g.strokeStyle='#d9fbe4';g.lineWidth=2.5;g.strokeRect(18,18,732,396);g.beginPath();g.moveTo(384,18);g.lineTo(384,414);g.stroke();g.beginPath();g.arc(384,216,60,0,Math.PI*2);g.stroke();g.strokeRect(18,130,98,172);g.strokeRect(652,130,98,172);g.fillStyle='#c9ecff';g.fillRect(11,154,10,126);g.fillRect(747,154,10,126);players.forEach((p,i)=>{let avatar={};try{avatar=JSON.parse(localStorage.getItem('redlock2-character-v1')||'{}')}catch(e){}window.rlHuman(g,p.x,p.y,{scale:i===0?1.48:1.15,shirt:i===0?(avatar.ccUniform||heroes[selected].c):p.keeper?'#e8bd4b':p.t===0?'#62c4f5':'#ff718f',skin:i===0?(avatar.ccSkin||'#d89b73'):'#d89b73',hair:i===0?(avatar.ccHairColor||'#242331'):'#242331',hairStyle:i===0?(avatar.ccHairStyle||'corto'):'corto',keeper:p.keeper,number:i===0?(avatar.ccNumber||10):undefined});if(i===0||mode==='local'&&i===4){g.strokeStyle=i===0?'#baf4ff':'#ffe0a0';g.lineWidth=3;g.beginPath();g.arc(p.x,p.y,i===0?25:19,0,7);g.stroke()}g.font='bold 11px system-ui';g.textAlign='center';g.lineWidth=3;g.strokeStyle='#09233a';let name=i===0?(avatar.ccName||heroes[selected].n):i===4&&mode==='local'?'J2':p.t===0?'AZUL':'ROJO';g.strokeText(name,p.x,p.y-29);g.fillStyle='#fff';g.fillText(name,p.x,p.y-29)});g.font='24px system-ui';g.textAlign='center';g.fillText('⚽',ball.x,ball.y+7);if(boost){g.strokeStyle='#79eeff';g.lineWidth=4;g.beginPath();g.arc(players[0].x,players[0].y,27,0,7);g.stroke()}}function gamepad(){if(!navigator.getGamepads)return;let a=Array.from(navigator.getGamepads()).filter(Boolean);a.slice(0,2).forEach((p,j)=>{let x=p.axes[0]||0,y=p.axes[1]||0;if(j===0&&!touching){joy={x:Math.abs(x)>.2?x:0,y:Math.abs(y)>.2?y:0};$('nub').style.transform='translate('+joy.x*32+'px,'+joy.y*32+'px)'}if(j===1){pad2={x:Math.abs(x)>.2?x:0,y:Math.abs(y)>.2?y:0}}let edge=(n,fn)=>{let down=!!p.buttons[n]?.pressed;if(down&&!padPrev[j][n])fn();padPrev[j][n]=down};if(j===0){edge(0,()=>mode==='world'?worldInteract():shoot());edge(1,()=>steal());edge(2,pass);edge(3,()=>special());edge(7,()=>special(true));edge(9,pause)}else if(mode==='local'){edge(0,()=>shoot(4));edge(1,()=>steal(4))}});if(a.length<2)pad2={x:0,y:0}}function loop(t){let dt=Math.min(t-last||16,55);last=t;gamepad();if(state==='world')worldTick();if(state==='play'){sec+=dt;while(sec>=1000){sec-=1000;remaining--;if(remaining<=0){remaining=0;finish();break}}acc+=dt;let n=0;while(state==='play'&&acc>=16.667&&n++<3){tick();acc-=16.667}hud()}draw();requestAnimationFrame(loop)}function clearStick(){touching=false;joy={x:0,y:0};$('nub').style.transform='translate(0,0)'}const stick=$('stick');function point(e){let b=stick.getBoundingClientRect(),x=(e.clientX-b.left-b.width/2)/33,y=(e.clientY-b.top-b.height/2)/33,d=Math.hypot(x,y);if(d>1){x/=d;y/=d}joy={x,y};$('nub').style.transform='translate('+x*32+'px,'+y*32+'px)'}stick.addEventListener('pointerdown',e=>{touching=true;stick.setPointerCapture(e.pointerId);point(e)});stick.addEventListener('pointermove',e=>{if(touching)point(e)});['pointerup','pointercancel','lostpointercapture'].forEach(n=>stick.addEventListener(n,clearStick));window.addEventListener('keydown',e=>{keys[e.key]=true;keys[e.key.toLowerCase()]=true;if(e.key.startsWith('Arrow'))e.preventDefault();if(e.repeat)return;switch(e.key.toLowerCase()){case'f':shoot();break;case'g':special();break;case'e':if(mode==='world')worldInteract();else steal();break;case'k':if(mode==='local')shoot(4);break;case'l':if(mode==='local')steal(4);break;case'escape':pause()}});window.addEventListener('keyup',e=>{keys[e.key]=false;keys[e.key.toLowerCase()]=false});window.addEventListener('blur',()=>{keys={};clearStick()});document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));$('next').onclick=()=>{dialog++;talk()};$('cutscene').onclick=()=>sceneShow('Director Vega',['¡El partido comienza ahora!','¡Tu ego se está despertando!','¡Un nuevo rival te desafía!','¡La final está cerca!'][dialog%4],'🎬');$('sceneclose').onclick=()=>$('scene').classList.add('hidden');$('worldtalk').onclick=worldInteract;$('gymtrain').onclick=gymTrain;$('gymmission').onclick=gymMission;$('worldmatch').onclick=()=>{setMode('match');start()};$('start').onclick=()=>state==='paused'?pause():start();$('pause').onclick=()=>mode==='world'?sceneShow('Ciudad RED LOCK','Explorá, entrená en el gimnasio y completá misiones.','🌍'):pause();$('shoot').onclick=()=>mode==='world'?worldInteract():shoot();$('pass').onclick=()=>mode==='world'?worldInteract():pass();$('steal').onclick=()=>mode==='world'?worldInteract():steal();$('skill').onclick=()=>mode==='world'?gymTrain():special();$('ego').onclick=()=>mode==='world'?gymMission():special(true);$('sound').onclick=()=>{silent=!silent;$('sound').textContent=silent?'🔇':'🔊'};renderRoster();renderShop();talk();initPlayers();setMode('world');hud();$('gymstatus').textContent='🏋️ Entrenamientos: '+world.training+' · Acercate al gimnasio para entrenar';window.REDLOCK_REWARD=function(amount){coins+=amount;save();renderShop();hud()};requestAnimationFrame(loop)})();
+</script>
+<section class="panel" id="onlinePanel">
+<h2>🌐 RED LOCK 2 ONLINE · Bola suelta</h2>
+<p class="small">Dos jugadores por sala. Compartí el código solo con un amigo. Chat de sala con botón para silenciar.</p>
+<div class="row"><input id="roomCode" maxlength="6" placeholder="Código de sala" style="padding:12px;border-radius:9px;background:#0b1930;color:white;border:1px solid #6686a5;width:150px;text-transform:uppercase">
+<button id="createRoom">➕ Crear sala</button><button id="joinRoom">🔗 Unirse</button><button id="leaveRoom">Salir</button></div>
+<section id="rlChat" class="panel" style="display:none" aria-label="Chat de la sala"><h3>💬 Chat de la sala</h3><div id="rlChatMessages" role="log" aria-live="polite" style="background:#08192d;min-height:80px;max-height:180px;overflow:auto;padding:10px;border-radius:8px"></div><div class="row"><input id="rlChatInput" maxlength="120" placeholder="Mensaje (máx. 120 caracteres)" aria-label="Mensaje de chat" style="flex:1;min-width:120px;padding:10px;border-radius:8px"><button id="rlChatSend">Enviar</button><button id="rlChatMute">🔊 Silenciar</button></div><p class="small">Solo los 2 jugadores de la sala ven los mensajes. No compartás datos personales. Podés silenciar al otro jugador.</p></section><p id="onlineStatus" class="small">Sin conexión. Para jugar online hay que publicar el servidor.</p>
+<canvas id="onlineField" width="768" height="432" style="display:none"></canvas>
+<div id="onlineActions" class="row" style="display:none">
+<button id="onlineKick">⚽ PATEAR</button><button id="onlineSteal">🛡 ROBAR</button><button id="onlineReset">↻ REINICIAR</button></div>
+<p class="small">Móvil: usá el joystick azul del juego. Mando: joystick izquierdo, ✕ patear, ◯ robar. Teclado: WASD, espacio y E.</p>
+</section>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id),canvas=$('onlineField'),ctx=canvas.getContext('2d');
+let ws=null,room='',slot=-1,snapshot=null,pressed={},joy={x:0,y:0},lastButtons={},muted=false,lastChat=0;
+const chat=$('rlChatMessages');function chatLine(name,msg){const p=document.createElement('p');p.style.margin='5px 0';const strong=document.createElement('strong');strong.textContent=name+': ';p.append(strong,document.createTextNode(msg));chat.append(p);chat.scrollTop=chat.scrollHeight;if(chat.childElementCount>50)chat.firstElementChild.remove()}
+function sendChat(){let message=$('rlChatInput').value.trim();if(!message||ws?.readyState!==1)return;if(Date.now()-lastChat<1500){status('Esperá un momento para enviar otro mensaje.');return}lastChat=Date.now();send('chat',{message});$('rlChatInput').value=''}
+$('rlChatSend').onclick=sendChat;$('rlChatInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();sendChat()}});$('rlChatMute').onclick=()=>{muted=!muted;$('rlChatMute').textContent=muted?'🔇 Activar chat':'🔊 Silenciar';if(muted)chat.replaceChildren()};
+const status=t=>$('onlineStatus').textContent=t;
+const endpoint=()=>{const configured=localStorage.getItem('redlock-online-server')||'';
+const host=configured||'https://red-lock-2-online.onrender.com';
+return host.replace(/^http/,'ws').replace(/\/$/,'')};
+function connect(type){if(ws)ws.close();room=$('roomCode').value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);
+if(type==='join'&&!room){status('Escribí el código de tu amigo.');return}
+try{ws=new WebSocket(endpoint());status('Conectando al servidor…');ws.onopen=()=>ws.send(JSON.stringify({type,room}));
+ws.onmessage=e=>{let m;try{m=JSON.parse(e.data)}catch{return}
+if(m.type==='chat'){if(!muted)chatLine(m.from===slot?'Vos':'Jugador '+(m.from+1),m.message);return}
+if(m.type==='joined'){chat.replaceChildren();$('rlChat').style.display='block';room=m.room;slot=m.slot;$('roomCode').value=room;canvas.style.display='block';$('onlineActions').style.display='flex';status('Sala '+room+' · Sos el jugador '+(slot+1)+'. Esperando al rival…')}
+if(m.type==='state'){snapshot=m;status('Sala '+room+' · '+m.count+'/2 jugadores · '+(m.count===2?'¡Partido online!':'Esperando a tu amigo…'))}
+if(m.type==='error')status('⚠️ '+m.message)};
+ws.onerror=()=>status('No se pudo conectar. El servidor debe estar publicado y activo.');
+ws.onclose=()=>{status('Conexión cerrada. Podés volver a entrar.');snapshot=null;$('rlChat').style.display='none'}
+}catch(e){status('No se pudo abrir la conexión.')}}
+function send(type,data={}){if(ws?.readyState===1)ws.send(JSON.stringify({type,...data}))}
+$('createRoom').onclick=()=>connect('create');$('joinRoom').onclick=()=>connect('join');
+$('leaveRoom').onclick=()=>{ws?.close();ws=null;$('rlChat').style.display='none';canvas.style.display='none';$('onlineActions').style.display='none'};
+$('onlineKick').onclick=()=>send('kick');$('onlineSteal').onclick=()=>send('steal');$('onlineReset').onclick=()=>send('reset');
+document.addEventListener('keydown',e=>{pressed[e.key.toLowerCase()]=true;if(e.code==='Space'&& !e.repeat){e.preventDefault();send('kick')}if(e.key.toLowerCase()==='e'&&!e.repeat)send('steal')});
+document.addEventListener('keyup',e=>pressed[e.key.toLowerCase()]=false);
+function draw(){requestAnimationFrame(draw);if(!snapshot)return;ctx.fillStyle='#167044';ctx.fillRect(0,0,768,432);
+ctx.strokeStyle='#dfffe7';ctx.lineWidth=3;ctx.strokeRect(15,15,738,402);ctx.beginPath();ctx.moveTo(384,15);ctx.lineTo(384,417);ctx.arc(384,216,62,0,7);ctx.stroke();
+ctx.fillStyle='#f7faff';ctx.fillRect(6,156,9,120);ctx.fillRect(753,156,9,120);
+let onlineAvatar={};try{onlineAvatar=JSON.parse(localStorage.getItem('redlock2-character-v1')||'{}')}catch(e){}(snapshot.players||[]).forEach((p,i)=>{if(!p)return;window.rlHuman(ctx,p.x,p.y,{scale:1.55,shirt:i===slot?(onlineAvatar.ccUniform||'#67c8ff'):(i===0?'#67c8ff':'#ff6688'),skin:i===slot?(onlineAvatar.ccSkin||'#d89b73'):'#d89b73',hair:i===slot?(onlineAvatar.ccHairColor||'#242331'):'#242331',hairStyle:i===slot?(onlineAvatar.ccHairStyle||'corto'):'corto',keeper:i===slot&&onlineAvatar.ccRole==='portero',number:i===slot?(onlineAvatar.ccNumber||10):i+1});ctx.fillStyle='white';ctx.font='bold 13px system-ui';ctx.textAlign='center';ctx.fillText(i===slot?(onlineAvatar.ccName||'YO'):'J'+(i+1),p.x,p.y-36)});
+let b=snapshot.ball;if(b){ctx.fillStyle='white';ctx.beginPath();ctx.arc(b.x,b.y,10,0,7);ctx.fill();ctx.fillStyle='#10243b';ctx.beginPath();ctx.arc(b.x,b.y,4,0,7);ctx.fill()}
+ctx.font='bold 25px system-ui';ctx.fillStyle='white';ctx.fillText((snapshot.score||[0,0]).join(' - '),350,38)}
+function input(){let x=(pressed.d?1:0)-(pressed.a?1:0),y=(pressed.s?1:0)-(pressed.w?1:0);
+const stick=document.getElementById('stick'),nub=document.getElementById('nub');
+if(stick&&nub){let a=nub.getBoundingClientRect(),b=stick.getBoundingClientRect();x+=(a.left+a.width/2-b.left-b.width/2)/32;y+=(a.top+a.height/2-b.top-b.height/2)/32}
+const pads=navigator.getGamepads?.()||[];let p=Array.from(pads).find(Boolean);
+if(p){x+=Math.abs(p.axes[0]||0)>.2?p.axes[0]:0;y+=Math.abs(p.axes[1]||0)>.2?p.axes[1]:0;
+for(const [n,type] of [[0,'kick'],[1,'steal']]){let on=!!p.buttons[n]?.pressed;if(on&&!lastButtons[n])send(type);lastButtons[n]=on}}
+let d=Math.hypot(x,y);if(d>1){x/=d;y/=d}send('move',{x,y})}
+setInterval(()=>{if(ws?.readyState===1&&slot>=0)input()},50);draw();
+})();
+</script>
+
+<style>
+#miniZone{margin:14px 0;background:linear-gradient(140deg,#172944,#111b35);border:2px solid #e74779;border-radius:14px;padding:14px}
+#miniZone .mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+#miniZone button{min-height:42px}#miniCanvas{background:#14583d;max-height:60vh}
+#miniInfo{font-size:16px;font-weight:700;margin:10px 0}#miniPrizes{color:#ffe09a}
+</style>
+<section id="miniZone" class="wrap">
+<h2>🎮 ZONA DE MINIJUEGOS</h2>
+<p>Elegí un desafío. Conseguí monedas y ganá un cofre cada 3 victorias. Los premios se guardan en este navegador.</p>
+<div class="mini-grid" id="miniSelect">
+<button data-mini="penales">🥅 Penales extremos</button>
+<button data-mini="regates">⚡ Carrera de regates</button>
+<button data-mini="tiros">🎯 Tiro perfecto</button>
+<button data-mini="dominadas">⚽ Dominadas</button>
+<button data-mini="portero">🧤 Portero EGO</button>
+</div>
+<p id="miniInfo">Seleccioná un minijuego para empezar.</p>
+<canvas id="miniCanvas" width="720" height="360" style="display:none"></canvas>
+<div class="row" id="miniActions" style="display:none"><button id="miniAction">⚽ ACCIÓN</button><button id="miniLeft">⬅ IZQUIERDA</button><button id="miniRight">DERECHA ➡</button><button id="miniExit">✖ Salir</button></div>
+<p id="miniPrizes"></p>
+</section>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id),canvas=$('miniCanvas'),ctx=canvas.getContext('2d');
+const names={penales:'🥅 Penales extremos',regates:'⚡ Carrera de regates',tiros:'🎯 Tiro perfecto',dominadas:'⚽ Dominadas',portero:'🧤 Portero EGO'};
+const req={penales:4,regates:9,tiros:70,dominadas:16,portero:6};
+let game='',running=false,score=0,remaining=0,position=360,target=360,move=0,elapsed=0,next=0,ballY=0,ballX=0,shots=0,lastTap=0,misses=0,prized=false,lastFrame=0;
+let stats={wins:0,chests:0,items:[]};
+try{Object.assign(stats,JSON.parse(localStorage.getItem('redlock-minis-v1')||'{}'))}catch(e){}
+function save(){localStorage.setItem('redlock-minis-v1',JSON.stringify(stats))}
+const rand=(a,b)=>a+Math.random()*(b-a);
+function targetNew(){target=rand(95,625);next=0;ballY=110;ballX=target}
+function start(type){
+ game=type;running=true;prized=false;score=0;shots=0;misses=0;remaining=type==='dominadas'?25:35;
+ elapsed=0;position=360;move=0;lastTap=0;targetNew();lastFrame=performance.now();
+ canvas.style.display='block';$('miniActions').style.display='flex';$('miniPrizes').textContent='';
+ $('miniAction').textContent=({penales:'⚽ PATEAR',regates:'⚡ ESQUIVAR',tiros:'🎯 DISPARAR',dominadas:'⚽ DOMINADA',portero:'🧤 ATAJAR'})[type];
+ $('miniInfo').textContent=names[type]+' · Meta: '+req[type]+' puntos · ¡Jugá!';
+ canvas.scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+function finish(){
+ if(!running)return;running=false;move=0;
+ let win=score>=req[game],coins=win?(score>=req[game]*1.5?100:50):0;
+ if(!prized&&win){prized=true;window.REDLOCK_REWARD?.(coins);stats.wins++;
+ if(stats.wins%3===0){stats.chests++;const gifts=['Botines neón','Celebración EGO','Skin de entrenamiento','Aura azul'];stats.items.push(gifts[(stats.chests-1)%gifts.length])}
+ save()}
+ $('miniInfo').textContent=(win?'🏆 ¡GANASTE!':'⏱ Fin del reto')+' · '+score+' / '+req[game]+' puntos';
+ $('miniPrizes').textContent=win?'🪙 +'+coins+' monedas'+(stats.wins%3===0?' · 🎁 Cofre: '+stats.items.at(-1):''):'Intentá otra vez para ganar monedas.';
+}
+function action(){
+ if(!running)return;
+ if(game==='dominadas'){
+  if(elapsed-lastTap<.24)return;
+  lastTap=elapsed;score++;ballY=140;
+ }else if(game==='penales'){
+  shots++;if(Math.abs(position-target)<65){score++;}else misses++;
+  targetNew();
+ }else if(game==='tiros'){
+  shots++;score+=Math.max(0,25-Math.round(Math.abs(position-target)/9));targetNew();
+ }else if(game==='portero'){
+  // Save only when incoming ball is close to the keeper
+  if(ballY>235&&ballY<320&&Math.abs(position-ballX)<85){score++;targetNew()}else misses++;
+ }else if(game==='regates'){
+  // Avoid moving cones: score only when correctly aligned at the checkpoint
+  if(ballY>230&&ballY<320&&Math.abs(position-target)<72){score++;targetNew()}else misses++;
+ }
+ if(score>=req[game])finish();
+}
+function draw(){
+ ctx.clearRect(0,0,720,360);
+ ctx.fillStyle='#145b3c';ctx.fillRect(0,0,720,360);
+ for(let i=0;i<8;i++){ctx.fillStyle=i%2?'#ffffff0a':'#0000000a';ctx.fillRect(i*90,0,90,360)}
+ ctx.strokeStyle='#ddfff0';ctx.lineWidth=3;ctx.strokeRect(20,20,680,320);
+ ctx.textAlign='center';ctx.fillStyle='white';ctx.font='bold 20px system-ui';ctx.fillText(names[game],360,45);
+ ctx.font='bold 16px system-ui';ctx.fillText('Puntos '+score+' / '+req[game]+'     ⏱ '+Math.ceil(remaining)+'s',360,75);
+ ctx.strokeStyle='#fff';ctx.lineWidth=5;ctx.strokeRect(75,95,570,48);
+ ctx.fillStyle='#ff6688';ctx.fillRect(target-35,102,70,34);
+ ctx.font='25px system-ui';ctx.fillText('🎯',target,129);
+ if(game==='portero'){ctx.font='38px system-ui';ctx.fillText('⚽',ballX,ballY);ctx.font='45px system-ui';ctx.fillText('🧤',position,295)}
+ else if(game==='regates'){ctx.font='35px system-ui';ctx.fillText('🚧',target,ballY);ctx.font='45px system-ui';ctx.fillText('🏃',position,285)}
+ else if(game==='dominadas'){ctx.font='54px system-ui';ctx.fillText('⚽',position,Math.max(125,265-(elapsed-lastTap)*170));ctx.font='20px system-ui';ctx.fillText('Tocá DOMINADA con ritmo para mantener la pelota',360,320)}
+ else{ctx.font='50px system-ui';ctx.fillText('⚽',position,280);ctx.font='16px system-ui';ctx.fillText('Apuntá con las flechas o tocá la cancha y dispará',360,324)}
+}
+function loop(now){
+ const dt=Math.min(.05,Math.max(0,(now-lastFrame)/1000||0));lastFrame=now;
+ if(running){
+ remaining-=dt;elapsed+=dt;position=Math.max(65,Math.min(655,position+move*dt*360));
+ if(game==='portero'||game==='regates'){
+  ballY+=dt*(game==='portero'?155:120);
+  if(ballY>325){misses++;targetNew()}
+ }
+ if(game==='dominadas'&&elapsed-lastTap>1.75){score=Math.max(0,score-1);lastTap=elapsed}
+ if(remaining<=0)finish();
+ draw();
+ }
+ requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+document.querySelectorAll('[data-mini]').forEach(b=>b.addEventListener('click',()=>start(b.dataset.mini)));
+$('miniAction').onclick=action;
+for(const [id,dir] of [['miniLeft',-1],['miniRight',1]]){
+ const b=$(id);b.addEventListener('pointerdown',e=>{move=dir;b.setPointerCapture(e.pointerId)});
+ for(const event of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(event,()=>{if(move===dir)move=0});
+}
+canvas.addEventListener('pointerdown',e=>{if(!running)return;const r=canvas.getBoundingClientRect();position=Math.max(65,Math.min(655,(e.clientX-r.left)/r.width*720))});
+document.addEventListener('keydown',e=>{if(!running)return;if(e.key==='ArrowLeft')move=-1;if(e.key==='ArrowRight')move=1;if(e.key===' '){e.preventDefault();action()}});
+document.addEventListener('keyup',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight')move=0});
+$('miniExit').onclick=()=>{running=false;move=0;canvas.style.display='none';$('miniActions').style.display='none';$('miniInfo').textContent='Elegí otro minijuego.'};
+})();
+</script>
+
+<style>
+#rlHub{background:linear-gradient(130deg,#14233e,#2c153c);border:2px solid #e74779;border-radius:15px;padding:15px;margin:14px auto}
+#rlHub .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+#rlHub label{display:block;margin:8px 0}#rlHub select{width:100%;background:#172941;color:white;padding:10px;border:1px solid #7694bc;border-radius:8px}
+#rlHub .stat{background:#10233b;border-radius:9px;padding:9px;margin:9px 0}
+#rlHub .activeChoice{outline:2px solid #ffe36e;background:#8c2451}
+</style>
+<section id="rlHub" class="wrap">
+<h2>🏆 RED LOCK 2 · CENTRO DE PARTIDAS</h2>
+<div class="stat" id="rlStats">Cargando perfil...</div>
+<h3>🎮 Elegí tu posición</h3>
+<div class="grid"><button data-role="jugador">⚽ Jugador de campo</button><button data-role="portero">🧤 Portero EGO</button></div>
+<label>Dificultad<select id="rlDifficulty"><option>Fácil</option><option selected>Normal</option><option>Difícil</option><option>Extremo</option></select></label>
+<h3>⚽ Tipo de partida</h3>
+<div class="grid"><button data-match="normal">⚽ Normal</button><button data-match="ranked">🏆 Clasificatoria</button></div>
+<p class="small">Clasificatoria: victoria +25 PR, empate +5 PR, derrota −15 PR. Las normales no cambian el rango.</p>
+<h3>🏟️ Torneos</h3><div class="grid"><button data-tournament="4">🏅 Rápido · 4</button><button data-tournament="8">🔥 Copa EGO · 8</button><button data-tournament="16">👑 Copa RED LOCK · 16</button></div>
+<div class="stat" id="rlTournament">Elegí un torneo para comenzar.</div>
+<h3>🎁 Cofres y skins</h3><div class="grid"><button data-chest="bronze">🥉 Bronce · 100 🪙</button><button data-chest="silver">🥈 Plata · 250 🪙</button><button data-chest="gold">🥇 Oro · 500 🪙</button><button id="rlOpenFree">🎁 Abrir cofre ganado</button></div>
+<div class="stat" id="rlInventory">Inventario vacío</div>
+<p id="rlMessage" aria-live="polite">¡Elegí un modo para empezar!</p>
+</section>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const key='redlock2-hub-v2';let profile={role:'jugador',difficulty:'Normal',rp:0,wins:0,freeChests:0,skins:[],tournament:null};
+try{profile={...profile,...JSON.parse(localStorage.getItem(key)||'{}')}}catch(e){}
+const ranks=[[0,'Bronce'],[100,'Plata'],[250,'Oro'],[450,'Platino'],[700,'Diamante'],[1000,'Maestro EGO'],[1400,'Leyenda RED LOCK']];
+const prizes=['Skin EGO Supremo','Skin Rayo Azul','Botines relámpago','Celebración EGO','Aura violeta','Skin Rey Dorado','Uniforme Portero EGO'];
+let activeMatch=null,processed=false,observer=null;
+function save(){try{localStorage.setItem(key,JSON.stringify(profile))}catch(e){}}
+function msg(t){$('rlMessage').textContent=t}
+function refresh(){const rank=ranks.filter(x=>profile.rp>=x[0]).at(-1)[1];$('rlStats').textContent='🏆 '+rank+' · '+profile.rp+' PR · Posición: '+profile.role+' · Dificultad: '+profile.difficulty+' · Victorias: '+profile.wins;
+$('rlInventory').textContent='🎁 Cofres disponibles: '+profile.freeChests+' · Skins: '+(profile.skins.join(', ')||'ninguna');$('rlDifficulty').value=profile.difficulty;
+document.querySelectorAll('[data-role]').forEach(b=>b.classList.toggle('activeChoice',b.dataset.role===profile.role));
+$('rlTournament').textContent=profile.tournament?'🏟️ Torneo de '+profile.tournament.size+' · Ronda '+profile.tournament.round+' de '+profile.tournament.rounds+' · Ganá el partido para avanzar.':'Elegí un torneo para comenzar.';save()}
+function grantSkin(){const item=prizes[Math.floor(Math.random()*prizes.length)];if(!profile.skins.includes(item))profile.skins.push(item);msg('🎉 ¡Conseguiste '+item+'!');refresh()}
+function reward(win,draw){if(activeMatch==='ranked'){let change=win?25:draw?5:-15;profile.rp=Math.max(0,profile.rp+change);msg('🏆 Clasificatoria: '+(change>0?'+':'')+change+' PR')}
+else if(activeMatch==='tournament'&&profile.tournament){if(win){profile.tournament.round++;if(profile.tournament.round>profile.tournament.rounds){let size=profile.tournament.size;profile.freeChests+=size===16?3:size===8?2:1;msg('🏆 ¡CAMPEÓN! Ganaste '+profile.freeChests+' cofres disponibles en tu inventario.');profile.tournament=null}else msg('🔥 ¡Ganaste! Avanzás a la siguiente ronda.')}else{msg('❌ Eliminado del torneo. Podés intentar de nuevo.');profile.tournament=null}}
+else msg('⚽ Partida normal finalizada. Tu rango no cambia.');
+if(win)profile.wins++;refresh();activeMatch=null;processed=true}
+function watchResult(){const title=$('title'),sub=$('subtitle'),overlay=$('overlay');if(!title||!sub||!overlay)return;
+if(observer)observer.disconnect();observer=new MutationObserver(()=>{if(!activeMatch||processed||overlay.classList.contains('hidden'))return;const t=title.textContent; if(!/FIN DEL PARTIDO|VICTORIA/.test(t))return;
+const match=sub.textContent.match(/(\d+)\s*[—-]\s*(\d+)/);if(!match)return;const a=+match[1],b=+match[2];reward(a>b,a===b)});observer.observe(overlay,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class']})}
+function launch(mode){activeMatch=mode;processed=false;watchResult();const button=document.querySelector('[data-mode="match"]');if(button)button.click();else{msg('No se encontró el modo partido en esta versión.');return}
+const start=$('start');if(start)start.click();msg(mode==='ranked'?'🏆 Clasificatoria iniciada. ¡A ganar!':mode==='tournament'?'🏟️ Partido del torneo iniciado.':'⚽ Partida normal iniciada.');document.querySelector('.game')?.scrollIntoView({behavior:'smooth',block:'center'});
+if(profile.role==='portero')msg('🧤 Portero seleccionado. Los controles de portero jugable aún están en desarrollo; este partido usa los controles de jugador.')}
+document.querySelectorAll('[data-role]').forEach(b=>b.onclick=()=>{profile.role=b.dataset.role;refresh();msg('Posición elegida: '+profile.role)});
+$('rlDifficulty').onchange=e=>{profile.difficulty=e.target.value;refresh();msg('Dificultad seleccionada: '+profile.difficulty+' (ajuste de IA pendiente)')};
+document.querySelectorAll('[data-match]').forEach(b=>b.onclick=()=>launch(b.dataset.match));
+document.querySelectorAll('[data-tournament]').forEach(b=>b.onclick=()=>{const size=+b.dataset.tournament;profile.tournament={size,round:1,rounds:Math.log2(size)};refresh();launch('tournament')});
+const prices={bronze:100,silver:250,gold:500};document.querySelectorAll('[data-chest]').forEach(b=>b.onclick=()=>{const cost=prices[b.dataset.chest];msg('Los cofres de monedas necesitan conexión al monedero principal; podés ganar cofres en torneos.');});
+$('rlOpenFree').onclick=()=>{if(profile.freeChests<1){msg('Todavía no tenés cofres. Ganá un torneo para conseguir uno.');return}profile.freeChests--;grantSkin()};
+// Integración de cofres obtenidos en minijuegos, sin alterar su funcionamiento.
+let priorMiniWins=0;try{priorMiniWins=JSON.parse(localStorage.getItem('redlock-minis-v1')||'{}').chests||0}catch(e){}
+setInterval(()=>{try{const n=JSON.parse(localStorage.getItem('redlock-minis-v1')||'{}').chests||0;if(n>priorMiniWins){profile.freeChests+=n-priorMiniWins;priorMiniWins=n;refresh();msg('🎁 ¡Recibiste un cofre por los minijuegos!')}}catch(e){}},2500);
+refresh();
+})();
+</script>
+
+<style>
+#creator{border:2px solid #3ba6d8;border-radius:16px;padding:16px;margin:18px auto;background:#12243b;color:white}#creator .cc-grid{display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:18px;align-items:center}#creator .cc-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}#creator label{display:grid;gap:5px;font-weight:bold;font-size:13px}#creator select,#creator input{background:#eaf5ff;color:#16253c;padding:9px;border-radius:8px;border:0;width:100%;box-sizing:border-box}#creator svg{width:100%;height:auto;background:linear-gradient(#263d66,#135339);border-radius:14px}#creator button{margin-top:10px}#ccSaved{color:#92f2b3;min-height:1.5em}@media(max-width:480px){#creator .cc-grid{grid-template-columns:1fr}#creator svg{max-width:200px;margin:auto;display:block}}
+</style>
+<section id="creator" class="wrap">
+<h2>🧑‍🎨 CREAR MI PERSONAJE</h2><p>✨ ¡Ahora tu personaje tiene cabeza, cabello, rostro, torso, brazos, piernas y botines en la cancha y en la ciudad!</p><p>Elegí tu nombre, aspecto, camiseta y posición. Tu diseño se guarda en este dispositivo.</p>
+<div class="cc-grid"><svg viewBox="0 0 220 270" aria-label="Vista previa de personaje">
+<circle cx="110" cy="69" r="42" id="ccFace" fill="#d89b73"/><path id="ccHair" d="M68 64 Q62 17 112 21 Q160 16 153 68 L144 46 L120 39 L94 47 L77 42 Z" fill="#28212c"/>
+<circle cx="95" cy="72" r="3.5" fill="#141414"/><circle cx="125" cy="72" r="3.5" fill="#141414"/><path d="M100 89 Q110 97 120 89" fill="none" stroke="#703e36" stroke-width="2.5"/>
+<path id="ccShirt" d="M76 116 L53 135 L28 199 L52 209 L76 158 L75 218 L145 218 L144 158 L168 209 L192 199 L167 135 L144 116 Z" fill="#c62842" stroke="#e8f4ff" stroke-width="4"/>
+<text x="110" y="179" fill="white" text-anchor="middle" font-size="39" font-weight="bold" id="ccNumberPreview">10</text>
+<path d="M76 218 L76 258 L103 258 L109 221 L117 221 L123 258 L149 258 L145 218" fill="#1b263d"/><text x="110" y="16" text-anchor="middle" font-size="12" fill="white" id="ccNamePreview">JUGADOR</text>
+</svg><div><div class="cc-fields">
+<label>Nombre<input id="ccName" maxlength="16" placeholder="Tu apodo" autocomplete="off"></label>
+<label>Posición<select id="ccRole"><option value="jugador">⚽ Jugador</option><option value="portero">🧤 Portero</option></select></label>
+<label>Color de piel<select id="ccSkin"><option value="#f3c49e">Clara</option><option value="#d89b73">Trigueña</option><option value="#a76d48">Morena</option><option value="#70462f">Oscura</option></select></label>
+<label>Peinado<select id="ccHairStyle"><option value="corto">Corto clásico</option><option value="puntas">Puntas anime</option><option value="nube">Nube plateada (inspirado en Nagi)</option><option value="largo">Largo</option><option value="rizado">Rizado</option><option value="rapado">Rapado</option></select></label>
+<label>Color del cabello<select id="ccHairColor"><option value="#28212c">Negro</option><option value="#8b502d">Castaño</option><option value="#f3c449">Rubio</option><option value="#e4e8f2">Blanco plateado</option><option value="#d43755">Rojo</option></select></label>
+<label>Uniforme<select id="ccUniform"><option value="#c62842">Rojo EGO</option><option value="#2366d2">Azul eléctrico</option><option value="#20222c">Negro</option><option value="#d4a72c">Dorado</option><option value="#7927ad">Morado</option></select></label>
+<label>Número<select id="ccNumber"><option>10</option><option>1</option><option>7</option><option>9</option><option>11</option><option>99</option></select></label>
+</div><p class="small">👀 Los cambios de pelo, piel, uniforme, nombre y número se verán en tu personaje durante el partido. El personaje se dibuja más grande para distinguir los detalles.</p><button id="ccSave">💾 GUARDAR PERSONAJE</button><p id="ccSaved" aria-live="polite"></p></div></div>
+</section>
+<script>
+(()=>{const $=id=>document.getElementById(id),key='redlock2-character-v1';const ids=['ccName','ccRole','ccSkin','ccHairStyle','ccHairColor','ccUniform','ccNumber'];const defaults={ccName:'JUGADOR',ccRole:'jugador',ccSkin:'#d89b73',ccHairStyle:'corto',ccHairColor:'#28212c',ccUniform:'#c62842',ccNumber:'10'};
+let saved={};try{saved=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+for(const id of ids){$(id).value=saved[id]||defaults[id];$(id).addEventListener('input',preview);$(id).addEventListener('change',preview)}
+const hairPaths={corto:'M68 64 Q62 17 112 21 Q160 16 153 68 L144 46 L120 39 L94 47 L77 42 Z',nube:'M61 70 Q48 57 59 40 L53 28 L76 29 L83 13 L101 24 L118 8 L131 26 L153 17 L151 38 Q166 46 153 71 L144 50 Q110 37 79 51 Z',puntas:'M68 70 L57 19 L87 33 L103 4 L120 28 L156 8 L151 70 L139 45 L104 38 L78 49 Z',largo:'M66 55 Q63 8 110 16 Q161 10 155 57 L165 128 L142 118 L145 48 Q108 30 76 48 L77 119 L54 128 Z',rizado:'M65 70 Q46 44 68 30 Q66 7 91 17 Q111 1 127 16 Q159 7 159 35 Q180 53 154 72 L147 47 L77 48 Z',rapado:'M69 56 Q74 23 110 25 Q146 23 151 56 L145 50 Q109 34 75 50 Z'};function preview(){$('ccFace').setAttribute('fill',$('ccSkin').value);$('ccHair').setAttribute('fill',$('ccHairColor').value);$('ccHair').setAttribute('d',hairPaths[$('ccHairStyle').value]||hairPaths.corto);$('ccShirt').setAttribute('fill',$('ccUniform').value);$('ccNumberPreview').textContent=$('ccNumber').value;$('ccNamePreview').textContent=($('ccName').value||'JUGADOR').slice(0,16).toUpperCase();$('ccSaved').textContent=''}
+$('ccSave').onclick=()=>{const data={};for(const id of ids)data[id]=$(id).value;try{localStorage.setItem(key,JSON.stringify(data));const hubKey='redlock2-hub-v2';const hub=JSON.parse(localStorage.getItem(hubKey)||'{}');hub.role=data.ccRole;localStorage.setItem(hubKey,JSON.stringify(hub));$('ccSaved').textContent='✅ ¡Personaje guardado! Los cambios se verán en el próximo fotograma del partido.'}catch(e){$('ccSaved').textContent='⚠️ Este navegador no permitió guardar.'}};
+preview()})();
+</script>
+
+<style id="rl-social-style">
+#rlSocial{background:#152943;border:2px solid #ff5279;border-radius:16px;padding:16px;margin:16px auto;max-width:900px}
+#rlSocial input{color:white;background:#08192e;border:1px solid #6486a9;border-radius:8px;padding:10px;min-width:0;max-width:100%}
+#rlSocial .social-flex{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}
+#rlSocial .social-tile{background:#203956;border-radius:10px;padding:12px;margin:8px 0}
+#rlSocial button{min-height:42px}#rlSocialMsg{color:#ffdb91;min-height:20px}
+#rlWelcome{position:fixed;inset:0;z-index:9999;background:#061126f5;display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
+#rlWelcome[hidden]{display:none!important}#rlWelcome .welcome-card{width:min(100%,560px);max-height:92dvh;overflow:auto;background:#182b46;border:2px solid #ff5c83;border-radius:18px;padding:22px;box-shadow:0 15px 70px #0009}
+#rlWelcome input{width:100%;background:#0b1a2c;border:1px solid #83a4c6;color:white;padding:12px;border-radius:9px;font-size:17px}
+#rlWelcome button{width:100%;margin-top:10px;font-size:15px}#rlWelcome p{line-height:1.55}#rlWelcome .step{color:#ffd998;font-weight:bold}
+#rlSocial kbd{background:#08192d;border:1px solid #718dab;border-radius:5px;padding:2px 6px}
+</style>
+<section id="rlSocial" aria-label="Perfil y amigos">
+<h2>👥 PERFIL Y AMIGOS</h2>
+<div class="social-tile"><strong id="rlPlayerName">Jugador</strong> <span id="rlPlayerTag"></span><p class="small">Tu apodo es público si lo compartís. No pongás tu nombre completo, teléfono ni dirección.</p>
+<div class="social-flex"><input id="rlRename" maxlength="16" placeholder="Nuevo apodo" autocomplete="off"><button id="rlRenameBtn">💾 Guardar usuario</button><button id="rlTutorialAgain">📘 Ver tutorial</button></div></div>
+<div class="social-tile"><h3>🤝 Mis amigos (en este dispositivo)</h3><div class="social-flex"><input id="rlFriendInput" maxlength="16" placeholder="Apodo de amigo"><button id="rlFriendAdd">➕ Añadir</button></div><div id="rlFriendList">Todavía no hay amigos.</div><p class="small">Esta lista se guarda solamente en tu navegador. Para jugar juntos online necesitás compartir un código de sala cuando el servidor esté disponible.</p><button id="rlCopyRoom">📋 Copiar invitación de sala</button></div>
+<div class="social-tile"><h3>⌨️ Controles de PC</h3><p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> mover · <kbd>Espacio</kbd> tirar · <kbd>Q</kbd> pasar · <kbd>E</kbd> robar · <kbd>F</kbd> técnica · <kbd>R</kbd> EGO · <kbd>Esc</kbd> pausa</p><p class="small">En minijuegos: flechas izquierda/derecha para mover y espacio para actuar. En modo online: WASD, espacio y E.</p></div>
+<p id="rlSocialMsg" role="status"></p>
+</section>
+<div id="rlWelcome" hidden role="dialog" aria-modal="true" aria-labelledby="rlWelcomeTitle"><div class="welcome-card">
+<h2 id="rlWelcomeTitle">⚽ ¡BIENVENIDO A RED LOCK 2!</h2><p class="step" id="rlStepLabel">Paso 1 de 4</p><div id="rlWelcomeContent"></div><div class="social-flex"><button id="rlWelcomeBack">⬅ Atrás</button><button id="rlWelcomeNext">Siguiente ➡</button></div></div></div>
+<script id="rl-social-script">
+(()=>{
+'use strict';
+const el=id=>document.getElementById(id), KEY='redlock2-user-v1', FRIENDS='redlock2-friends-v1';
+const safeGet=(key,defaultValue)=>{try{const v=JSON.parse(localStorage.getItem(key));return v??defaultValue}catch(e){return defaultValue}};
+const save=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true}catch(e){return false}};
+let user=safeGet(KEY,null), friends=safeGet(FRIENDS,[]);if(!Array.isArray(friends))friends=[];
+const clean=v=>String(v||'').trim().replace(/[^\p{L}\p{N}_\- ]/gu,'').slice(0,16);
+function status(message){el('rlSocialMsg').textContent=message}
+function render(){el('rlPlayerName').textContent=user?.name||'Sin usuario';el('rlPlayerTag').textContent=user?'#'+user.tag:'';el('rlFriendList').replaceChildren();if(!friends.length){el('rlFriendList').textContent='Todavía no hay amigos.';return}friends.forEach((name,index)=>{let row=document.createElement('div');row.className='social-flex';let span=document.createElement('span');span.textContent='👤 '+name;let remove=document.createElement('button');remove.textContent='Eliminar';remove.onclick=()=>{friends.splice(index,1);save(FRIENDS,friends);render()};row.append(span,remove);el('rlFriendList').append(row)})}
+function setUser(raw){const name=clean(raw);if(name.length<3){status('El apodo debe tener entre 3 y 16 caracteres.');return false}const tag=user?.tag||String(Math.floor(1000+Math.random()*9000));user={name,tag};if(!save(KEY,user)){status('No se pudo guardar el usuario en este navegador.');return false}render();status('✅ ¡Usuario guardado!');return true}
+el('rlRenameBtn').onclick=()=>{if(setUser(el('rlRename').value))el('rlRename').value=''};
+el('rlFriendAdd').onclick=()=>{let name=clean(el('rlFriendInput').value);if(name.length<3){status('Escribí un apodo de al menos 3 caracteres.');return}if(name.toLowerCase()===user?.name.toLowerCase()){status('No podés agregarte a vos mismo.');return}if(friends.some(n=>n.toLowerCase()===name.toLowerCase())){status('Ese amigo ya está en tu lista.');return}friends.push(name);save(FRIENDS,friends);el('rlFriendInput').value='';render();status('Amigo añadido a la lista local. No se ha enviado ninguna solicitud online.')};
+el('rlCopyRoom').onclick=async()=>{let code=el('roomCode')?.value?.trim().toUpperCase();if(!code){status('Primero creá una sala online para obtener un código.');return}const invitation='Unite a mi sala de RED LOCK 2: '+code+' | '+location.origin+location.pathname;try{await navigator.clipboard.writeText(invitation);status('📋 Invitación copiada. Compartila solo con tus amigos.')}catch(e){status('Código de sala: '+code+' (copialo para compartirlo)')}};
+let step=0;const pages=[()=>'<p>Elegí un <strong>apodo</strong> para tu jugador. Evitá poner datos personales.</p><input id="rlFirstName" maxlength="16" placeholder="Tu apodo (3 a 16 caracteres)" autocomplete="off" value="'+(user?.name||'').replace(/[&<>"']/g,'')+'">',()=>'<p>🌍 Explorá la ciudad, hablá con personajes y visitá el gimnasio. Entrá al estadio para comenzar un partido.</p><p>⚽ Elegí <strong>Normal</strong>, <strong>Clasificatoria</strong> o <strong>Torneo</strong> en el menú de juego.</p>',()=>'<p>⌨️ <strong>PC:</strong> WASD para moverte; Espacio para tirar; Q para pasar; E para robar; F para técnica; R para EGO; Esc para pausar.</p><p>📱 <strong>Celular:</strong> usá el joystick y los botones de la pantalla. Girá el teléfono horizontalmente para ver mejor la cancha.</p>',()=>'<p>🎁 Jugá minijuegos para ganar monedas y cofres. Personalizá tu personaje y guardá tus cambios.</p><p>👥 En Amigos podés guardar apodos localmente. Las partidas online requieren que el servidor esté publicado y funcionando.</p>'];
+function showStep(){el('rlStepLabel').textContent='Paso '+(step+1)+' de '+pages.length;el('rlWelcomeContent').innerHTML=pages[step]();el('rlWelcomeBack').disabled=step===0;el('rlWelcomeNext').textContent=step===pages.length-1?'🎮 ¡A JUGAR!':'Siguiente ➡'}
+function showTutorial(){step=0;el('rlWelcome').hidden=false;showStep()}
+el('rlTutorialAgain').onclick=showTutorial;
+el('rlWelcomeBack').onclick=()=>{if(step>0){step--;showStep()}};
+el('rlWelcomeNext').onclick=()=>{if(step===0){if(!setUser(el('rlFirstName').value))return}if(step<pages.length-1){step++;showStep()}else{el('rlWelcome').hidden=true;try{localStorage.setItem('redlock2-tutorial-done','1')}catch(e){}}};
+// Preserve game keyboard controls while avoiding shortcuts when typing in fields.
+document.addEventListener('keydown',e=>{if(el('rlWelcome').hidden===false)return;const tag=document.activeElement?.tagName;if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT')return;
+const gameVisible=el('overlay')?.classList.contains('hidden');if(!gameVisible)return;
+const map={Space:'shoot',KeyQ:'pass',KeyE:'steal',KeyF:'skill',KeyR:'ego'};
+const button=el(map[e.code]);if(button&&!e.repeat){e.preventDefault();button.click()}if(e.code==='Escape'&&!e.repeat){e.preventDefault();el('pause')?.click()}
+},true);
+render();if(!user||localStorage.getItem('redlock2-tutorial-done')!=='1')showTutorial();
+})();
+</script>
+<style>
+#rlExtras{margin:18px auto;padding:16px;border:2px solid #ff658e;border-radius:15px;background:#101f36;color:#fff}
+#rlExtras .rlTabs{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}#rlExtras .rlTabs button[aria-selected=true]{background:#b62450;border-color:#ff94aa}
+#rlExtras .rlPane{display:none}#rlExtras .rlPane.rlActive{display:block}
+#rlExtras .rlCards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px}
+#rlExtras .rlCard{border:1px solid #4e6d92;background:#1c3150;border-radius:11px;padding:12px}
+#rlExtras .rlCard button{margin-top:8px;width:100%}#rlExtras .rlCard small{display:block;color:#b8cfe8}
+#rlExtras .rlLine{padding:12px;background:#213b5a;border-radius:10px;margin:10px 0;min-height:65px}
+#rlExtras .rlBar{height:15px;background:#294361;border-radius:30px;overflow:hidden;margin:8px 0}#rlExtras .rlFill{height:100%;background:#50d5ad;width:0%;transition:width .2s}
+#rlExtras .rlHint{color:#b8cfe8;font-size:13px}#rlExtras button:disabled{opacity:.5}
+</style>
+<section id="rlExtras" class="wrap" aria-label="Personajes, diálogos y gimnasio">
+<h2>🌟 RED LOCK — Centro de actividades</h2>
+<p class="rlHint">Conocé personajes, escuchá sus diálogos exclusivos y entrená de verdad con desafíos interactivos.</p>
+<div class="rlTabs" role="tablist"><button data-rltab="characters" aria-selected="true">👥 Personajes</button><button data-rltab="dialogues" aria-selected="false">💬 Diálogos</button><button data-rltab="gym" aria-selected="false">🏋️ Gimnasio</button><button data-rltab="progress" aria-selected="false">📊 Progreso</button></div>
+<div id="rlCharacters" class="rlPane rlActive"><h3>👥 Plantilla de personajes</h3><div id="rlCharCards" class="rlCards"></div></div>
+<div id="rlDialogues" class="rlPane"><h3>💬 Conversaciones exclusivas</h3><label for="rlSpeaker">Elegí con quién hablar: </label><select id="rlSpeaker" style="padding:10px;background:#20395b;color:white;border-radius:9px"></select><div class="rlLine" id="rlSpeech" aria-live="polite">Elegí un personaje.</div><button id="rlNextSpeech">💬 Continuar conversación</button></div>
+<div id="rlGym" class="rlPane"><h3>🏋️ Gimnasio EGO</h3><p class="rlHint">Elegí un ejercicio, iniciá la sesión y tocá ENTRENAR cuando la barra llegue a la zona verde. Ganás experiencia y monedas del juego.</p><div class="rlTabs"><button data-exercise="velocidad">⚡ Velocidad</button><button data-exercise="tiro">🥅 Tiro</button><button data-exercise="resistencia">💪 Resistencia</button><button data-exercise="reflejos">🧤 Reflejos</button></div><p id="rlGymStatus">Elegí un entrenamiento.</p><div class="rlBar"><div class="rlFill" id="rlGymFill"></div></div><div class="rlTabs"><button id="rlGymStart">▶ Empezar</button><button id="rlGymHit" disabled>🔥 ENTRENAR</button><button id="rlGymStop">✖ Salir</button></div><p id="rlGymResult" aria-live="polite"></p></div>
+<div id="rlProgress" class="rlPane"><h3>📊 Tus estadísticas</h3><div id="rlStats"></div><button id="rlResetTraining">↺ Reiniciar solo entrenamientos</button></div>
+</section>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const cast=[
+['Axel','Visión total',['El campo es un rompecabezas. Yo veo cada pieza.','Si te movés al espacio correcto, el gol aparece.','No corro por correr: siempre tengo un plan.']],
+['Rex','Tiro volcán',['¡Nadie va a detener mi disparo!','El poder no sirve si dudás al patear.','¡Hoy el estadio va a recordar mi nombre!']],
+['Kai','Control aéreo',['El balón también se domina en el aire.','Respirá y elegí el momento exacto.','Un buen pase puede ser tan valioso como un gol.']],
+['Zeno','Regate fantasma',['¿Me viste pasar? Ese es el truco.','Un amague cambia todo el partido.','No persigas la pelota: anticipá su camino.']],
+['Dante','Tiro orbital',['Mi disparo toma caminos imposibles.','La precisión nace de miles de intentos.','¡Apuntá donde el portero no llegue!']],
+['Leo','Rayo veloz',['¡A ver si podés seguirme!','La velocidad necesita control.','Un segundo de ventaja basta para ganar.']],
+['Haru','Intercepción',['La mejor defensa empieza antes del pase.','Leé al rival y cerrá los espacios.','Recuperar la pelota también es crear una oportunidad.']],
+['Viktor','Impacto imperial',['La cancha es mi territorio.','Un capitán nunca abandona a su equipo.','La fuerza se demuestra con disciplina.']],
+['Niko','Pase calculado',['Cada pase tiene una intención.','No mires solo al balón; mirá a tus compañeros.','La jugada perfecta se construye juntos.']],
+['Sora','Salto celeste',['¡La próxima pelota alta es mía!','El tiempo de salto lo cambia todo.','Hasta las estrellas parecen cerca desde aquí.']],
+['Mika','Giro relámpago',['¡Mi giro te dejó atrás!','La técnica necesita práctica constante.','Nunca repito exactamente la misma jugada.']],
+['Noah','Muro defensivo',['Por aquí no vas a pasar.','Defender también requiere valentía.','Una buena barrida comienza con buena posición.']],
+['Akira','Tiro cometa',['¡Este disparo cruzará el cielo!','La potencia sin dirección no sirve.','Siempre busco una forma nueva de marcar.']],
+['Luna','Visión lunar',['En silencio puedo leer todo el campo.','La paciencia crea oportunidades.','Mi mejor arma es observar.']],
+['Taro','Fuerza titán',['¡Vamos, una repetición más!','La resistencia se construye entrenando.','Un equipo fuerte nunca se rinde.']],
+['Yuki','Hielo veloz',['Mantener la calma es mi ventaja.','Cada movimiento debe ser preciso.','La velocidad también puede ser elegante.']]
+];
+let training={xp:{velocidad:0,tiro:0,resistencia:0,reflejos:0},sessions:0};
+try{const saved=JSON.parse(localStorage.getItem('redlock-gym-v2')||'null');if(saved&&saved.xp)training={xp:{...training.xp,...saved.xp},sessions:saved.sessions||0}}catch(e){}
+function persist(){try{localStorage.setItem('redlock-gym-v2',JSON.stringify(training))}catch(e){}}
+function progress(){$('rlStats').replaceChildren();for(const [name,xp] of Object.entries(training.xp)){const p=document.createElement('p');p.textContent='🏋️ '+name+': nivel '+(1+Math.floor(xp/100))+' · '+xp+' XP';$('rlStats').append(p)}const p=document.createElement('p');p.textContent='Sesiones completadas: '+training.sessions;$('rlStats').append(p)}
+for(const b of document.querySelectorAll('[data-rltab]'))b.addEventListener('click',()=>{for(const x of document.querySelectorAll('[data-rltab]'))x.setAttribute('aria-selected',String(x===b));for(const [key,id] of Object.entries({characters:'rlCharacters',dialogues:'rlDialogues',gym:'rlGym',progress:'rlProgress'}))$(id).classList.toggle('rlActive',key===b.dataset.rltab);if(b.dataset.rltab==='progress')progress()});
+for(const [i,character] of cast.entries()){
+const [name,ability]=character,card=document.createElement('div');card.className='rlCard';const h=document.createElement('strong');h.textContent=(i>=8?'✨ ':'⚽ ')+name;const small=document.createElement('small');small.textContent=ability;const btn=document.createElement('button');btn.textContent='💬 Hablar';btn.addEventListener('click',()=>{document.querySelector('[data-rltab="dialogues"]').click();$('rlSpeaker').value=String(i);line=0;speak()});card.append(h,small,btn);$('rlCharCards').append(card);const opt=document.createElement('option');opt.value=String(i);opt.textContent=name;$('rlSpeaker').append(opt)}
+let line=0;function speak(){const c=cast[Number($('rlSpeaker').value)]||cast[0];$('rlSpeech').textContent=c[0]+': «'+c[2][line%c[2].length]+'»'}$('rlSpeaker').addEventListener('change',()=>{line=0;speak()});$('rlNextSpeech').addEventListener('click',()=>{line++;speak()});speak();
+let exercise='velocidad',running=false,phase=0,attempts=0,hits=0,raf=0,last=0;
+for(const b of document.querySelectorAll('[data-exercise]'))b.addEventListener('click',()=>{if(running)return;exercise=b.dataset.exercise;$('rlGymStatus').textContent='Ejercicio: '+exercise+'. Tenés 8 intentos.';for(const x of document.querySelectorAll('[data-exercise]'))x.classList.toggle('active',x===b)});
+function stop(){running=false;cancelAnimationFrame(raf);$('rlGymHit').disabled=true;$('rlGymStart').disabled=false}
+function tick(t){if(!running)return;const dt=Math.min(60,t-(last||t));last=t;phase=(phase+dt*(exercise==='reflejos'?.18:exercise==='velocidad'?.14:.11))%200;const value=phase<=100?phase:200-phase;$('rlGymFill').style.width=value+'%';$('rlGymFill').style.background=value>=72&&value<=92?'#49e69d':'#ed658c';raf=requestAnimationFrame(tick)}
+function hit(){if(!running)return;attempts++;const v=phase<=100?phase:200-phase;if(v>=72&&v<=92){hits++;$('rlGymResult').textContent='🎯 ¡Perfecto! '+hits+' aciertos de '+attempts}else $('rlGymResult').textContent='¡Casi! '+hits+' aciertos de '+attempts;phase=0;if(attempts>=8){stop();const xp=hits*12+8,coins=hits>=6?70:hits>=3?40:15;training.xp[exercise]+=xp;training.sessions++;persist();window.REDLOCK_REWARD?.(coins);$('rlGymStatus').textContent='🏆 Entrenamiento completado: '+exercise;$('rlGymResult').textContent='Ganaste '+xp+' XP y 🪙 '+coins+' monedas · '+hits+'/8 aciertos';}}
+$('rlGymStart').addEventListener('click',()=>{stop();running=true;phase=0;attempts=0;hits=0;last=0;$('rlGymHit').disabled=false;$('rlGymStart').disabled=true;$('rlGymResult').textContent='¡Tocá ENTRENAR cuando la barra esté verde!';raf=requestAnimationFrame(tick)});
+$('rlGymHit').addEventListener('click',hit);$('rlGymStop').addEventListener('click',()=>{stop();$('rlGymStatus').textContent='Entrenamiento detenido.'});
+$('rlResetTraining').addEventListener('click',()=>{if(!confirm('¿Reiniciar solo el progreso del gimnasio?'))return;training={xp:{velocidad:0,tiro:0,resistencia:0,reflejos:0},sessions:0};persist();progress()});
+})();
+</script>
+<style>
+#rlPosterGallery{margin:18px 0;padding:15px;background:#0c1524;border:1px solid #477064;border-radius:16px}
+#rlPosterGallery h2{color:#7bff48;margin:5px 0 12px}
+.rlPosterGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.rlPoster{border:1px solid #34483c;background:#1b2223;border-radius:10px;overflow:hidden;cursor:pointer;padding:0;text-align:left;color:#fff;display:block}
+.rlPoster:focus-visible{outline:3px solid #8aff4a}
+.rlPoster canvas{width:100%;height:auto;aspect-ratio:3/5;border:0;border-radius:0;display:block}
+.rlPoster .rlPosterName{padding:8px 10px;font-size:15px;font-weight:900}
+#rlPosterDetail{display:none;position:fixed;inset:0;background:#050b12e8;z-index:99999;overflow:auto;padding:15px;place-items:center}
+#rlPosterDetail.rlOpen{display:grid}
+.rlDetailInner{background:#121d27;border:1px solid #78e44e;border-radius:14px;max-width:450px;width:100%;padding:14px}
+#rlDetailCanvas{width:100%;max-height:65vh;object-fit:contain;aspect-ratio:3/5;background:#202625;border-radius:8px}
+.rlDetailBar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+</style>
+<section id="rlPosterGallery" class="wrap"><h2>🟢 FICHAS DE PERSONAJES · RED LOCK 2</h2><p>Ilustraciones originales inspiradas en el formato de fichas de fútbol anime. Tocá una ficha para verla grande.</p><div class="rlPosterGrid" id="rlPosterGrid"></div></section>
+<div id="rlPosterDetail" role="dialog" aria-modal="true" aria-label="Ficha de personaje"><div class="rlDetailInner"><div class="rlDetailBar"><strong id="rlDetailTitle">PERSONAJE</strong><button id="rlDetailClose">✖ Cerrar</button></div><canvas id="rlDetailCanvas" width="480" height="800"></canvas><p id="rlDetailAbility"></p></div></div>
+<script>
+(()=>{
+const cast=[['Axel','Visión EGO'],['Rex','Tiro volcán'],['Kai','Control aéreo'],['Zeno','Regate fantasma'],['Dante','Tiro orbital'],['Leo','Rayo veloz'],['Haru','Intercepción'],['Viktor','Impacto imperial'],['Niko','Pase calculado'],['Sora','Salto celeste'],['Mika','Giro relámpago'],['Noah','Muro defensivo'],['Akira','Tiro cometa'],['Luna','Visión lunar'],['Taro','Fuerza titán'],['Yuki','Hielo veloz']];
+const hair=['#eef0ed','#c73434','#161e35','#d3a956','#49417a','#b7e6ff','#303b36','#d9d9d9','#24282b','#8c58e4','#ed9c63','#5b3729','#c2d0d9','#d5b9e6','#201a25','#dceeff'];
+const skin=['#e0ae8b','#b98563','#d8a07a','#edc5a4','#c78e6c','#e4b293'];
+const colors=['#e7eef9','#df4455','#71d2e9','#8067d9','#ffb33b','#64e5b2','#7ea6ee','#dfd6c3'];
+function poster(canvas,i){const c=canvas.getContext('2d'),w=canvas.width,h=canvas.height;const [name,ability]=cast[i],rank=i+1;
+const bg=c.createLinearGradient(0,0,w,h);bg.addColorStop(0,'#202d25');bg.addColorStop(.6,'#25282b');bg.addColorStop(1,'#0b1b11');c.fillStyle=bg;c.fillRect(0,0,w,h);
+c.save();c.translate(48,100);c.rotate(Math.PI/2);c.fillStyle='#6fff35';c.font='900 63px system-ui';c.fillText(name.toUpperCase(),0,0);c.restore();
+c.fillStyle='#6fff35';c.font='900 175px system-ui';c.textAlign='right';c.fillText(String(rank),w-12,185);
+c.font='bold 20px system-ui';c.fillText('RANKING',w-22,33);
+c.save();c.translate(w/2+8,h*.57);c.scale(4.3,4.3);
+if(typeof window.rlHuman==='function')window.rlHuman(c,0,0,{scale:2.1,shirt:colors[i%colors.length],skin:skin[i%skin.length],hair:hair[i],hairStyle:['puntas','corto','largo','rizado','rapado'][i%5],number:rank,keeper:i===11});
+c.restore();
+c.textAlign='right';c.fillStyle='#f7faf7';c.font='bold 21px system-ui';c.fillText('N.º '+rank,w-18,h-75);c.font='17px system-ui';c.fillText(ability.toUpperCase(),w-18,h-44);
+c.fillStyle='#75ff39';c.fillRect(0,h-15,w,15);
+}
+const grid=document.getElementById('rlPosterGrid'),modal=document.getElementById('rlPosterDetail'),detail=document.getElementById('rlDetailCanvas');
+cast.forEach(([name,ability],i)=>{const b=document.createElement('button');b.className='rlPoster';b.setAttribute('aria-label','Ver ficha de '+name);const cv=document.createElement('canvas');cv.width=360;cv.height=600;poster(cv,i);const t=document.createElement('div');t.className='rlPosterName';t.textContent=name+' · #'+(i+1);b.append(cv,t);b.addEventListener('click',()=>{poster(detail,i);document.getElementById('rlDetailTitle').textContent=name.toUpperCase()+' · RANK '+(i+1);document.getElementById('rlDetailAbility').textContent='⚡ Habilidad: '+ability;modal.classList.add('rlOpen');document.getElementById('rlDetailClose').focus()});grid.append(b)});
+function close(){modal.classList.remove('rlOpen')}document.getElementById('rlDetailClose').onclick=close;modal.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('rlOpen'))close()});
+})();
+</script>
+
+<style>
+#universeHub{margin:18px auto;background:linear-gradient(140deg,#101f36,#23122c);border:1px solid #6a9bb8;border-radius:16px;padding:15px}#universeHub h2{color:#7bff48}#universeHub .tabs{display:flex;gap:6px;flex-wrap:wrap}#universeHub button{padding:10px}#universeHub .tab{background:#273955}#universeHub .tab.active{background:#b62450}#universeHub .pane{display:none;padding:12px 0}#universeHub .pane.active{display:block}.universe-card{background:#182b43;border-radius:12px;padding:12px;margin:8px 0}.universe-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.universe-row label{display:flex;flex-direction:column;gap:4px}#universeHub input,#universeHub select{background:#0c192b;color:white;border:1px solid #6083a3;border-radius:7px;padding:9px;max-width:100%}#universeHub .muted{color:#b4c8df}#universeAvatar{width:min(100%,300px);height:auto;background:#163d35;aspect-ratio:3/4}#egoFx{pointer-events:none;position:fixed;inset:0;z-index:100;opacity:0;transition:opacity .3s;background:radial-gradient(ellipse at center,transparent 35%,#315bff33 80%,#204bff77);box-shadow:inset 0 0 75px #39a5ff}#egoFx.show{opacity:1;animation:egoPulse .7s infinite alternate}@keyframes egoPulse{from{filter:hue-rotate(0deg);box-shadow:inset 0 0 40px #39a5ff}to{filter:hue-rotate(40deg);box-shadow:inset 0 0 120px #39a5ff}}#goalFx{pointer-events:none;position:fixed;top:22%;left:10%;right:10%;z-index:101;text-align:center;font-size:clamp(30px,7vw,72px);font-weight:1000;text-shadow:0 0 18px #fda;opacity:0;transform:scale(.6);transition:.3s}#goalFx.show{opacity:1;transform:scale(1.1)}
+</style>
+<div id="egoFx" aria-hidden="true"></div><div id="goalFx" aria-live="polite">⚽ ¡GOOOOL!</div>
+<section id="universeHub" class="wrap">
+<h2>🌌 RED LOCK UNIVERSO · CENTRO DE JUEGO</h2>
+<div class="tabs"><button class="tab active" data-universe="news">📰 Noticias</button><button class="tab" data-universe="battle">🎟️ Pase EGO</button><button class="tab" data-universe="looks">👕 Personaje</button><button class="tab" data-universe="matches">🏆 Partidas</button><button class="tab" data-universe="effects">✨ Efectos</button></div>
+<div class="pane active" id="uni-news"><div class="universe-card"><b>📰 ¡Bienvenido a RED LOCK UNIVERSO!</b><p>Ya está disponible el centro de noticias dentro del juego.</p></div><div class="universe-card"><b>🎮 Cinco minijuegos</b><p>Penales, regates, tiros, dominadas y Portero EGO, con recompensas.</p></div><div class="universe-card"><b>⚡ Modo EGO</b><p>Las auras aparecen al activar EGO. Elegí tu efecto en la sección Efectos.</p></div><p class="muted">Estas son noticias internas de esta versión, no noticias obtenidas de internet.</p></div>
+<div class="pane" id="uni-battle"><div class="universe-card"><h3>🎟️ PASE EGO SUPREMO · 50 niveles</h3><p>Precio: 🪙 10.000 monedas del juego · Sin dinero real</p><p id="uniPassStatus"></p><button id="uniBuyPass">Comprar pase</button><p>Jugá minijuegos y partidos para avanzar. Recompensas cosméticas, sin ventajas competitivas.</p><div id="uniPassRewards"></div></div></div>
+<div class="pane" id="uni-looks"><div class="universe-row"><canvas id="universeAvatar" width="300" height="400"></canvas><div class="universe-card"><label>Nombre <input id="uniName" maxlength="18" placeholder="Tu personaje"></label><label>Posición <select id="uniRole"><option value="jugador">⚽ Jugador</option><option value="portero">🧤 Portero</option></select></label><label>Peinado <select id="uniHair"><option value="corto">Corto</option><option value="puntas">Puntas</option><option value="nube">Nube plateada</option><option value="largo">Largo</option><option value="rizado">Rizado</option><option value="rapado">Rapado</option></select></label><label>Cabello <input id="uniHairColor" type="color" value="#20232c"></label><label>Uniforme <input id="uniShirt" type="color" value="#e74779"></label><label>Piel <input id="uniSkin" type="color" value="#d89b73"></label><button id="uniSaveLook">💾 Guardar personaje</button></div></div><p class="muted">Vista previa animada. La apariencia de la cancha depende del creador de personaje original.</p></div>
+<div class="pane" id="uni-matches"><div class="universe-card"><h3>⚽ Selección de partida</h3><div class="universe-row"><label>Modo <select id="uniMode"><option value="normal">Normal</option><option value="ranked">Clasificatoria</option><option value="tournament">Torneo</option></select></label><label>Dificultad <select id="uniDifficulty"><option>Fácil</option><option selected>Normal</option><option>Difícil</option><option>Extremo</option></select></label><label>Participantes del torneo <select id="uniTournament"><option>4</option><option selected>8</option><option>16</option></select></label></div><p id="uniRank"></p><p class="muted">Clasificatoria: victoria +25 PR · empate +5 PR · derrota −15 PR. El torneo y las clasificatorias online reales requieren lógica de servidor; este panel guarda tus preferencias, no simula resultados oficiales.</p><button id="uniSaveMatch">Guardar preferencias</button><p id="uniMatchStatus"></p></div></div>
+<div class="pane" id="uni-effects"><div class="universe-card"><h3>✨ Personalizá tu EGO</h3><label>Aura <select id="uniAura"><option value="azul">⚡ Eléctrica</option><option value="rojo">🔥 Fuego</option><option value="morado">🌑 Oscura</option><option value="dorado">👑 Legendaria</option></select></label><label>Efecto de gol <select id="uniGoal"><option>⚡ Gol relámpago</option><option>🔥 Explosión infernal</option><option>🌌 Gol galáctico</option><option>👑 Gol imperial</option></select></label><div class="universe-row"><button id="uniSaveFx">Guardar efectos</button><button id="uniDemoEgo">⚡ Probar EGO</button><button id="uniDemoGoal">⚽ Probar gol</button></div><p class="muted">Las auras solo se muestran con EGO activo. Las pruebas son visuales.</p></div></div>
+</section>
+<script>
+(()=>{'use strict';const $=id=>document.getElementById(id),store='red-lock-universo-v1';let data={name:'Mi jugador',role:'jugador',hair:'puntas',hairColor:'#20232c',shirt:'#e74779',skin:'#d89b73',aura:'azul',goal:'⚡ Gol relámpago',pass:false,xp:0,claimed:[],mode:'normal',difficulty:'Normal',tournament:'8',pr:0};try{Object.assign(data,JSON.parse(localStorage.getItem(store)||'{}'))}catch(e){}function save(){try{localStorage.setItem(store,JSON.stringify(data))}catch(e){}}function tab(name){document.querySelectorAll('[data-universe]').forEach(x=>x.classList.toggle('active',x.dataset.universe===name));document.querySelectorAll('#universeHub .pane').forEach(x=>x.classList.toggle('active',x.id==='uni-'+name))}document.querySelectorAll('[data-universe]').forEach(x=>x.addEventListener('click',()=>tab(x.dataset.universe)));
+function coins(){return Math.max(0,Number(localStorage.getItem('redlock-ego-v1')&&JSON.parse(localStorage.getItem('redlock-ego-v1')).coins)||0)}function setCoins(n){try{const k='redlock-ego-v1',s=JSON.parse(localStorage.getItem(k)||'{}');s.coins=n;localStorage.setItem(k,JSON.stringify(s));$('coins').textContent=n}catch(e){}}function passUI(){const level=Math.min(50,Math.floor(data.xp/100)+1);$('uniPassStatus').textContent=(data.pass?'✓ Pase comprado':'Pase sin comprar')+' · Nivel '+level+' · XP '+data.xp;$('uniBuyPass').disabled=data.pass;const prizes={1:'Skin EGO Oscuro',5:'Cofre Plata',10:'Aura eléctrica',20:'2.000 monedas',30:'Celebración especial',40:'Cofre legendario',50:'Skin Rey del Universo'};$('uniPassRewards').replaceChildren();for(const [lv,prize] of Object.entries(prizes)){const p=document.createElement('p');p.textContent='Nivel '+lv+' · '+prize+(data.pass&&level>=Number(lv)?' · Desbloqueado':'');$('uniPassRewards').append(p)}}$('uniBuyPass').onclick=()=>{if(data.pass)return;if(coins()<10000){alert('Necesitás 10.000 monedas del juego.');return}setCoins(coins()-10000);data.pass=true;save();passUI()};passUI();
+for(const [id,key] of [['uniName','name'],['uniRole','role'],['uniHair','hair'],['uniHairColor','hairColor'],['uniShirt','shirt'],['uniSkin','skin'],['uniAura','aura'],['uniGoal','goal'],['uniMode','mode'],['uniDifficulty','difficulty'],['uniTournament','tournament']]){$(id).value=data[key];$(id).addEventListener('input',e=>{data[key]=e.target.value;preview()})}function preview(){const c=$('universeAvatar'),g=c.getContext('2d');g.clearRect(0,0,300,400);g.fillStyle='#164632';g.fillRect(0,0,300,400);g.fillStyle='#fff';g.textAlign='center';g.font='bold 20px system-ui';g.fillText(data.name||'Mi jugador',150,40);if(typeof window.rlHuman==='function'){const bob=Math.sin(Date.now()/230)*3;window.rlHuman(g,150,224+bob,{scale:5.8,shirt:data.shirt,skin:data.skin,hair:data.hairColor,hairStyle:data.hair,keeper:data.role==='portero',number:10})}else{g.font='80px system-ui';g.fillText('⚽',150,220)}requestAnimationFrame(preview)}preview();$('uniSaveLook').onclick=()=>{save();alert('Personaje guardado en este navegador.')};$('uniSaveMatch').onclick=()=>{save();$('uniMatchStatus').textContent='✓ Preferencias guardadas'};function rank(){let names=['Bronce','Plata','Oro','Platino','Diamante','Maestro EGO','Leyenda RED LOCK'];let thresholds=[0,100,250,450,700,1000,1400];let i=thresholds.findLastIndex(n=>data.pr>=n);$('uniRank').textContent='🏆 Rango: '+names[Math.max(0,i)]+' · '+data.pr+' PR'}rank();
+let egoTimeout,goalTimeout;function ego(){const fx=$('egoFx'),colors={azul:'#277aff',rojo:'#f44336',morado:'#a44cff',dorado:'#ffc52b'};fx.style.boxShadow='inset 0 0 120px '+colors[data.aura];fx.classList.add('show');clearTimeout(egoTimeout);egoTimeout=setTimeout(()=>fx.classList.remove('show'),5000)}function goal(){const fx=$('goalFx');fx.textContent=data.goal+' · ¡GOOOOL!';fx.classList.add('show');clearTimeout(goalTimeout);goalTimeout=setTimeout(()=>fx.classList.remove('show'),1800)}$('uniSaveFx').onclick=()=>{save();alert('Efectos guardados.')};$('uniDemoEgo').onclick=ego;$('uniDemoGoal').onclick=goal;const egoBtn=$('ego');if(egoBtn)egoBtn.addEventListener('click',()=>setTimeout(ego,60));const score=$('score');if(score){let previous=score.textContent;new MutationObserver(()=>{if(score.textContent!==previous){previous=score.textContent;goal()}}).observe(score,{childList:true,characterData:true,subtree:true})}
+})();
+</script>
+
+<style id="rl-immersive">
+html,body{width:100%;overflow-x:hidden;background:#070d1d}
+body{background:radial-gradient(ellipse at 50% 0%,#1b3260 0%,#070d1d 72%) fixed}
+.wrap{max-width:1200px;width:100%}
+.game{position:relative;width:100%;background:#10243a}
+.game canvas{width:100%;height:auto;object-fit:contain}
+#rlImmersiveBar{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:8px auto;max-width:1200px;padding:0 10px}
+#rlImmersiveBar button{background:#0c5f91;border:1px solid #72d8ff}
+body.rl-immersive{overflow:hidden}
+body.rl-immersive main.wrap{position:fixed;inset:0;z-index:10000;max-width:none;width:100vw;height:100dvh;padding:0;background:#07111d;overflow:hidden}
+body.rl-immersive main.wrap>.hud:first-of-type,body.rl-immersive #modes,body.rl-immersive #storybox,body.rl-immersive main.wrap>section.panel,body.rl-immersive #worldhelp,body.rl-immersive main.wrap>h2,body.rl-immersive main.wrap>p,body.rl-immersive #landscapeHint{display:none!important}
+body.rl-immersive .game{position:absolute;inset:0;width:100vw;height:100dvh;display:grid;place-items:center}
+body.rl-immersive .game canvas{height:100dvh;width:100vw;object-fit:contain;border:0}
+body.rl-immersive .controls{position:absolute;inset:auto 0 2.5vh;z-index:10005;display:flex;align-items:flex-end;justify-content:space-between;padding:0 3vw;pointer-events:none}
+body.rl-immersive .controls>*{pointer-events:auto}
+body.rl-immersive #stick{width:clamp(90px,18vw,145px);height:clamp(90px,18vw,145px);background:#ffffff1b;border:3px solid #ffffff8c;box-shadow:0 0 22px #007eff66}
+body.rl-immersive #nub{top:calc(50% - 20px);left:calc(50% - 20px)}
+body.rl-immersive .buttons{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:flex-end;max-width:min(53vw,440px);gap:8px}
+body.rl-immersive .buttons button{width:clamp(47px,9vw,75px);height:clamp(47px,9vw,75px);border-radius:50%;font-size:clamp(9px,1.6vw,12px);padding:4px;background:#12284ccf;border:2px solid #91caff;box-shadow:0 2px 12px #0009}
+body.rl-immersive #shoot{width:clamp(70px,12vw,96px);height:clamp(70px,12vw,96px);background:#b92c4fdc;border-color:#ffacbe}
+body.rl-immersive #ego{background:#b96a12df;border-color:#ffe29b}
+body.rl-immersive #rlImmersiveBar{position:fixed;top:4px;right:4px;z-index:10020;margin:0}
+body.rl-immersive #rlImmersiveBar button:not(#rlScreen){display:none}
+body.rl-immersive #rlScreen{padding:6px 10px}
+body.rl-immersive main.wrap>.hud:nth-of-type(2){position:absolute;top:3px;left:5px;z-index:10006;width:52%;pointer-events:none}
+body.rl-immersive main.wrap>.hud:nth-of-type(2) button{pointer-events:auto}
+@media(orientation:portrait){body.rl-immersive .game canvas{height:auto;max-height:100dvh}}
+</style>
+<div id="rlImmersiveBar"><button id="rlScreen">⛶ Pantalla completa / modo juego</button></div>
+<script>
+(()=>{const b=document.getElementById('rlScreen');b.onclick=async()=>{
+const active=document.body.classList.toggle('rl-immersive');
+b.textContent=active?'✕ Salir de pantalla completa':'⛶ Pantalla completa / modo juego';
+try{if(active&&document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else if(!active&&document.fullscreenElement)await document.exitFullscreen()}catch(e){}
+};document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&document.body.classList.contains('rl-immersive')){ /* iOS Safari may not support fullscreen API; immersive CSS remains available */ }})})();
+</script>
+
+<style id="rl-main-menu-css">
+#rlMainMenu{position:fixed;inset:0;z-index:20000;background:#020916;color:white;display:flex;flex-direction:column;overflow:auto;font-family:system-ui,Arial,sans-serif}
+#rlMainMenu[hidden]{display:none!important}
+#rlMainMenu:before{content:"";position:fixed;inset:0;background:linear-gradient(90deg,#010713ed 0%,#010713ae 31%,#01071350 62%,#010713a8 100%),url('menu-background.jpg') center/cover no-repeat;z-index:-1}
+#rlMainMenu button{font:inherit;cursor:pointer;color:white}
+.rl-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 15px;background:#020819b8;border-bottom:1px solid #48a9f5;flex-wrap:wrap}
+.rl-profile{display:flex;gap:10px;align-items:center;font-weight:900}
+.rl-avatar{height:47px;width:47px;border:2px solid #54aaff;border-radius:8px;object-fit:cover}
+.rl-wallet{display:flex;gap:13px;align-items:center;color:#ffe39b;font-weight:800}
+.rl-layout{display:grid;grid-template-columns:minmax(145px,210px) minmax(240px,1fr) minmax(210px,285px);gap:14px;padding:14px;flex:1}
+.rl-nav{display:flex;flex-direction:column;gap:7px}
+.rl-nav button,.rl-action{background:linear-gradient(100deg,#061529e8,#13284bdf);border:1px solid #3677c1;border-radius:6px;padding:12px;text-align:left;font-size:13px!important;font-weight:850!important;min-height:44px}
+.rl-nav button:hover,.rl-nav button:focus-visible,.rl-nav button.rl-selected,.rl-action:focus-visible,.rl-action:hover{outline:2px solid #52bfff;background:linear-gradient(90deg,#7a103c,#173f80);box-shadow:0 0 16px #319fff8a}
+.rl-middle{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:15px}
+.rl-logo{max-width:600px;width:min(100%,600px);max-height:37vh;object-fit:contain;filter:drop-shadow(0 0 22px #1555a9)}
+.rl-headline{font-size:clamp(24px,4vw,50px);font-weight:1000;font-style:italic;line-height:.95;text-align:center;text-shadow:3px 4px 0 #061b3d,0 0 22px #0077ff}
+.rl-headline .red{color:#ff3d5c}.rl-headline .blue{color:#56bdff}
+.rl-play{background:linear-gradient(100deg,#0048aa,#138dfc)!important;border:2px solid #6bdfff!important;border-radius:8px;padding:15px 40px;font-size:25px!important;font-weight:1000!important;box-shadow:0 0 25px #009dff8a;min-width:220px}
+.rl-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%}
+.rl-cards button{min-height:66px;text-align:center;background:#051329df;border:1px solid #399af5;border-radius:7px;font-size:13px!important;font-weight:800!important}
+.rl-right{display:flex;flex-direction:column;gap:10px}
+.rl-panel{background:#06132de8;border:1px solid #377dd3;border-radius:8px;box-shadow:0 0 16px #020a19;padding:12px}
+.rl-panel h3{margin:0 0 10px;color:#a5dfff;font-size:16px}
+.rl-news{display:flex;flex-direction:column;gap:8px}
+.rl-news article{padding:8px;border-left:3px solid #fe3864;background:#102344d9;font-size:12px}
+.rl-news strong{display:block;color:#fff;font-size:13px}
+.rl-news small{color:#bed2e8}
+.rl-note{color:#c7d8ed;font-size:12px}
+.rl-event{background:linear-gradient(120deg,#480a2f,#0b2d5e);border-radius:7px;padding:12px;font-weight:800}
+.rl-clock{font-weight:800;color:#fff}
+.rl-bottom{padding:7px 15px;background:#020819c7;display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.rl-bottom button{padding:8px 12px;background:#142a52;border:1px solid #397cbb;border-radius:6px}
+@media(max-width:750px){.rl-layout{grid-template-columns:minmax(110px,31%) 1fr;gap:8px;padding:8px}.rl-right{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}.rl-logo{max-height:27vh}.rl-cards{grid-template-columns:repeat(2,1fr)}.rl-nav button{padding:8px 5px;font-size:11px!important}.rl-panel{padding:8px}.rl-play{font-size:18px!important;padding:10px;min-width:140px}}
+@media(max-width:420px){.rl-right{grid-template-columns:1fr}.rl-logo{max-height:22vh}.rl-layout{grid-template-columns:125px 1fr}.rl-top{padding:7px}.rl-nav button{min-height:37px}.rl-wallet{font-size:12px}}
+</style>
+<div id="rlMainMenu" role="dialog" aria-label="Menú principal RED LOCK UNIVERSO">
+ <header class="rl-top">
+  <div class="rl-profile"><img class="rl-avatar" src="icon-512.png" alt="Avatar"><div>⚽ RED LOCK UNIVERSO <div class="rl-note">Nivel 1 · Rango inicial</div></div></div>
+  <div class="rl-wallet">🪙 <span id="rlMenuCoins">100</span> <span>💎 0</span> <span class="rl-clock" id="rlMenuClock"></span></div>
+ </header>
+ <div class="rl-layout">
+  <nav class="rl-nav" id="rlMenuNav" aria-label="Opciones del juego">
+   <button data-target="inicio">🏠 INICIO</button>
+   <button data-target="partido">⚽ JUGAR</button>
+   <button data-target="historia">📖 MODO HISTORIA</button>
+   <button data-target="mundo">🌍 MUNDO ABIERTO</button>
+   <button data-target="personajes">👥 PERSONAJES</button>
+   <button data-target="estilo">👕 ESTILO</button>
+   <button data-target="habilidades">⚡ HABILIDADES</button>
+   <button data-target="inventario">🎒 INVENTARIO</button>
+   <button data-target="minijuegos">🎮 MINIJUEGOS</button>
+   <button data-target="torneos">🏆 TORNEOS</button>
+   <button data-target="misiones">🎯 MISIONES</button>
+   <button data-target="tienda">🛒 TIENDA</button>
+   <button data-target="noticias">📢 NOTICIAS</button>
+   <button data-target="pase">👑 PASE EGO</button>
+   <button data-target="clasificaciones">📊 CLASIFICACIONES</button>
+   <button data-target="amigos">👥 AMIGOS</button>
+   <button data-target="config">⚙️ CONFIGURACIÓN</button>
+  </nav>
+  <main class="rl-middle">
+   <div class="rl-headline"><span class="red">RED</span> <span class="blue">LOCK</span><div>UNIVERSO</div></div>
+   <img class="rl-logo" src="icon-512.png" alt="Logo rojo y azul con una U">
+   <button class="rl-play" id="rlMenuPlay">⚽ JUGAR</button>
+   <div class="rl-cards">
+    <button data-target="partido">⚽ PARTIDO RÁPIDO</button>
+    <button data-target="historia">📖 HISTORIA</button>
+    <button data-target="torneos">🏆 TORNEOS</button>
+    <button data-target="minijuegos">🎮 MINIJUEGOS</button>
+    <button data-target="mundo">🏋️ ENTRENAMIENTO</button>
+    <button data-target="noticias">📰 NOTICIAS</button>
+   </div>
+  </main>
+  <aside class="rl-right">
+   <section class="rl-panel"><h3>📢 NOTICIAS <small>· Del juego</small></h3><div class="rl-news" id="rlNews">
+    <article><strong>🔴🔵 RED LOCK UNIVERSO</strong><small>Nuevo menú, logo U rojo y azul y navegación con mando.</small></article>
+    <article><strong>🎮 Minijuegos mejorados</strong><small>Penales, regates, tiros, dominadas y portero.</small></article>
+    <article><strong>👤 Nuevos estilos</strong><small>Peinado Nube plateada y personalización.</small></article>
+   </div><p class="rl-note">Noticias internas de esta versión, no noticias en vivo.</p></section>
+   <section class="rl-panel"><h3>🏆 EVENTO ACTUAL</h3><div class="rl-event">⚡ Desafío EGO: ¡jugá y entrená!</div><p class="rl-note">Usá EGO durante el partido para activar tu aura.</p></section>
+   <section class="rl-panel"><h3>🎟️ PASE DE TEMPORADA</h3><div>👑 EGO Supremo · 10.000 monedas</div><p class="rl-note">Consultá las recompensas del pase en el juego.</p></section>
+   <section class="rl-panel"><h3>🎮 CONTROL PLAYSTATION</h3><p class="rl-note">Cruceta o stick izquierdo: seleccionar · ✕: aceptar · ◯: volver al menú · START: jugar/volver.</p></section>
+  </aside>
+ </div>
+ <footer class="rl-bottom"><button id="rlMenuClose">▶ VOLVER AL JUEGO</button><span class="rl-note" id="rlMenuMessage">Seleccioná una opción con el mando o tocando la pantalla.</span></footer>
+</div>
+<script id="rl-main-menu-js">
+(()=>{
+const menu=document.getElementById('rlMainMenu'),nav=[...menu.querySelectorAll('[data-target]')],msg=document.getElementById('rlMenuMessage');
+let selected=0,prevButtons=[],lastMove=0;
+function focus(i){selected=(i+nav.length)%nav.length;nav.forEach((b,k)=>b.classList.toggle('rl-selected',k===selected));nav[selected].focus({preventScroll:true})}
+function open(){menu.hidden=false;document.body.classList.remove('rl-immersive');focus(selected)}
+function close(){menu.hidden=true}
+function mode(name){const btn=document.querySelector('#modes button[data-mode="'+name+'"]');if(btn){btn.click();close();return true}return false}
+function go(target){
+ if(target==='inicio'){open();return}
+ if(target==='partido'){mode('match');return}
+ if(target==='historia'){mode('story');return}
+ if(target==='mundo'){mode('world');return}
+ if(target==='minijuegos'){close();document.getElementById('miniZone')?.scrollIntoView({behavior:'smooth'});return}
+ if(target==='personajes'){close();document.getElementById('roster')?.scrollIntoView({behavior:'smooth'});return}
+ if(target==='estilo'){close();document.querySelector('[id*="custom"],[id*="style"],[id*="hair"]')?.scrollIntoView({behavior:'smooth'});return}
+ if(target==='tienda'){close();document.getElementById('shop')?.scrollIntoView({behavior:'smooth'});return}
+ if(target==='habilidades'){close();document.getElementById('stats')?.scrollIntoView({behavior:'smooth'});return}
+ if(target==='misiones'){mode('world');document.getElementById('worldhelp')?.scrollIntoView({behavior:'smooth'});return}
+ if(target==='config'){close();document.getElementById('rlImmersiveBar')?.scrollIntoView({behavior:'smooth'});return}
+ if(target==='noticias'){document.getElementById('rlNews')?.scrollIntoView({behavior:'smooth'});msg.textContent='📰 Noticias internas de RED LOCK UNIVERSO';return}
+ msg.textContent='🚧 '+target.toUpperCase()+': esta sección está en desarrollo; todavía no tiene un sistema jugable completo.';
+}
+nav.forEach(b=>b.addEventListener('click',()=>go(b.dataset.target)));
+document.getElementById('rlMenuPlay').onclick=()=>go('partido');
+document.getElementById('rlMenuClose').onclick=close;
+const reopen=document.createElement('button');reopen.id='rlReopenMenu';reopen.textContent='☰ MENÚ';reopen.style.cssText='position:fixed;top:8px;left:8px;z-index:10025;background:#071b37e8;color:white;border:2px solid #39a6fc;border-radius:7px;padding:7px 10px;font-weight:800';
+reopen.onclick=open;document.body.appendChild(reopen);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){open();return}if(menu.hidden)return;
+ if(['ArrowDown','ArrowRight'].includes(e.key)){e.preventDefault();focus(selected+1)}
+ if(['ArrowUp','ArrowLeft'].includes(e.key)){e.preventDefault();focus(selected-1)}
+ if(e.key==='Enter'){e.preventDefault();nav[selected].click()}
+});
+function tick(){
+ const now=new Date();document.getElementById('rlMenuClock').textContent=now.toLocaleTimeString('es-CR',{hour:'2-digit',minute:'2-digit'});
+ const coins=document.getElementById('coins');if(coins)document.getElementById('rlMenuCoins').textContent=coins.textContent;
+ const pads=navigator.getGamepads?.()||[];
+ const p=[...pads].find(Boolean);
+ if(p){
+  const pressed=i=>Boolean(p.buttons[i]?.pressed),dir=(p.axes[1]>0.55||pressed(13))?1:(p.axes[1]<-0.55||pressed(12))?-1:0;
+  if(!menu.hidden&&dir&&performance.now()-lastMove>220){focus(selected+dir);lastMove=performance.now()}
+  const btns=[pressed(0),pressed(1),pressed(9)];
+  if(btns[0]&&!prevButtons[0]&&!menu.hidden)nav[selected].click();
+  if(btns[1]&&!prevButtons[1]){if(menu.hidden)open();else close()}
+  if(btns[2]&&!prevButtons[2]){if(menu.hidden)open();else go('partido')}
+  prevButtons=btns;
+ }
+ requestAnimationFrame(tick);
+}
+focus(0);requestAnimationFrame(tick);
+})();
+</script>
+</body></html>
