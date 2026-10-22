@@ -1,0 +1,1 @@
+RED LOCK ULTIMATE V12 - Menú interactivo. Subí TODOS los archivos de esta carpeta, no el ZIP, a tu GitHub Red-lock / main, reemplazando index.html. La nueva versión no está publicada hasta que Render despliegue el commit. Las opciones son controles reales HTML. El online completo todavía no está disponible.\n

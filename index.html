@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#03091b"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>RED LOCK ULTIMATE V10 — Caras, ojos y nuevo fondo</title>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#03091b"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="apple-touch-icon.png"><title>RED LOCK ULTIMATE V12 — Menú interactivo</title>
 <style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#030611;color:#fff;font-family:system-ui,Arial,sans-serif;overflow:hidden;touch-action:none}button,input,select{font:inherit}button{cursor:pointer;color:white}.hidden{display:none!important}
 #app{position:fixed;inset:0;display:flex;flex-direction:column;background:radial-gradient(ellipse at 25% 50%,#370d29 0,transparent 48%),radial-gradient(ellipse at 70% 45%,#072e79 0,transparent 48%),#040917}.bar{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:7px 14px;border-bottom:1px solid #309cf5;background:#040b1be9;flex-shrink:0}.bar h1{font-size:clamp(14px,2vw,22px);margin:0;font-weight:1000}.bar small{color:#a5c3e9}.bar button,.pill{border:1px solid #427dca;background:#0b2249;border-radius:7px;padding:8px 12px}.bar button:focus-visible,.tile:focus-visible,.option:focus-visible{outline:3px solid #ffcf54}
@@ -117,7 +117,61 @@ body.using-gamepad #joyBase,body.using-gamepad .action,body.using-gamepad #joyEd
 @media(max-height:500px){.v11-bottom{flex-basis:85px}.v11-core{grid-template-columns:minmax(90px,15%) minmax(160px,21%) minmax(250px,1fr) minmax(155px,22%)}.v11-news>button:nth-last-child(1){display:none}.v11-aside{gap:4px}.v11-hero img{height:60%}}
 @media(max-width:900px){.v11-core{grid-template-columns:minmax(88px,17%) minmax(135px,24%) minmax(200px,1fr)}.v11-aside{display:none}.v11-bottom{flex-basis:92px}.v11-navbtn span{display:none}}
 @media(max-width:500px) and (orientation:portrait){.v11-news{display:none}.v11-core{grid-template-columns:95px 1fr}.v11-bottom{flex-basis:85px}.v11-roster{grid-auto-flow:column;grid-auto-columns:55px;grid-template-columns:none}}
-</style></head><body>
+</style>
+<style id="v12menu">
+/* V12: real, independently clickable HTML controls in a game-like full screen layout */
+body:has(#home:not(.hidden)) #app>.bar{display:none}
+#dashboard.v11-lobby{background:linear-gradient(100deg,#031022b5,#04122665 51%,#06122ebc),url('ultimate-fondo.jpg') center 35%/cover no-repeat!important}
+.v11-top{height:clamp(40px,8.4vh,76px);padding:4px 10px!important;gap:6px!important;background:#010813e9;box-shadow:0 2px 13px #0008}
+#dashboard .v11-stat{background:linear-gradient(100deg,#06112ae8,#112b52d9)!important;border:1px solid #3696f8!important;border-radius:6px!important}
+#dashboard .v11-stat:nth-child(2){color:#ffdd73}
+#dashboard .v11-stat:nth-child(4){color:#ffe7a1}
+.v11-core{grid-template-columns:minmax(110px,15%) minmax(172px,22%) minmax(245px,1fr) minmax(170px,26%)!important;gap:clamp(4px,.55vw,10px)!important;padding:clamp(4px,.65vw,9px)!important}
+.v11-nav{grid-template-rows:repeat(12,minmax(0,1fr));gap:3px}
+#dashboard .v11-navbtn{border-color:#1f74ba!important;background:linear-gradient(100deg,#051025f2,#06162de8)!important;box-shadow:inset 0 0 6px #081a37}
+#dashboard .v11-navbtn:first-child{background:linear-gradient(100deg,#b00d33,#280c26)!important;border:2px solid #ff436e!important}
+.v11-news{background:linear-gradient(150deg,#061730e9,#100d37e6)!important;box-shadow:0 0 12px #1263b840}
+#dashboard .v11-newsbig{border-color:#558cf9!important;background:linear-gradient(#080e2b,#1b1537)!important}
+.v11-center{gap:5px}
+.v11-hero{background:radial-gradient(ellipse at 48% 52%,#01152b12,#070c24a6 78%);position:relative}
+.v11-hero::before{content:"";position:absolute;inset:0;background:url('ultimate-fondo.jpg') center 32%/cover no-repeat;opacity:.38;mask-image:linear-gradient(transparent 3%,black 20%,black 80%,transparent);pointer-events:none}
+.v11-hero img{position:relative;z-index:1;max-width:90%;height:min(72%,245px)!important;filter:drop-shadow(0 0 5px #f9295a) drop-shadow(0 0 13px #129aff)}
+.v11-hero p{position:relative;z-index:1;color:#d2efff!important;text-shadow:0 2px 5px black}
+#dashboard .v11-feature button{border-width:2px!important;box-shadow:0 0 11px #087dfb49!important;text-shadow:0 1px 5px black}
+#dashboard .v11-shortcuts button{border-width:2px!important;text-shadow:0 2px 3px black}
+.v11-aside{background:linear-gradient(145deg,#060d28f4,#1b0e34ed)!important;box-shadow:0 0 13px #0e62bf60}
+.v11-chests{flex:0 0 32%;min-height:0;grid-template-columns:repeat(5,minmax(0,1fr))}
+#dashboard .v11-chests button{background:linear-gradient(145deg,#0b2440,#2e123e)!important;border:1px solid #5b8bfe!important;padding:3px!important;overflow:hidden}
+#dashboard .v11-pass{border:2px solid #fd4c79!important;box-shadow:inset 0 0 25px #9d153744!important}
+.v11-bottom{flex:0 0 clamp(92px,19vh,175px)!important;background:#01081fe9!important;box-shadow:0 -2px 14px #0c58aa77}
+.v11-roster{grid-template-columns:repeat(16,minmax(55px,1fr));scrollbar-width:thin}
+#dashboard .v11-avatar{border-radius:5px!important;box-shadow:inset 0 0 12px #156aa688}
+#dashboard .v11-avatar img{object-position:center 20%}
+#dashboard .v11-avatar:hover,#dashboard .v11-avatar:focus-visible{transform:translateY(-2px)}
+#dashboard button{touch-action:manipulation}
+#dashboard button:active{transform:scale(.975)}
+@media(max-width:960px){
+.v11-core{grid-template-columns:minmax(88px,14%) minmax(126px,20%) minmax(180px,1fr) minmax(134px,22%)!important}
+.v11-aside{display:flex!important;padding:4px!important}
+.v11-chests{grid-template-columns:repeat(5,minmax(0,1fr));gap:1px}
+.v11-chests small{font-size:7px!important}
+#dashboard .v11-pass{gap:4px!important;padding:6px!important}
+#dashboard .v11-pass strong{font-size:12px!important}
+#dashboard .v11-pass small{font-size:9px!important}
+.v11-bottom{flex-basis:80px!important}
+.v11-news{padding:4px!important;gap:3px!important}
+.v11-news>button:last-child{display:none}
+.v11-hero img{height:68%!important}
+}
+@media(max-height:440px) and (orientation:landscape){
+.v11-top{height:36px!important}
+.v11-bottom{flex-basis:68px!important}
+.v11-newsbig img{display:none}
+#dashboard .v11-stat{font-size:9px!important}
+}
+@media(max-width:640px) and (orientation:portrait){.v11-core{grid-template-columns:110px 1fr!important}.v11-aside{display:none!important}.v11-news{display:none!important}}
+</style>
+</head><body>
 <div id="turn"><div><div style="font-size:42px">📱 ↻ 🎮</div><h2>¡Giralo en horizontal!</h2><p>Desactivá el bloqueo de rotación de tu iPhone para disfrutar todo el juego.</p><button id="turnContinue">Continuar de todas formas</button></div></div>
 <div id="app"><header class="bar"><button id="back">☰ MENÚ</button><div><h1>🔴 RED LOCK <span style="color:#4db9ff">ULTIMATE</span></h1><small id="where">FÚTBOL LIBRE • TEMPORADA EGO</small></div><button type="button" class="pill" id="coinOpen">🪙 <span id="money">1250</span> ▸</button><button id="full">⛶ Pantalla</button></header>
 <div id="home"><div id="dashboard" class="v11-lobby">
@@ -143,7 +197,7 @@ body.using-gamepad #joyBase,body.using-gamepad .action,body.using-gamepad #joyEd
    <div class="v11-feature"><button data-ult="rapido" class="v11-feature-blue">⚽ <strong>PARTIDO NORMAL</strong><small>Jugá contra la computadora</small></button><button data-ult="historia" class="v11-feature-red">📖 <strong>MODO HISTORIA</strong><small>Desafíos del equipo</small></button></div>
    <div class="v11-shortcuts"><button data-ult="torneos">🏆 TORNEOS</button><button data-ult="minijuegos">🎮 MINIJUEGOS</button><button data-ult="clasificaciones">👑 RANGO</button><button data-ult="crear">✂️ CREAR</button></div>
   </main>
-  <aside class="v11-aside"><h3>🎁 COFRES</h3><div class="v11-chests"><button data-ult="cofres">📦<small>COMÚN</small></button><button data-ult="cofres">🥈<small>PLATA</small></button><button data-ult="cofres">🥇<small>ORO</small></button><button data-ult="cofres">👑<small>REY</small></button><button data-ult="cofres">💜<small>EGO</small></button></div><button class="v11-pass" data-ult="pase"><strong>👑 PASE ULTIMATE</strong><small>10.000 monedas • cofres, auras y efectos de gol</small><span>VER RECOMPENSAS ›</span></button><button class="v11-open" data-ult="crear">🎨 PERSONALIZAR JUGADOR ›</button></aside>
+  <aside class="v11-aside"><h3>🎁 COFRES</h3><div class="v11-chests"><button data-ult="cofres">📦<small>COMÚN<br>🪙500</small></button><button data-ult="cofres">🥈<small>PLATA<br>🪙1.500</small></button><button data-ult="cofres">🥇<small>ORO<br>🪙3.000</small></button><button data-ult="cofres">👑<small>REY<br>🪙6.000</small></button><button data-ult="cofres">💜<small>EGO<br>🪙10.000</small></button></div><button class="v11-pass" data-ult="pase"><strong>👑 PASE ULTIMATE</strong><small>10.000 monedas • cofres, auras y efectos de gol</small><span>VER RECOMPENSAS ›</span></button><button class="v11-open" data-ult="crear">🎨 PERSONALIZAR JUGADOR ›</button></aside>
  </div>
  <div class="v11-bottom"><div class="v11-bottom-head"><b>PLANTILLA ANIME · 16 PERSONAJES</b><button data-ult="personajes">VER TODOS ›</button></div><div class="v11-roster"><button type="button" class="v11-avatar" data-v11player="0" aria-label="Seleccionar futbolista 1"><img src="avatar-1.jpg" alt="Retrato anime del futbolista 1"><small>#1</small></button><button type="button" class="v11-avatar" data-v11player="1" aria-label="Seleccionar futbolista 2"><img src="avatar-2.jpg" alt="Retrato anime del futbolista 2"><small>#2</small></button><button type="button" class="v11-avatar" data-v11player="2" aria-label="Seleccionar futbolista 3"><img src="avatar-3.jpg" alt="Retrato anime del futbolista 3"><small>#3</small></button><button type="button" class="v11-avatar" data-v11player="3" aria-label="Seleccionar futbolista 4"><img src="avatar-4.jpg" alt="Retrato anime del futbolista 4"><small>#4</small></button><button type="button" class="v11-avatar" data-v11player="4" aria-label="Seleccionar futbolista 5"><img src="avatar-5.jpg" alt="Retrato anime del futbolista 5"><small>#5</small></button><button type="button" class="v11-avatar" data-v11player="5" aria-label="Seleccionar futbolista 6"><img src="avatar-6.jpg" alt="Retrato anime del futbolista 6"><small>#6</small></button><button type="button" class="v11-avatar" data-v11player="6" aria-label="Seleccionar futbolista 7"><img src="avatar-7.jpg" alt="Retrato anime del futbolista 7"><small>#7</small></button><button type="button" class="v11-avatar" data-v11player="7" aria-label="Seleccionar futbolista 8"><img src="avatar-8.jpg" alt="Retrato anime del futbolista 8"><small>#8</small></button><button type="button" class="v11-avatar" data-v11player="8" aria-label="Seleccionar futbolista 9"><img src="avatar-9.jpg" alt="Retrato anime del futbolista 9"><small>#9</small></button><button type="button" class="v11-avatar" data-v11player="9" aria-label="Seleccionar futbolista 10"><img src="avatar-10.jpg" alt="Retrato anime del futbolista 10"><small>#10</small></button><button type="button" class="v11-avatar" data-v11player="10" aria-label="Seleccionar futbolista 11"><img src="avatar-11.jpg" alt="Retrato anime del futbolista 11"><small>#11</small></button><button type="button" class="v11-avatar" data-v11player="11" aria-label="Seleccionar futbolista 12"><img src="avatar-12.jpg" alt="Retrato anime del futbolista 12"><small>#12</small></button><button type="button" class="v11-avatar" data-v11player="12" aria-label="Seleccionar futbolista 13"><img src="avatar-13.jpg" alt="Retrato anime del futbolista 13"><small>#13</small></button><button type="button" class="v11-avatar" data-v11player="13" aria-label="Seleccionar futbolista 14"><img src="avatar-14.jpg" alt="Retrato anime del futbolista 14"><small>#14</small></button><button type="button" class="v11-avatar" data-v11player="14" aria-label="Seleccionar futbolista 15"><img src="avatar-15.jpg" alt="Retrato anime del futbolista 15"><small>#15</small></button><button type="button" class="v11-avatar" data-v11player="15" aria-label="Seleccionar futbolista 16"><img src="avatar-16.jpg" alt="Retrato anime del futbolista 16"><small>#16</small></button></div></div>
  <div hidden><div id="ultPlayerstrip"></div><span id="ultNick"></span><img id="ultHeroImg" alt=""><span id="ultHeroName"></span></div>
