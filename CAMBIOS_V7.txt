@@ -1,0 +1,1 @@
+RED LOCK ULTIMATE V7: NPCs inteligentes. Persiguen la trayectoria predicha de la pelota, se organizan por equipo, conducen con toques físicos breves, pasan cuando hay defensas cerca y disparan desde posiciones razonables. La bola sigue suelta y rebotando. Reemplazá TODOS los archivos de GitHub con los del ZIP (incluyendo index.html). Online real todavía en desarrollo.

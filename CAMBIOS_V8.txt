@@ -1,0 +1,1 @@
+RED LOCK ULTIMATE V8: los jugadores del partido ahora se dibujan con cara, brazos, piernas, ropa, pelo y número. Los futbolistas creados cuestan 100 monedas virtuales; incluye colores de piel, ojos, pelo, uniforme, número, peinado y aura EGO. Los diseños se guardan localmente y el personaje seleccionado se ve en el partido. Todos los archivos se suben a GitHub.",

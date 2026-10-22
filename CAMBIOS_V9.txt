@@ -1,0 +1,1 @@
+V9 — Nuevo logo y fondo rojo-azul-violeta. Personalizador con 5 formas de cara y 6 formas de ojos. Se renderizan en vista previa y en el partido con los colores del jugador. Creación a 100 monedas virtuales, datos guardados localmente. Prueba sintáctica realizada; las funcionalidades online siguen sin servidor de partidos.

@@ -1,0 +1,1 @@
+V10: panel de personalización solo al elegir estilo/crear, retrato y vista de juego con animación básica al caminar, tarjetas de noticias interactivas y artículos, animaciones de tiro, robo y atajada, botones para robar. Son animaciones 2D simplificadas y la red online aún requiere servidor.
